@@ -721,48 +721,29 @@
                     break;
                 case 30:
                     {
-                        Console.WriteLine("If14");
-                        int a = Convert.ToInt32(Console.ReadLine());
-                        int b = Convert.ToInt32(Console.ReadLine());
-                        int c = Convert.ToInt32(Console.ReadLine());
-                        if (a < b)
+                        Console.WriteLine("If30");
+                        uint a = Convert.ToUInt32(Console.ReadLine());
+                        if (a % 2 == 0)
                         {
-                            if (a < c)
-                            {
-                                Console.WriteLine(a);
-                                if (b > c)
-                                {
-                                    Console.WriteLine(b);
-                                }
-                                else
-                                {
-                                    Console.WriteLine(c);
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine(c);
-                                Console.WriteLine(b);
-                            }
+                            Console.Write("четное ");
                         }
                         else
                         {
-                            if (b < c)
+                            Console.Write("нечетное ");
+                        }
+                        if(a >= 100 )
+                        {
+                            Console.WriteLine("трехзначное число");
+                        }
+                        else
+                        {
+                            if (a >= 10)
                             {
-                                Console.WriteLine(b);
-                                if (a > c)
-                                {
-                                    Console.WriteLine(a);
-                                }
-                                else
-                                {
-                                    Console.WriteLine(c);
-                                }
+                                Console.WriteLine("двухзначное число");
                             }
                             else
                             {
-                                Console.WriteLine(c);
-                                Console.WriteLine(a);
+                                Console.WriteLine("однозначное число");
                             }
                         }
                     }
