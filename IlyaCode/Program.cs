@@ -7,6 +7,9 @@ internal class Program
         Console.WriteLine("Введите номер раздела");
         switch (Convert.ToInt32(Console.ReadLine()))
         {
+            case -2:
+                TextHelper.Do();
+                break;
             case -1:
                 Calc.Do();
                 break;
