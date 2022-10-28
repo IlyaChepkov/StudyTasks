@@ -25,6 +25,9 @@ internal class Program
             case 4:
                 If.Do();
                 break;
+            case 5:
+                Case.Do();
+                break;
         }
         Console.ReadLine();
     }
