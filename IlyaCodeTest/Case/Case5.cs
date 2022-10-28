@@ -11,9 +11,9 @@ namespace IlyaCodeTest.Case
         [Test]
         public void Case5_1()
         {
-            for (int a = -5; a <= 5; a++)
+            for (double a = -5; a <= 5; a++)
             {
-                for (int b = -5; b <= 5; b++)
+                for (double b = -5; b <= 5; b++)
                 {
                     if (b == 0) continue;
                     StreamWriter backInput;
@@ -31,9 +31,9 @@ namespace IlyaCodeTest.Case
         [Test]
         public void Case5_2()
         {
-            for (int a = -5; a <= 5; a++)
+            for (double a = -5; a <= 5; a++)
             {
-                for (int b = -5; b <= 5; b++)
+                for (double b = -5; b <= 5; b++)
                 {
                     if (b == 0) continue;
                     StreamWriter backInput;
@@ -51,9 +51,9 @@ namespace IlyaCodeTest.Case
         [Test]
         public void Case5_3()
         {
-            for (int a = -5; a <= 5; a++)
+            for (double a = -5; a <= 5; a++)
             {
-                for (int b = -5; b <= 5; b++)
+                for (double b = -5; b <= 5; b++)
                 {
                     if (b == 0) continue;
                     StreamWriter backInput;
@@ -71,9 +71,9 @@ namespace IlyaCodeTest.Case
         [Test]
         public void Case5_4()
         {
-            for (int a = -5; a <= 5; a++)
+            for (double a = -5; a <= 5; a++)
             {
-                for (int b = -5; b <= 5; b++)
+                for (double b = -5; b <= 5; b++)
                 {
                     if (b == 0) continue;
                     StreamWriter backInput;
