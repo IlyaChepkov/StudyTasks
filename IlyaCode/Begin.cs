@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IlyaCode
 {
-    internal static class Begin
+    public static class Begin
     {
         public static void Do()
         {

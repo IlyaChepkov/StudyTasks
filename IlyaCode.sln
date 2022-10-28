@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IlyaCodeTest", "IlyaCodeTest\IlyaCodeTest.csproj", "{CB720C29-F5A1-483F-8279-73071C30763B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{D32EB093-90AA-4832-836B-34B010BA270B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D32EB093-90AA-4832-836B-34B010BA270B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D32EB093-90AA-4832-836B-34B010BA270B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB720C29-F5A1-483F-8279-73071C30763B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB720C29-F5A1-483F-8279-73071C30763B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB720C29-F5A1-483F-8279-73071C30763B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB720C29-F5A1-483F-8279-73071C30763B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
