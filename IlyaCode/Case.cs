@@ -145,9 +145,10 @@
                 case 5:
                     {
                         Console.WriteLine("Case5");
+                        byte n = Convert.ToByte(Console.ReadLine());
                         double a = Convert.ToDouble(Console.ReadLine());
                         double b = Convert.ToDouble(Console.ReadLine());
-                        switch (Convert.ToInt32(Console.ReadLine()))
+                        switch (n)
                         {
                             case 1:
                                 {
