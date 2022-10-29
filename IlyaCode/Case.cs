@@ -246,9 +246,9 @@
                 case 8:
                     {
                         Console.WriteLine("Case8");
-                       byte d = Convert.ToByte(Console.ReadLine());
-                       byte m = Convert.ToByte(Console.ReadLine());
-                        if(d != 1)
+                        byte d = Convert.ToByte(Console.ReadLine());
+                        byte m = Convert.ToByte(Console.ReadLine());
+                        if (d != 1)
                         {
                             Console.WriteLine(d - 1);
                             Console.WriteLine(m);
@@ -284,13 +284,16 @@
                                 }
                                 Console.WriteLine(m - 1);
                             }
-                       }
+                        }
                     }
                     break;
                 case 9:
                     {
-                        Console.WriteLine("Case4");
-                        switch (Convert.ToInt32(Console.ReadLine()))
+                        Console.WriteLine("Case9");
+                        byte d = Convert.ToByte(Console.ReadLine());
+                        byte m = Convert.ToByte(Console.ReadLine());
+                        byte dayCount = 0;
+                        switch (m)
                         {
                             case 1:
                             case 3:
@@ -299,46 +302,101 @@
                             case 8:
                             case 10:
                             case 12:
-                                Console.WriteLine(31);
+                                dayCount = 31;
                                 break;
                             case 2:
-                                Console.WriteLine(28);
+                                dayCount = 28;
                                 break;
                             case 4:
                             case 6:
                             case 9:
                             case 11:
-                                Console.WriteLine(30);
+                                dayCount = 30;
                                 break;
+                        }
+                        if (d == dayCount)
+                        {
+                            Console.WriteLine(1);
+                            if (m == 12)
+                            {
+                                Console.WriteLine(1);
+                            }
+                            else
+                            {
+                                Console.WriteLine(m + 1);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine(d + 1);
+                            Console.WriteLine(m);
                         }
                     }
                     break;
                 case 10:
                     {
-                        Console.WriteLine("Case5");
-                        byte n = Convert.ToByte(Console.ReadLine());
-                        double a = Convert.ToDouble(Console.ReadLine());
-                        double b = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("Case10");
+                        string c = Console.ReadLine();
+                        sbyte n = Convert.ToSByte(Console.ReadLine());
                         switch (n)
                         {
+                            case 0:
+                                {
+                                    Console.WriteLine(c);
+                                }
+                                break;
                             case 1:
                                 {
-                                    Console.WriteLine(a + b);
+                                    switch(c)
+                                    {
+                                        case "С":
+                                            {
+                                                Console.WriteLine("З");
+                                            }
+                                            break;
+                                        case "З":
+                                            {
+                                                Console.WriteLine("Ю");
+                                            }
+                                            break;
+                                        case "Ю":
+                                            {
+                                                Console.WriteLine("В");
+                                            }
+                                            break;
+                                        case "В":
+                                            {
+                                                Console.WriteLine("С");
+                                            }
+                                            break;
+                                    }
                                 }
                                 break;
-                            case 2:
+                            case -1:
                                 {
-                                    Console.WriteLine(a - b);
-                                }
-                                break;
-                            case 3:
-                                {
-                                    Console.WriteLine(a * b);
-                                }
-                                break;
-                            case 4:
-                                {
-                                    Console.WriteLine(a / b);
+                                    switch (c)
+                                    {
+                                        case "С":
+                                            {
+                                                Console.WriteLine("В");
+                                            }
+                                            break;
+                                        case "З":
+                                            {
+                                                Console.WriteLine("С");
+                                            }
+                                            break;
+                                        case "Ю":
+                                            {
+                                                Console.WriteLine("З");
+                                            }
+                                            break;
+                                        case "В":
+                                            {
+                                                Console.WriteLine("Ю");
+                                            }
+                                            break;
+                                    }
                                 }
                                 break;
                         }
