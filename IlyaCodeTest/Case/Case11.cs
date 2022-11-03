@@ -23,10 +23,10 @@ namespace IlyaCodeTest.Case
                         StreamReader backOutput;
                         Main.Start(out backInput, out backOutput, "5", "11");
                         backInput.WriteLine(chars[i]);
-                        backInput.WriteLine(i == 0 ? -1 : steps[i]);
                         backInput.WriteLine(j == 0 ? -1 : steps[j]);
+                        backInput.WriteLine(k == 0 ? -1 : steps[k]);
                         string res = backOutput.ReadLine();
-                        Assert.AreEqual(res, Convert.ToString(chars[(i + steps[i] + steps[j]) % 4]));
+                        Assert.AreEqual(res, Convert.ToString(chars[(i + steps[j] + steps[k]) % 4]));
                         backInput.WriteLine();
                     }
                 }

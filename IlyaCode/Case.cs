@@ -347,7 +347,7 @@
                                 break;
                             case 1:
                                 {
-                                    switch(c)
+                                    switch (c)
                                     {
                                         case "С":
                                             {
@@ -404,42 +404,96 @@
                     break;
                 case 11:
                     {
-                        Console.WriteLine("Case1");
-                        switch (Convert.ToByte(Console.ReadLine()))
+                        Console.WriteLine("Case11");
+                        string c = Console.ReadLine();
+                        sbyte n1 = Convert.ToSByte(Console.ReadLine());
+                        sbyte n2 = Convert.ToSByte(Console.ReadLine());
+                        switch (Math.Abs(n1 + n2) % 4)
                         {
+                            case 0:
+                                {
+                                    Console.WriteLine(c);
+                                }
+                                break;
                             case 1:
                                 {
-                                    Console.WriteLine("Понедельник");
+                                    switch (c)
+                                    {
+                                        case "С":
+                                            {
+                                                Console.WriteLine("З");
+                                            }
+                                            break;
+                                        case "З":
+                                            {
+                                                Console.WriteLine("Ю");
+                                            }
+                                            break;
+                                        case "Ю":
+                                            {
+                                                Console.WriteLine("В");
+                                            }
+                                            break;
+                                        case "В":
+                                            {
+                                                Console.WriteLine("С");
+                                            }
+                                            break;
+                                    }
                                 }
                                 break;
                             case 2:
                                 {
-                                    Console.WriteLine("Вторник");
+                                    switch (c)
+                                    {
+                                        case "С":
+                                            {
+                                                Console.WriteLine("Ю");
+                                            }
+                                            break;
+                                        case "З":
+                                            {
+                                                Console.WriteLine("В");
+                                            }
+                                            break;
+                                        case "Ю":
+                                            {
+                                                Console.WriteLine("С");
+                                            }
+                                            break;
+                                        case "В":
+                                            {
+                                                Console.WriteLine("З");
+                                            }
+                                            break;
+                                    }
                                 }
                                 break;
                             case 3:
                                 {
-                                    Console.WriteLine("Среда");
-                                }
-                                break;
-                            case 4:
-                                {
-                                    Console.WriteLine("Четверг");
-                                }
-                                break;
-                            case 5:
-                                {
-                                    Console.WriteLine("Пятница");
-                                }
-                                break;
-                            case 6:
-                                {
-                                    Console.WriteLine("Суббота");
-                                }
-                                break;
-                            case 7:
-                                {
-                                    Console.WriteLine("Воскресенье");
+                                    switch (c)
+                                    {
+                                        case "С":
+                                            {
+                                                Console.WriteLine("В");
+                                            }
+                                            break;
+                                        case "З":
+                                            {
+                                                Console.WriteLine("С");
+                                            }
+                                            break;
+                                        case "Ю":
+                                            {
+                                                Console.WriteLine("З");
+                                            }
+                                            break;
+                                        case "В":
+                                            {
+                                                Console.WriteLine("Ю");
+                                            }
+                                            break;
+                                    }
                                 }
                                 break;
                         }
@@ -447,37 +501,41 @@
                     break;
                 case 12:
                     {
-                        Console.WriteLine("Case2");
-                        switch (Convert.ToInt32(Console.ReadLine()))
+                        Console.WriteLine("Case12");
+                        byte number = Convert.ToByte(Console.ReadLine());
+                        double value = Convert.ToDouble(Console.ReadLine());
+                        switch (number)
                         {
                             case 1:
                                 {
-                                    Console.WriteLine("Плохо");
+                                    double r = value;
+                                    Console.WriteLine(2 * r);
+                                    Console.WriteLine(6.28 * r);
+                                    Console.WriteLine(3.14 * (r * r));
                                 }
                                 break;
                             case 2:
                                 {
-                                    Console.WriteLine("Неудовлетворительно");
+                                    double r = value / 2;
+                                    Console.WriteLine(r);
+                                    Console.WriteLine(6.28 * r);
+                                    Console.WriteLine(3.14 * (r * r));
                                 }
                                 break;
                             case 3:
                                 {
-                                    Console.WriteLine("Удовлетворительно");
+                                    double r = value / 6.28;
+                                    Console.WriteLine(r);
+                                    Console.WriteLine(2 * r);
+                                    Console.WriteLine(3.14 * (r * r));
                                 }
                                 break;
                             case 4:
                                 {
-                                    Console.WriteLine("Хорошо");
-                                }
-                                break;
-                            case 5:
-                                {
-                                    Console.WriteLine("Отлично");
-                                }
-                                break;
-                            default:
-                                {
-                                    Console.WriteLine("Ошибка");
+                                    double r =Math.Sqrt(value / 3.14);
+                                    Console.WriteLine(r);
+                                    Console.WriteLine(2 * r);
+                                    Console.WriteLine(6.28 * r);
                                 }
                                 break;
                         }
@@ -485,28 +543,42 @@
                     break;
                 case 13:
                     {
-                        Console.WriteLine("Case3");
-                        switch (Convert.ToByte(Console.ReadLine()))
+                        Console.WriteLine("Case13");
+                        byte number = Convert.ToByte(Console.ReadLine());
+                        double value = Convert.ToDouble(Console.ReadLine());
+                        switch (number)
                         {
                             case 1:
+                                {
+                                    double c = value;
+                                    Console.WriteLine(c * Math.Sqrt(2));
+                                    Console.WriteLine(c / 2);
+                                    Console.WriteLine(c * c / 4);
+                                }
+                                break;
                             case 2:
-                            case 12:
-                                Console.WriteLine("Зима");
+                                {
+                                    double c = value / Math.Sqrt(2);
+                                    Console.WriteLine(c);
+                                    Console.WriteLine(c / 2);
+                                    Console.WriteLine(c * c / 4);
+                                }
                                 break;
                             case 3:
+                                {
+                                    double c = value * 2;
+                                    Console.WriteLine(c);
+                                    Console.WriteLine(c * Math.Sqrt(2));
+                                    Console.WriteLine(c * c / 4);
+                                }
+                                break;
                             case 4:
-                            case 5:
-                                Console.WriteLine("Весна");
-                                break;
-                            case 6:
-                            case 7:
-                            case 8:
-                                Console.WriteLine("Лето");
-                                break;
-                            case 9:
-                            case 10:
-                            case 11:
-                                Console.WriteLine("Осень");
+                                {
+                                    double c = Math.Sqrt(value * 4);
+                                    Console.WriteLine(c * Math.Sqrt(2));
+                                    Console.WriteLine(c);
+                                    Console.WriteLine(c / 2);
+                                }
                                 break;
                         }
                     }
