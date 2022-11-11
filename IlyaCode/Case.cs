@@ -532,7 +532,7 @@
                                 break;
                             case 4:
                                 {
-                                    double r =Math.Sqrt(value / 3.14);
+                                    double r = Math.Sqrt(value / 3.14);
                                     Console.WriteLine(r);
                                     Console.WriteLine(2 * r);
                                     Console.WriteLine(6.28 * r);
@@ -550,16 +550,16 @@
                         {
                             case 1:
                                 {
-                                    double c = value;
-                                    Console.WriteLine(c * Math.Sqrt(2));
+                                    double c = value * Math.Sqrt(2);
+                                    Console.WriteLine(c);
                                     Console.WriteLine(c / 2);
                                     Console.WriteLine(c * c / 4);
                                 }
                                 break;
                             case 2:
                                 {
-                                    double c = value / Math.Sqrt(2);
-                                    Console.WriteLine(c);
+                                    double c = value;
+                                    Console.WriteLine(c / Math.Sqrt(2));
                                     Console.WriteLine(c / 2);
                                     Console.WriteLine(c * c / 4);
                                 }
@@ -567,15 +567,15 @@
                             case 3:
                                 {
                                     double c = value * 2;
+                                    Console.WriteLine(c / Math.Sqrt(2));
                                     Console.WriteLine(c);
-                                    Console.WriteLine(c * Math.Sqrt(2));
                                     Console.WriteLine(c * c / 4);
                                 }
                                 break;
                             case 4:
                                 {
                                     double c = Math.Sqrt(value * 4);
-                                    Console.WriteLine(c * Math.Sqrt(2));
+                                    Console.WriteLine(c / Math.Sqrt(2));
                                     Console.WriteLine(c);
                                     Console.WriteLine(c / 2);
                                 }
@@ -585,26 +585,42 @@
                     break;
                 case 14:
                     {
-                        Console.WriteLine("Case4");
-                        switch (Convert.ToInt32(Console.ReadLine()))
+                        Console.WriteLine("Case14");
+                        byte number = Convert.ToByte(Console.ReadLine());
+                        double value = Convert.ToDouble(Console.ReadLine());
+                        switch (number)
                         {
                             case 1:
-                            case 3:
-                            case 5:
-                            case 7:
-                            case 8:
-                            case 10:
-                            case 12:
-                                Console.WriteLine(31);
+                                {
+                                    double a = value;
+                                    Console.WriteLine(a * Math.Sqrt(3) / 6);
+                                    Console.WriteLine(a * Math.Sqrt(3) / 3);
+                                    Console.WriteLine((a * a) * Math.Sqrt(3) / 4);
+                                }
                                 break;
                             case 2:
-                                Console.WriteLine(28);
+                                {
+                                    double a = value / (6 / Math.Sqrt(3));
+                                    Console.WriteLine(a);
+                                    Console.WriteLine(value * 2);
+                                    Console.WriteLine((a * a) * Math.Sqrt(3) / 4);
+                                }
+                                break;
+                            case 3:
+                                {
+                                    double a = value / (3 / Math.Sqrt(3));
+                                    Console.WriteLine(a);
+                                    Console.WriteLine(value / 2);
+                                    Console.WriteLine((a * a) * Math.Sqrt(3) / 4);
+                                }
                                 break;
                             case 4:
-                            case 6:
-                            case 9:
-                            case 11:
-                                Console.WriteLine(30);
+                                {
+                                    double a = Math.Sqrt(value * 4 / Math.Sqrt(3));
+                                    Console.WriteLine(a);
+                                    Console.WriteLine(a * Math.Sqrt(3) / 6);
+                                    Console.WriteLine(a * Math.Sqrt(3) / 3);
+                                }
                                 break;
                         }
                     }
@@ -613,33 +629,80 @@
                     {
                         Console.WriteLine("Case5");
                         byte n = Convert.ToByte(Console.ReadLine());
-                        double a = Convert.ToDouble(Console.ReadLine());
-                        double b = Convert.ToDouble(Console.ReadLine());
+                        byte m = Convert.ToByte(Console.ReadLine());
+                        switch (n)
+                        {
+                            case 6:
+                                {
+                                    Console.Write("шестерка");
+                                }
+                                break;
+                            case 7:
+                                {
+                                    Console.Write("семерка");
+                                }
+                                break;
+                            case 8:
+                                {
+                                    Console.Write("восьмерка");
+                                }
+                                break;
+                            case 9:
+                                {
+                                    Console.Write("девятка");
+                                }
+                                break;
+                            case 10:
+                                {
+                                    Console.Write("десятка");
+                                }
+                                break;
+                            case 11:
+                                {
+                                    Console.Write("валет");
+                                }
+                                break;
+                            case 12:
+                                {
+                                    Console.Write("дама");
+                                }
+                                break;
+                            case 13:
+                                {
+                                    Console.Write("король");
+                                }
+                                break;
+                            case 14:
+                                {
+                                    Console.Write("туз");
+                                }
+                                break;
+                        }
                         switch (n)
                         {
                             case 1:
                                 {
-                                    Console.WriteLine(a + b);
+                                    Console.WriteLine(" пик");
                                 }
                                 break;
                             case 2:
                                 {
-                                    Console.WriteLine(a - b);
+                                    Console.WriteLine(" треф");
                                 }
                                 break;
                             case 3:
                                 {
-                                    Console.WriteLine(a * b);
+                                    Console.WriteLine(" бубен");
                                 }
                                 break;
                             case 4:
                                 {
-                                    Console.WriteLine(a / b);
+                                    Console.WriteLine(" червей");
                                 }
                                 break;
                         }
+                        break;
                     }
-                    break;
                 case 16:
                     {
                         Console.WriteLine("Case1");
