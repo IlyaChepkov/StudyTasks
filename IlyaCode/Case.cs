@@ -627,7 +627,7 @@
                     break;
                 case 15:
                     {
-                        Console.WriteLine("Case5");
+                        Console.WriteLine("Case15");
                         byte n = Convert.ToByte(Console.ReadLine());
                         byte m = Convert.ToByte(Console.ReadLine());
                         switch (n)
@@ -705,42 +705,86 @@
                     }
                 case 16:
                     {
-                        Console.WriteLine("Case1");
-                        switch (Convert.ToByte(Console.ReadLine()))
+                        Console.WriteLine("Case16");
+                        byte years = Convert.ToByte(Console.ReadLine());
+                        switch (years / 10)
                         {
-                            case 1:
-                                {
-                                    Console.WriteLine("Понедельник");
-                                }
-                                break;
                             case 2:
                                 {
-                                    Console.WriteLine("Вторник");
+                                    Console.Write("двадцать ");
                                 }
                                 break;
                             case 3:
                                 {
-                                    Console.WriteLine("Среда");
+                                    Console.Write("тридцать ");
                                 }
                                 break;
                             case 4:
                                 {
-                                    Console.WriteLine("Четверг");
+                                    Console.Write("сорок ");
                                 }
                                 break;
                             case 5:
                                 {
-                                    Console.WriteLine("Пятница");
+                                    Console.Write("пятьдесят ");
                                 }
                                 break;
                             case 6:
                                 {
-                                    Console.WriteLine("Суббота");
+                                    Console.Write("шестьдесят ");
+                                }
+                                break;
+                        }
+                        switch (years % 10)
+                        {
+                            case 0:
+                                {
+                                    Console.WriteLine("лет");
+                                }
+                                break;
+                            case 1:
+                                {
+                                    Console.WriteLine("один год");
+                                }
+                                break;
+                            case 2:
+                                {
+                                    Console.WriteLine("два года");
+                                }
+                                break;
+                            case 3:
+                                {
+                                    Console.WriteLine("три года");
+                                }
+                                break;
+                            case 4:
+                                {
+                                    Console.WriteLine("четыре года");
+                                }
+                                break;
+                            case 6:
+                                {
+                                    Console.WriteLine("шесть лет");
                                 }
                                 break;
                             case 7:
                                 {
-                                    Console.WriteLine("Воскресенье");
+                                    Console.WriteLine("семь лет");
+                                }
+                                break;
+                            case 8:
+                                {
+                                    Console.WriteLine("восемь лет");
+                                }
+                                break;
+                            case 9:
+                                {
+                                    Console.WriteLine("девять лет");
+                                }
+                                break;
+                            case 5:
+                                {
+                                    Console.WriteLine("пять лет");
                                 }
                                 break;
                         }
@@ -748,39 +792,137 @@
                     break;
                 case 17:
                     {
-                        Console.WriteLine("Case2");
-                        switch (Convert.ToInt32(Console.ReadLine()))
+                        Console.WriteLine("Case17");
+                        byte years = Convert.ToByte(Console.ReadLine());
+                        if (years < 20)
                         {
-                            case 1:
-                                {
-                                    Console.WriteLine("Плохо");
-                                }
-                                break;
-                            case 2:
-                                {
-                                    Console.WriteLine("Неудовлетворительно");
-                                }
-                                break;
-                            case 3:
-                                {
-                                    Console.WriteLine("Удовлетворительно");
-                                }
-                                break;
-                            case 4:
-                                {
-                                    Console.WriteLine("Хорошо");
-                                }
-                                break;
-                            case 5:
-                                {
-                                    Console.WriteLine("Отлично");
-                                }
-                                break;
-                            default:
-                                {
-                                    Console.WriteLine("Ошибка");
-                                }
-                                break;
+                            switch (years)
+                            {
+                                case 10:
+                                    {
+                                        Console.WriteLine("десять учебных заданий");
+                                    }
+                                    break;
+                                case 11:
+                                    {
+                                        Console.WriteLine("одиннадцать учебных заданий");
+                                    }
+                                    break;
+                                case 12:
+                                    {
+                                        Console.WriteLine("двенадцать учебных заданий");
+                                    }
+                                    break;
+                                case 13:
+                                    {
+                                        Console.WriteLine("тринадцать учебных заданий");
+                                    }
+                                    break;
+                                case 14:
+                                    {
+                                        Console.WriteLine("четырнадцать учебных заданий");
+                                    }
+                                    break;
+                                case 15:
+                                    {
+                                        Console.WriteLine("пятнадцать учебных заданий");
+                                    }
+                                    break;
+                                case 16:
+                                    {
+                                        Console.WriteLine("шестнадцать учебных заданий");
+                                    }
+                                    break;
+                                case 17:
+                                    {
+                                        Console.WriteLine("семнадцать учебных заданий");
+                                    }
+                                    break;
+                                case 18:
+                                    {
+                                        Console.WriteLine("восемнадцать учебных заданий");
+                                    }
+                                    break;
+                                case 19:
+                                    {
+                                        Console.WriteLine("девятнадцать учебных заданий");
+                                    }
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            switch (years / 10)
+                            {
+                                case 2:
+                                    {
+                                        Console.Write("двадцать ");
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        Console.Write("тридцать ");
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        Console.Write("сорок ");
+                                    }
+                                    break;
+                            }
+                            switch (years % 10)
+                            {
+                                case 0:
+                                    {
+                                        Console.WriteLine("учебных заданий");
+                                    }
+                                    break;
+                                case 1:
+                                    {
+                                        Console.WriteLine("одно учебное задание");
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        Console.WriteLine("два учебных задания");
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        Console.WriteLine("три учебных задания");
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        Console.WriteLine("четыре учебных задания");
+                                    }
+                                    break;
+                                case 6:
+                                    {
+                                        Console.WriteLine("шесть учебных заданий");
+                                    }
+                                    break;
+                                case 7:
+                                    {
+                                        Console.WriteLine("семь учебных заданий");
+                                    }
+                                    break;
+                                case 8:
+                                    {
+                                        Console.WriteLine("восемь учебных заданий");
+                                    }
+                                    break;
+                                case 9:
+                                    {
+                                        Console.WriteLine("девять учебных заданий");
+                                    }
+                                    break;
+                                case 5:
+                                    {
+                                        Console.WriteLine("пять учебных заданий");
+                                    }
+                                    break;
+                            }
                         }
                     }
                     break;
