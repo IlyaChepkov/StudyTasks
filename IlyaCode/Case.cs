@@ -1,4 +1,6 @@
-﻿namespace IlyaCode
+﻿using System.ComponentModel;
+
+namespace IlyaCode
 {
     internal static class Case
     {
@@ -929,86 +931,296 @@
                 case 18:
                     {
                         Console.WriteLine("Case3");
-                        switch (Convert.ToByte(Console.ReadLine()))
+                        int value = Convert.ToInt32(Console.ReadLine());
+                        switch (value / 100)
                         {
                             case 1:
+                                {
+                                    Console.Write("сто ");
+                                }
+                                break;
                             case 2:
-                            case 12:
-                                Console.WriteLine("Зима");
+                                {
+                                    Console.Write("двести ");
+                                }
                                 break;
                             case 3:
+                                {
+                                    Console.Write("триста ");
+                                }
+                                break;
                             case 4:
+                                {
+                                    Console.Write("четыреста ");
+                                }
+                                break;
                             case 5:
-                                Console.WriteLine("Весна");
+                                {
+                                    Console.Write("пятьсот ");
+                                }
                                 break;
                             case 6:
+                                {
+                                    Console.Write("шестьсот ");
+                                }
+                                break;
                             case 7:
+                                {
+                                    Console.Write("семьсот ");
+                                }
+                                break;
                             case 8:
-                                Console.WriteLine("Лето");
+                                {
+                                    Console.Write("восемьсот ");
+                                }
                                 break;
                             case 9:
-                            case 10:
-                            case 11:
-                                Console.WriteLine("Осень");
+                                {
+                                    Console.Write("девятьсот ");
+                                }
                                 break;
                         }
+                        bool marker = true;
+                        switch (value % 100 / 10)
+                        {
+                            case 1:
+                                {
+                                    marker = false;
+                                    switch (value % 10)
+                                    {
+                                        case 0:
+                                            {
+                                                Console.WriteLine("десять");
+                                            }
+                                            break;
+                                        case 1:
+                                            {
+                                                Console.WriteLine("одиннадцать");
+                                            }
+                                            break;
+                                        case 2:
+                                            {
+                                                Console.WriteLine("двенадцать");
+                                            }
+                                            break;
+                                        case 3:
+                                            {
+                                                Console.WriteLine("тринадцать");
+                                            }
+                                            break;
+                                        case 4:
+                                            {
+                                                Console.WriteLine("четырнадцать");
+                                            }
+                                            break;
+                                        case 5:
+                                            {
+                                                Console.WriteLine("пятнадцать");
+                                            }
+                                            break;
+                                        case 6:
+                                            {
+                                                Console.WriteLine("шестнадцать");
+                                            }
+                                            break;
+                                        case 7:
+                                            {
+                                                Console.WriteLine("семнадцать");
+                                            }
+                                            break;
+                                        case 8:
+                                            {
+                                                Console.WriteLine("восемнадцать");
+                                            }
+                                            break;
+                                        case 9:
+                                            {
+                                                Console.WriteLine("девятнадцать");
+                                            }
+                                            break;
+                                    }
+                                }
+                                break;
+                            case 2:
+                                {
+                                    Console.Write("двадцать ");
+                                }
+                                break;
+                            case 3:
+                                {
+                                    Console.Write("тридцать ");
+                                }
+                                break;
+                            case 4:
+                                {
+                                    Console.Write("сорок ");
+                                }
+                                break;
+                            case 5:
+                                {
+                                    Console.Write("пятьдесят ");
+                                }
+                                break;
+                            case 6:
+                                {
+                                    Console.Write("шестьдесят ");
+                                }
+                                break;
+                            case 7:
+                                {
+                                    Console.Write("семьдесят ");
+                                }
+                                break;
+                            case 8:
+                                {
+                                    Console.Write("восемьдесят ");
+                                }
+                                break;
+                            case 9:
+                                {
+                                    Console.Write("девяносто ");
+                                }
+                                break;
+                        }
+                        if (marker)
+                        {
+                            switch (value % 10)
+                            {
+                                case 0:
+                                    {
+                                        Console.WriteLine("");
+                                    }
+                                    break;
+                                case 1:
+                                    {
+                                        Console.WriteLine("один");
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        Console.WriteLine("два");
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        Console.WriteLine("три");
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        Console.WriteLine("четыре");
+                                    }
+                                    break;
+                                case 5:
+                                    {
+                                        Console.WriteLine("пять");
+                                    }
+                                    break;
+                                case 6:
+                                    {
+                                        Console.WriteLine("шесть");
+                                    }
+                                    break;
+                                case 7:
+                                    {
+                                        Console.WriteLine("семь");
+                                    }
+                                    break;
+                                case 8:
+                                    {
+                                        Console.WriteLine("восемь");
+                                    }
+                                    break;
+                                case 9:
+                                    {
+                                        Console.WriteLine("девять");
+                                    }
+                                    break;
+                            }
+                        }
+
                     }
                     break;
                 case 19:
                     {
-                        Console.WriteLine("Case4");
-                        switch (Convert.ToInt32(Console.ReadLine()))
+                        Console.WriteLine("Case19");
+                        byte year = (byte)((Convert.ToInt32(Console.ReadLine()) + 56) % 60);
+                        bool isWomen = true;
+                        switch (year % 12)
                         {
-                            case 1:
-                            case 3:
-                            case 5:
-                            case 7:
-                            case 8:
-                            case 10:
-                            case 12:
-                                Console.WriteLine(31);
-                                break;
                             case 2:
-                                Console.WriteLine(28);
-                                break;
+                            case 3:
                             case 4:
-                            case 6:
-                            case 9:
-                            case 11:
-                                Console.WriteLine(30);
+                                {
+                                    isWomen = false;
+                                }
                                 break;
                         }
+                        switch (year / 12)
+                        {
+                            case 0:
+                                {
+                                    Console.Write(isWomen ? "зеленая " : "зеленый ");
+                                }
+                                break;
+                            case 1:
+                                {
+                                    Console.Write(isWomen ? "красная " : "красный ");
+                                }
+                                break;
+                            case 2:
+                                {
+                                    Console.Write(isWomen ? "желтая " : "желтый ");
+                                }
+                                break;
+                            case 3:
+                                {
+                                    Console.Write(isWomen ? "белая " : "белый ");
+                                }
+                                break;
+                            case 4:
+                                {
+                                    Console.Write(isWomen ? "черная " : "черный ");
+                                }
+                                break;
+                        }
+                        Console.WriteLine((year % 12) switch
+                        {
+                            0 => "крыса",
+                            1 => "корова",
+                            2 => "тигр",
+                            3 => "заяц",
+                            4 => "дракон",
+                            5 => "змея",
+                            6 => "лошадь",
+                            7 => "овца",
+                            8 => "обезьяна",
+                            9 => "курица",
+                            10 => "собака",
+                            11 => "свинья",
+                        });
                     }
                     break;
                 case 20:
                     {
-                        Console.WriteLine("Case5");
-                        byte n = Convert.ToByte(Console.ReadLine());
-                        double a = Convert.ToDouble(Console.ReadLine());
-                        double b = Convert.ToDouble(Console.ReadLine());
-                        switch (n)
+                        Console.WriteLine("Case20");
+                        byte d = Convert.ToByte(Console.ReadLine());
+                        byte m = Convert.ToByte(Console.ReadLine());
+                        Console.WriteLine(m switch 
                         {
-                            case 1:
-                                {
-                                    Console.WriteLine(a + b);
-                                }
-                                break;
-                            case 2:
-                                {
-                                    Console.WriteLine(a - b);
-                                }
-                                break;
-                            case 3:
-                                {
-                                    Console.WriteLine(a * b);
-                                }
-                                break;
-                            case 4:
-                                {
-                                    Console.WriteLine(a / b);
-                                }
-                                break;
-                        }
+                            1 => d >= 20 ? "Водолей" : "Козерог",
+                            2 => d >= 18 ? "Рыбы" : "Водолей",
+                            3 => d >= 20 ? "Овен" : "Рыбы",
+                            4 => d >= 19 ? "Телец" : "Овен",
+                            5 => d >= 20 ? "Близнецы" : "Телец",
+                            6 => d >= 21 ? "Рак" : "Близнецы",
+                            7 => d >= 22 ? "Лев" : "Рак",
+                            8 => d >= 22 ? "Дева" : "Лев",
+                            9 => d >= 22 ? "Весы" : "Дева",
+                            10 => d >= 22 ? "Скорпион" : "Весы",
+                            11 => d >= 22 ? "Стрелец" : "Скорпион",
+                            12 => d >= 21 ? "Козерог" : "Стрелец",
+                        });
                     }
                     break;
             }
