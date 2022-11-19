@@ -28,6 +28,9 @@ internal class Program
             case 5:
                 Case.Do();
                 break;
+            case 6:
+                For.Do();
+                break;
         }
         Console.ReadLine();
     }
