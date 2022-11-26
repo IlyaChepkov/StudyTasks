@@ -87,12 +87,40 @@
                     break;
                 case 8:
                     {
-                        Console.WriteLine("For4");
-                        double a = Convert.ToDouble(Console.ReadLine());
-                        for (double i = a; i <= a * 10; i += a)
+                        Console.WriteLine("For8");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        int mul = 1;
+                        for (int i = b; i >= a; i--)
                         {
-                            Console.WriteLine(i);
+                            mul *= i;
                         }
+                        Console.WriteLine(mul);
+                    }
+                    break;
+                case 9:
+                    {
+                        Console.WriteLine("For9");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        int sum = 0;
+                        for (int i = b; i >= a; i--)
+                        {
+                            sum += i * i;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 10:
+                    {
+                        Console.WriteLine("For10");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = 0;
+                        for (double i = 1; i <= n; i++)
+                        {
+                            sum += 1 / i;
+                        }
+                        Console.WriteLine(sum);
                     }
                     break;
             }
