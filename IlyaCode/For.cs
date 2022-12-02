@@ -181,7 +181,7 @@
                         double a = Convert.ToDouble(Console.ReadLine());
                         int n = Convert.ToInt32(Console.ReadLine());
                         double mul = 1;
-                        for (int i = 0; i < n; i ++)
+                        for (int i = 0; i < n; i++)
                         {
                             mul *= a;
                         }
@@ -246,6 +246,315 @@
                     }
                     break;
                 case 20:
+                    {
+                        Console.WriteLine("For20");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double mul = 1;
+                        double sum = 1;
+                        for (int i = 2; i <= n; i++)
+                        {
+                            mul *= i;
+                            sum += mul;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 21:
+                    {
+                        Console.WriteLine("For21");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = 1;
+                        double mul = 1;
+                        for (int i = 1; i <= n; i++)
+                        {
+                            mul *= i;
+                            sum += 1 / mul;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 22:
+                    {
+                        Console.WriteLine("For22");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = 1;
+                        double f = 1;
+                        double mul = 1;
+                        for (int i = 1; i <= n; i++)
+                        {
+                            mul *= x;
+                            f *= i;
+                            sum += mul / f;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 23:
+                    {
+                        Console.WriteLine("For23");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = 1;
+                        double f = 2;
+                        double mul = x;
+                        sbyte symbol = 1;
+                        for (int i = 3; i <= 2 * n + 1; i += 2)
+                        {
+                            symbol *= -1;
+                            mul *= x * x;
+                            f *= i;
+                            sum += symbol * mul / f;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 24:
+                    {
+                        Console.WriteLine("For24");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = 1;
+                        double f = 1;
+                        double mul = 1;
+                        sbyte symbol = 1;
+                        for (int i = 2; i <= 2 * n; i += 2)
+                        {
+                            symbol *= -1;
+                            mul *= x * x;
+                            f *= i;
+                            sum += symbol * mul / f;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 25:
+                    {
+                        Console.WriteLine("For25");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = 0;
+                        double mul = 1;
+                        sbyte symbol = -1;
+                        for (int i = 1; i <= n; i++)
+                        {
+                            symbol *= -1;
+                            mul *= x;
+                            sum += symbol * mul / i;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 26:
+                    {
+                        Console.WriteLine("For26");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = x;
+                        double mul = x;
+                        sbyte symbol = -1;
+                        for (int i = 3; i <= 2 * n + 1; i += 2)
+                        {
+                            symbol *= -1;
+                            mul *= x * x;
+                            sum += symbol * mul / i;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 27:
+                    {
+                        Console.WriteLine("For27");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = x;
+                        double mul = x;
+                        double oddMul = 1;
+                        double evenMul = 1;
+                        for (int i = 3; i <= 2 * n + 1; i += 2)
+                        {
+                            evenMul *= i - 1;
+                            oddMul *= i - 2;
+                            mul *= x * x;
+                            sum += oddMul * mul / (evenMul * i);
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 28:
+                    {
+                        Console.WriteLine("For28");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = 1;
+                        double mul = 1;
+                        double oddMul = 1;
+                        double evenMul = 1;
+                        sbyte symbol = -1;
+                        for (int i = 1; i <= n; i ++)
+                        {
+                            symbol *= -1; 
+                            evenMul *= i * 2;
+                            oddMul *= i == 1 ? 1 : 2 * i - 3;
+                            mul *= x;
+                            sum += symbol * oddMul * mul / (evenMul);
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 29:
+                    {
+                        Console.WriteLine("For29");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        double b = Convert.ToDouble(Console.ReadLine());
+                        double h =(b - a) / n;
+                        Console.WriteLine(h);
+                        for (double i = a; i < b; i += h)
+                        {
+                            Console.WriteLine(i);
+                        }
+                        Console.WriteLine(b);
+                    }
+                    break;
+                case 30:
+                    {
+                        Console.WriteLine("For30");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        double b = Convert.ToDouble(Console.ReadLine());
+                        double h = (b - a) / n;
+                        Console.WriteLine(h);
+                        for (double i = a; i < b; i += h)
+                        {
+                            Console.WriteLine(1 - Math.Sin(i));
+                        }
+                        Console.WriteLine(1 - Math.Sin(b));
+                    }
+                    break;
+                case 31:
+                    {
+                        Console.WriteLine("For11");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double sum = n * n;
+                        for (int i = 1; i <= n; i++)
+                        {
+                            sum += (n + i) * (n + i);
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 32:
+                    {
+                        Console.WriteLine("For12");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double mul = 1;
+                        for (int i = 1; i <= n; i++)
+                        {
+                            mul *= i / 10 + 1;
+                        }
+                        Console.WriteLine(mul);
+                    }
+                    break;
+                case 33:
+                    {
+                        Console.WriteLine("For13");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double res = 0;
+                        for (int i = 1; i <= n; i += 2)
+                        {
+                            res += i / 10 + 1;
+                        }
+                        for (int i = 2; i <= n; i += 2)
+                        {
+                            res -= i / 10 + 1;
+                        }
+                        Console.WriteLine(res);
+                    }
+                    break;
+                case 34:
+                    {
+                        Console.WriteLine("For14");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int sum = 0;
+                        for (int i = 1; i <= 2 * n - 1; i += 2)
+                        {
+                            sum += i;
+                            Console.WriteLine(sum);
+                        }
+                    }
+                    break;
+                case 35:
+                    {
+                        Console.WriteLine("For15");
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double mul = 1;
+                        for (int i = 0; i < n; i++)
+                        {
+                            mul *= a;
+                        }
+                        Console.WriteLine(mul);
+                    }
+                    break;
+                case 36:
+                    {
+                        Console.WriteLine("For16");
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double mul = 1;
+                        for (int i = 0; i < n; i++)
+                        {
+                            mul *= a;
+                            Console.WriteLine(mul);
+                        }
+                    }
+                    break;
+                case 37:
+                    {
+                        Console.WriteLine("For17");
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double mul = 1;
+                        double sum = 1;
+                        for (int i = 0; i < n; i++)
+                        {
+                            mul *= a;
+                            sum += mul;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 38:
+                    {
+                        Console.WriteLine("For18");
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double mul = 1;
+                        double sum = 1;
+                        sbyte symbol = 1;
+                        for (int i = 0; i < n; i++)
+                        {
+                            symbol *= -1;
+                            mul *= a;
+                            sum += mul * symbol;
+                        }
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 39:
+                    {
+                        Console.WriteLine("For19");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double mul = 1;
+                        for (int i = 2; i <= n; i++)
+                        {
+                            mul *= i;
+                        }
+                        Console.WriteLine(mul);
+                    }
+                    break;
+                case 40:
                     {
                         Console.WriteLine("For20");
                         int n = Convert.ToInt32(Console.ReadLine());
