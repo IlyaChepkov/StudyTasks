@@ -7,6 +7,9 @@ internal class Program
         Console.WriteLine("Введите номер раздела");
         switch (Convert.ToInt32(Console.ReadLine()))
         {
+            case -3:
+                Tree.Do();
+                break;
             case -2:
                 TextHelper.Do();
                 break;
