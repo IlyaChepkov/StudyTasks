@@ -391,9 +391,9 @@
                         double oddMul = 1;
                         double evenMul = 1;
                         sbyte symbol = -1;
-                        for (int i = 1; i <= n; i ++)
+                        for (int i = 1; i <= n; i++)
                         {
-                            symbol *= -1; 
+                            symbol *= -1;
                             evenMul *= i * 2;
                             oddMul *= i == 1 ? 1 : 2 * i - 3;
                             mul *= x;
@@ -408,7 +408,7 @@
                         int n = Convert.ToInt32(Console.ReadLine());
                         double a = Convert.ToDouble(Console.ReadLine());
                         double b = Convert.ToDouble(Console.ReadLine());
-                        double h =(b - a) / n;
+                        double h = (b - a) / n;
                         Console.WriteLine(h);
                         for (double i = a; i < b; i += h)
                         {
@@ -434,67 +434,80 @@
                     break;
                 case 31:
                     {
-                        Console.WriteLine("For11");
+                        Console.WriteLine("For31");
                         int n = Convert.ToInt32(Console.ReadLine());
-                        double sum = n * n;
+                        double a = 2;
                         for (int i = 1; i <= n; i++)
                         {
-                            sum += (n + i) * (n + i);
+                            a = 2 + 1 / a;
+                            Console.WriteLine(a);
                         }
-                        Console.WriteLine(sum);
                     }
                     break;
                 case 32:
                     {
-                        Console.WriteLine("For12");
+                        Console.WriteLine("For32");
                         int n = Convert.ToInt32(Console.ReadLine());
-                        double mul = 1;
+                        double a = 1;
                         for (int i = 1; i <= n; i++)
                         {
-                            mul *= i / 10 + 1;
+                            a = (a + 1) / i;
+                            Console.WriteLine(a);
                         }
-                        Console.WriteLine(mul);
                     }
                     break;
                 case 33:
                     {
-                        Console.WriteLine("For13");
+                        Console.WriteLine("For33");
                         int n = Convert.ToInt32(Console.ReadLine());
-                        double res = 0;
-                        for (int i = 1; i <= n; i += 2)
+                        int fk_1 = 1;
+                        int fk_2 = 1;
+                        Console.WriteLine(fk_2);
+                        Console.WriteLine(fk_1);
+                        for (int i = 3; i <= n; i++)
                         {
-                            res += i / 10 + 1;
+                            int fk = fk_2 + fk_1;
+                            Console.WriteLine(fk);
+                            fk_2 = fk_1;
+                            fk_1 = fk;
                         }
-                        for (int i = 2; i <= n; i += 2)
-                        {
-                            res -= i / 10 + 1;
-                        }
-                        Console.WriteLine(res);
                     }
                     break;
                 case 34:
                     {
-                        Console.WriteLine("For14");
+                        Console.WriteLine("For34");
                         int n = Convert.ToInt32(Console.ReadLine());
-                        int sum = 0;
-                        for (int i = 1; i <= 2 * n - 1; i += 2)
+                        int ak_1 = 2;
+                        int ak_2 = 1;
+                        Console.WriteLine(ak_2);
+                        Console.WriteLine(ak_1);
+                        for (int i = 3; i <= n; i++)
                         {
-                            sum += i;
-                            Console.WriteLine(sum);
+                            int ak = (ak_2 + 2 * ak_1) / 3;
+                            Console.WriteLine(ak);
+                            ak_2 = ak_1;
+                            ak_1 = ak;
                         }
                     }
                     break;
                 case 35:
                     {
                         Console.WriteLine("For15");
-                        double a = Convert.ToDouble(Console.ReadLine());
                         int n = Convert.ToInt32(Console.ReadLine());
-                        double mul = 1;
-                        for (int i = 0; i < n; i++)
+                        int ak_1 = 3;
+                        int ak_2 = 2;
+                        int ak_3 = 1;
+                        Console.WriteLine(ak_3);
+                        Console.WriteLine(ak_2);
+                        Console.WriteLine(ak_1);
+                        for (int i = 4; i <= n; i++)
                         {
-                            mul *= a;
+                            int ak = ak_1 + ak_2 - 2 * ak_3;
+                            Console.WriteLine(ak);
+                            ak_3 = ak_2;
+                            ak_2 = ak_1;
+                            ak_1 = ak;
                         }
-                        Console.WriteLine(mul);
                     }
                     break;
                 case 36:
