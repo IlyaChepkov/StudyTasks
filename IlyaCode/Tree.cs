@@ -11,12 +11,20 @@ namespace IlyaCode
         public static void Do()
         {
             Byte c = Convert.ToByte(Console.ReadLine());
-            for(int i = 0; i < 10; i++)
+            string str = Console.ReadLine();
+            char s = str.Length > 0 ? str[0] : '█';
+            Console.ForegroundColor = ConsoleColor.Green;
+            for (int i = 1; i <= c; i++)
             {
-                for(int j = i; j < 10; j++)
+                for (int j = 1; j <= c - i; j++)
                 {
-                    Console.WriteLine("*");
+                    Console.Write(' ');
                 }
+                for (int j = 1; j <= i * 2 - 1; j++)
+                {
+                    Console.Write(s);
+                }
+                Console.WriteLine();
             }
         }
     }
