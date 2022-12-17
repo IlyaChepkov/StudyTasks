@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IlyaCode
+﻿namespace IlyaCode
 {
     internal static class Tree
     {
@@ -26,6 +20,20 @@ namespace IlyaCode
                 }
                 Console.WriteLine();
             }
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            for (int i = 1; i <= c / 2; i++)
+            {
+                for (int j = 1; j <= c * 2 / 3; j++)
+                {
+                    Console.Write(" ");
+                }
+                for (int j = c * 2 / 3; j <= (4 * c) / 3; j++)
+                {
+                    Console.Write(s);
+                }
+                Console.WriteLine();
+            }
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
