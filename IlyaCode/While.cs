@@ -137,6 +137,144 @@
                         Console.WriteLine(k - 1);
                     }
                     break;
+                case 11:
+                    {
+                        Console.WriteLine("While11");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int k = 0;
+                        int sum = 0;
+                        while (n >= sum)
+                        {
+                            k++;
+                            sum += k;
+                        }
+                        Console.WriteLine(k);
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 12:
+                    {
+                        Console.WriteLine("While12");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int k = 0;
+                        int sum = 0;
+                        while (n >= sum)
+                        {
+                            k++;
+                            sum += k;
+                        }
+                        Console.WriteLine(k - 1);
+                        Console.WriteLine(sum - k);
+                    }
+                    break;
+                case 13:
+                    {
+                        Console.WriteLine("While13");
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        int k = 0;
+                        double sum = 0;
+                        while (a >= sum)
+                        {
+                            k++;
+                            sum += 1.0 / k;
+                        }
+                        Console.WriteLine(k);
+                        Console.WriteLine(sum);
+                    }
+                    break;
+                case 14:
+                    {
+                        Console.WriteLine("While14");
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        int k = 0;
+                        double sum = 0;
+                        while (a >= sum)
+                        {
+                            k++;
+                            sum += 1.0 / k;
+                        }
+                        Console.WriteLine(k - 1);
+                        Console.WriteLine(sum - 1.0 / k);
+                    }
+                    break;
+                case 15:
+                    {
+                        Console.WriteLine("While15");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int count = 0;
+                        while (n > 1)
+                        {
+                            n /= 2;
+                            count++;
+                        }
+                        Console.WriteLine(count);
+                    }
+                    break;
+                case 16:
+                    {
+                        Console.WriteLine("While16");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        double count = 1;
+                        while (n > 0)
+                        {
+                            count *= n;
+                            n -= 2;
+                        }
+                        Console.WriteLine(count);
+                    }
+                    break;
+                case 17:
+                    {
+                        Console.WriteLine("While17");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int k = 2;
+                        while (n >= k * k)
+                        {
+                            k++;
+                        }
+                        Console.WriteLine(k);
+                    }
+                    break;
+                case 18:
+                    {
+                        Console.WriteLine("While18");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int k = 2;
+                        while (n >= k * k)
+                        {
+                            k++;
+                        }
+                        Console.WriteLine(k - 1);
+                    }
+                    break;
+                case 19:
+                    {
+                        Console.WriteLine("While19");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int k = 1;
+                        int pow = 3;
+                        while (n >= pow)
+                        {
+                            k++;
+                            pow *= 3;
+                        }
+                        Console.WriteLine(k);
+                    }
+                    break;
+                case 20:
+                    {
+                        Console.WriteLine("While20");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int k = 1;
+                        int pow = 3;
+                        while (n >= pow)
+                        {
+                            k++;
+                            pow *= 3;
+                        }
+                        Console.WriteLine(k - 1);
+                    }
+                    break;
             }
         }
 

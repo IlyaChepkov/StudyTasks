@@ -34,6 +34,9 @@ internal class Program
             case 6:
                 For.Do();
                 break;
+            case 7:
+                While.Do();
+                break;
         }
         Console.ReadLine();
     }
