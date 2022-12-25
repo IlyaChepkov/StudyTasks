@@ -1,4 +1,6 @@
-﻿namespace IlyaCode
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace IlyaCode
 {
     public static class While
     {
@@ -200,79 +202,92 @@
                 case 15:
                     {
                         Console.WriteLine("While15");
-                        int n = Convert.ToInt32(Console.ReadLine());
-                        int count = 0;
-                        while (n > 1)
+                        double p = Convert.ToDouble(Console.ReadLine()) / 100;
+                        int k = 0;
+                        double s = 1000;
+                        while (s <= 1100)
                         {
-                            n /= 2;
-                            count++;
+                            s += s * p;
+                            k++;
                         }
-                        Console.WriteLine(count);
+                        Console.WriteLine(k);
+                        Console.WriteLine(s);
                     }
                     break;
                 case 16:
                     {
                         Console.WriteLine("While16");
-                        int n = Convert.ToInt32(Console.ReadLine());
-                        double count = 1;
-                        while (n > 0)
+                        double p = Convert.ToDouble(Console.ReadLine()) / 100;
+                        int k = 0;
+                        double s = 10;
+                        double sum = 0;
+                        while (sum <= 200)
                         {
-                            count *= n;
-                            n -= 2;
+                            sum += s;
+                            s += s * p;
+                            k++;
                         }
-                        Console.WriteLine(count);
+                        Console.WriteLine(k);
+                        Console.WriteLine(s);
                     }
                     break;
                 case 17:
                     {
                         Console.WriteLine("While17");
                         int n = Convert.ToInt32(Console.ReadLine());
-                        int k = 2;
-                        while (n >= k * k)
+                        while (n > 0)
                         {
-                            k++;
+                            Console.Write(n % 10);
+                            n /= 10;
                         }
-                        Console.WriteLine(k);
+                        Console.WriteLine();
                     }
                     break;
                 case 18:
                     {
                         Console.WriteLine("While18");
                         int n = Convert.ToInt32(Console.ReadLine());
-                        int k = 2;
-                        while (n >= k * k)
+                        int count = 0;
+                        int sum = 0;
+                        while (n > 0)
                         {
-                            k++;
+                            count++;
+                            sum += n % 10;
+                            n /= 10;
                         }
-                        Console.WriteLine(k - 1);
+                        Console.WriteLine(count);
+                        Console.WriteLine(sum);
                     }
                     break;
                 case 19:
                     {
                         Console.WriteLine("While19");
                         int n = Convert.ToInt32(Console.ReadLine());
-                        int k = 1;
-                        int pow = 3;
-                        while (n >= pow)
+                        int sum = 0;
+                        while (n > 0)
                         {
-                            k++;
-                            pow *= 3;
+                            sum *= 10;
+                            sum += n % 10;
+                            n /= 10;
                         }
-                        Console.WriteLine(k);
+                        Console.WriteLine(sum);
                     }
                     break;
                 case 20:
                     {
                         Console.WriteLine("While20");
                         int n = Convert.ToInt32(Console.ReadLine());
-                        int k = 1;
-                        int pow = 3;
-                        while (n >= pow)
+                        bool b = false;
+                        while (n > 0)
                         {
-                            k++;
-                            pow *= 3;
+                            if (n % 10 == 2)
+                            {
+                                b = true;
+                                break;
+                            }
+                            n /= 10;
                         }
-                        Console.WriteLine(k - 1);
+                        Console.WriteLine(b);
                     }
                     break;
             }
