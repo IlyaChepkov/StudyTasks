@@ -7,6 +7,9 @@ internal class Program
         Console.WriteLine("Введите номер раздела");
         switch (Convert.ToInt32(Console.ReadLine()))
         {
+            case -4:
+                House.Do();
+                break;
             case -3:
                 Tree.Do();
                 break;
@@ -36,6 +39,9 @@ internal class Program
                 break;
             case 7:
                 While.Do();
+                break;
+            case 8:
+                Series.Do();
                 break;
         }
         Console.ReadLine();

@@ -290,6 +290,179 @@ namespace IlyaCode
                         Console.WriteLine(b);
                     }
                     break;
+                case 21:
+                    {
+                        Console.WriteLine("While21");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        bool b = false;
+                        while (n > 0)
+                        {
+                            if (n % 10 % 2 == 1)
+                            {
+                                b = true;
+                                break;
+                            }
+                            n /= 10;
+                        }
+                        Console.WriteLine(b);
+                    }
+                    break;
+                case 22:
+                    {
+                        Console.WriteLine("While22");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int sqrt = (int)Math.Sqrt(n);
+                        bool b = false;
+                        while (sqrt >= 2)
+                        { 
+                            if(n % sqrt == 0)
+                            {
+                                b = true;
+                                break;
+                            }
+                            sqrt--;
+                        }
+                        Console.WriteLine(!b);
+                    }
+                    break;
+                case 23:
+                    {
+                        Console.WriteLine("While23");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        while (b != 0)
+                        {
+                            int r = a % b;
+                            a = b;
+                            b = r;
+                        }
+                        Console.WriteLine(a);
+                    }
+                    break;
+                case 24:
+                    {
+                        Console.WriteLine("While24");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int f1 = 1;
+                        int f2 = 1;
+                        while (f1 <  n)
+                        {
+                            int f = f1 + f2;
+                            f2 = f1;
+                            f1 = f;
+                        }
+                        Console.WriteLine(n == f1);
+                    }
+                    break;
+                case 25:
+                    {
+                        Console.WriteLine("While25");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int f1 = 1;
+                        int f2 = 1;
+                        while (f1 <= n)
+                        {
+                            int f = f1 + f2;
+                            f2 = f1;
+                            f1 = f;
+                        }
+                        Console.WriteLine(f1);
+                    }
+                    break;
+                case 26:
+                    {
+                        Console.WriteLine("While26");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int f1 = 1;
+                        int f2 = 1;
+                        while (f1 != n)
+                        {
+                            int f = f1 + f2;
+                            f2 = f1;
+                            f1 = f;
+                        }
+                        Console.WriteLine(f2);
+                        Console.WriteLine(f2 + f1);
+                    }
+                    break;
+                case 27:
+                    {
+                        Console.WriteLine("While27");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        int f1 = 1;
+                        int f2 = 1;
+                        int k = 2;
+                        while (f1 != n)
+                        {
+                            k++;
+                            int f = f1 + f2;
+                            f2 = f1;
+                            f1 = f;
+                        }
+                        Console.WriteLine(k);
+                    }
+                    break;
+                case 28:
+                    {
+                        Console.WriteLine("While28");
+                        double e = Convert.ToDouble(Console.ReadLine());
+                        double ak = 2;
+                        double ak1 = 0;
+                        int k = 1;
+                        do
+                        {
+                            k++;
+                            ak1 = ak;
+                            ak = 2 + 1 / ak1;
+                        }
+                        while (Math.Abs(ak - ak1) >= e);
+                        
+                        Console.WriteLine(k);
+                        Console.WriteLine(ak1);
+                        Console.WriteLine(ak);
+                    }
+                    break;
+                case 29:
+                    {
+                        Console.WriteLine("While29");
+                        double e = Convert.ToDouble(Console.ReadLine());
+                        double ak = 2;
+                        double ak1 = 1;
+                        double ak2 = 0;
+                        int k = 2;
+                        while (Math.Abs(ak - ak1) >= e)
+                        {
+                            k++;
+                            ak2 = ak1;
+                            ak1 = ak;
+                            ak = (ak2 + 2 * ak1) / 3;
+                        }
+                        Console.WriteLine(k);
+                        Console.WriteLine(ak1);
+                        Console.WriteLine(ak);
+                    }
+                    break;
+                case 30:
+                    {
+                        Console.WriteLine("While30");
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        double b = Convert.ToDouble(Console.ReadLine());
+                        double c = Convert.ToDouble(Console.ReadLine());
+                        int d = 0;
+                        while (a > c)
+                        {
+                            d++;
+                            a -= c;
+                        }
+                        int res = 0;
+                        while (b > c)
+                        {
+                            b -= c;
+                            res += d;
+                        }
+                        Console.WriteLine(res);
+                    }
+                    break;
             }
         }
 
