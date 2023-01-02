@@ -43,6 +43,9 @@ internal class Program
             case 8:
                 Series.Do();
                 break;
+            case 9:
+                Proc.Do();
+                break;
         }
         Console.ReadLine();
     }

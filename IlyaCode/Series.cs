@@ -716,39 +716,57 @@
                 case 39:
                     {
                         Console.WriteLine("Series39");
-                        int n = Convert.ToInt32(Console.ReadLine());
-                        int b = Convert.ToInt32(Console.ReadLine());
-                        int k = 0;
-                        for (int i = 1; i < n; i++)
+                        int k = Convert.ToInt32(Console.ReadLine());
+                        int count = 0;
+                        for (int i = 0; i < k; i++)
                         {
-                            int a = Convert.ToInt32(Console.ReadLine());
-                            if (a < b)
+                            bool marker = true;
+                            int p = Convert.ToInt32(Console.ReadLine());
+                            int now = Convert.ToInt32(Console.ReadLine());
+                            for (int j = Convert.ToInt32(Console.ReadLine());
+                                j != 0;
+                                j = Convert.ToInt32(Console.ReadLine()))
                             {
-                                Console.WriteLine(a);
-                                k++;
+                                if (!((j < now && p < now) || ( now < j && now < p)))
+                                {
+                                    marker = false;
+                                }
+                                p = now;
+                                now = j;
                             }
-                            b = a;
+                            if (marker)
+                            {
+                                count++;
+                            }
                         }
-                        Console.WriteLine(k);
+                        Console.WriteLine(count);
                     }
                     break;
                 case 40:
                     {
                         Console.WriteLine("Series40");
-                        int n = Convert.ToInt32(Console.ReadLine());
-                        int b = Convert.ToInt32(Console.ReadLine());
-                        int k = 0;
-                        for (int i = 1; i < n; i++)
+                        int k = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < k; i++)
                         {
-                            int a = Convert.ToInt32(Console.ReadLine());
-                            if (b < a)
+                            bool b = true;
+                            int count = 0;
+                            int marker = 0;
+                            int p = Convert.ToInt32(Console.ReadLine());
+                            int now = Convert.ToInt32(Console.ReadLine());
+                            for (int j = Convert.ToInt32(Console.ReadLine());
+                                j != 0;
+                                j = Convert.ToInt32(Console.ReadLine()))
                             {
-                                Console.WriteLine(b);
-                                k++;
+                                if (b && !((j < now && p < now) || (now < j && now < p)))
+                                {
+                                    marker = ++count;
+                                    b= false;
+                                }
+                                p = now;
+                                now = j;
                             }
-                            b = a;
+                            Console.WriteLine(marker == 0 ? count : marker);
                         }
-                        Console.WriteLine(k);
                     }
                     break;
             }
