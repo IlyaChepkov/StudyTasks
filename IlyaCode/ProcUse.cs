@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace IlyaCode
 {
-    internal static class Proc
+    internal static partial class Proc
     {
         public static void Do()
         {
@@ -302,7 +306,7 @@ namespace IlyaCode
                         for (int i = 0; i < 10; i++)
                         {
                             int k = Convert.ToInt32(Console.ReadLine());
-                            if(Even(k))
+                            if (Even(k))
                             {
                                 count++;
                             }
@@ -372,256 +376,314 @@ namespace IlyaCode
                         Console.WriteLine(count);
                     }
                     break;
-            }
-        }
-
-        public static void PowerA3(double a, out double b)
-        {
-            b = a * a * a;
-        }
-
-        public static void PowerA234(double a, out double b, out double c, out double d)
-        {
-            b = a * a;
-            c = a * a * a;
-            d = a * a * a * a;
-        }
-
-        public static void Mean(double x, double y, out double aMean, out double gMean)
-        {
-            aMean = (x + y) / 2;
-            gMean = Math.Sqrt(x * y);
-        }
-
-        public static void TrianglePS(double a, out double p, out double s)
-        {
-            p = a * 3;
-            s = (a * a) * Math.Sqrt(3) / 4;
-        }
-
-        public static void RectPS(double x1, double y1, double x2, double y2, out double p, out double s)
-        {
-            x1 = Math.Abs(x1 - x2);
-            y1 = Math.Abs(y1 - y2);
-            p = (x1 + y1) * 2;
-            s = x1 * y2;
-        }
-
-        public static void DigitCountSum(int k, out int c, out int s)
-        {
-            c = 0;
-            s = 0;
-            while (k > 0)
-            {
-                s += k % 10;
-                c++;
-                k /= 10;
-            }
-        }
-
-        public static void InvertDigits(ref int k)
-        {
-            int digits = 0;
-            while (k > 0)
-            {
-                digits *= 10;
-                digits += k % 10;
-                k /= 10;
-            }
-            k = digits;
-        }
-
-        public static void AddRightDigit(int d, ref int k)
-        {
-            k = k * 10 + d;
-        }
-
-        public static void AddLeftDigit(int d, ref int k)
-        {
-            int digits = k;
-            while (digits > 0)
-            {
-                digits /= 10;
-                d *= 10;
-            }
-            k += d;
-        }
-
-        public static void Swap(ref double x, ref double y)
-        {
-            double temp = x;
-            x = y;
-            y = temp;
-        }
-
-        public static void MinMax(ref double x, ref double y)
-        {
-            if (x > y)
-            {
-                Swap(ref x, ref y);
-            }
-        }
-
-        public static void SortInc3(ref double a, ref double b, ref double c)
-        {
-            MinMax(ref a, ref b);
-            MinMax(ref b, ref c);
-            MinMax(ref a, ref b);
-        }
-
-        public static void SortDec3(ref double a, ref double b, ref double c)
-        {
-            MinMax(ref c, ref b);
-            MinMax(ref b, ref a);
-            MinMax(ref c, ref b);
-        }
-
-        public static void ShiftRight3(ref double a, ref double b, ref double c)
-        {
-            Swap(ref a, ref b);
-            Swap(ref a, ref c);
-        }
-
-        public static void ShiftLeft3(ref double a, ref double b, ref double c)
-        {
-            Swap(ref a, ref c);
-            Swap(ref a, ref b);
-        }
-
-        public static int Sign(double x)
-        {
-            if (x < 0)
-            {
-                return -1;
-            }
-            else
-            {
-                if (x == 0)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 1;
-                }
-            }
-        }
-        public static int RootsCount(double a, double b, double c)
-        {
-            double d = (b * b) - 4 * a * c;
-            if (d < 0)
-            {
-                return 0;
-            }
-            else
-            {
-                if (d == 0)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 2;
-                }
-            }
-        }
-        public static double CircleS(double r) => 3.14 * (r * r);
-
-        public static double RingS(double r1, double r2) => CircleS(r1) - CircleS(r2);
-
-        public static double TriangleP(double a, double h) => Math.Sqrt((a * a / 4) + h * h) * 2 + a;
-
-        public static int SumRange(int a, int b)
-        {
-            int sum = 0;
-            while (a <= b)
-            {
-                sum += a;
-                a++;
-            }
-            return sum;
-        }
-
-        public static double Calc(double a, double b, int op)
-        {
-            switch (op)
-            {
-                case 1:
+                case 29:
                     {
-                        return a - b;
+                        Console.WriteLine("Proc29");
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(DigitCount(k));
+                        }
                     }
-                case 2:
+                    break;
+                case 30:
                     {
-                        return a * b;
+                        Console.WriteLine("Proc30");
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(DigitN(k, i));
+                        }
                     }
-                case 3:
+                    break;
+                case 31:
                     {
-                        return a / b;
+                        Console.WriteLine("Proc31");
+                        for (int i = 0; i < 10; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(IsPalindrom(k));
+                        }
                     }
-            }
-            return a + b;
-        }
-
-        public static int Quarter(double x, double y)
-        {
-            if (x > 0 && y > 0)
-            {
-                return 1;
-            }
-            else
-            {
-                if (x < 0 && y > 0)
-                {
-                    return 2;
-                }
-                else
-                {
-                    if (x < 0 && y < 0)
+                    break;
+                case 32:
                     {
-                        return 3;
+                        Console.WriteLine("Proc32");
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(DegToRad(k));
+                        }
                     }
-                    else
+                    break;
+                case 33:
                     {
-                        return 4;
+                        Console.WriteLine("Proc33");
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(RadToDeg(k));
+                        }
                     }
-                }
+                    break;
+                case 34:
+                    {
+                        Console.WriteLine("Proc34");
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(Fact(k));
+                        }
+                    }
+                    break;
+                case 35:
+                    {
+                        Console.WriteLine("Proc35");
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(Fact2(k));
+                        }
+                    }
+                    break;
+                case 36:
+                    {
+                        Console.WriteLine("Proc36");
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(Fib(k));
+                        }
+                    }
+                    break;
+                case 37:
+                    {
+                        Console.WriteLine("Proc37");
+                        double p = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 3; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(Power1(k, p));
+                        }
+                    }
+                    break;
+                case 38:
+                    {
+                        Console.WriteLine("Proc38");
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 3; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(Power2(a, k));
+                        }
+                    }
+                    break;
+                case 39:
+                    {
+                        Console.WriteLine("Proc39");
+                        double p = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 3; i++)
+                        {
+                            int k = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(Power3(k, p));
+                        }
+                    }
+                    break;
+                case 40:
+                    {
+                        Console.WriteLine("Proc40");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 6; i++)
+                        {
+                            double k = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine(Exp1(x, k));
+                        }
+                    }
+                    break;
+                case 41:
+                    {
+                        Console.WriteLine("Proc41");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 6; i++)
+                        {
+                            double k = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine(Sin1(x, k));
+                        }
+                    }
+                    break;
+                case 42:
+                    {
+                        Console.WriteLine("Proc42");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 6; i++)
+                        {
+                            double k = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine(Cos1(x, k));
+                        }
+                    }
+                    break;
+                case 43:
+                    {
+                        Console.WriteLine("Proc43");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 6; i++)
+                        {
+                            double k = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine(Ln1(x, k));
+                        }
+                    }
+                    break;
+                case 44:
+                    {
+                        Console.WriteLine("Proc44");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 6; i++)
+                        {
+                            double k = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine(Arctg1(x, k));
+                        }
+                    }
+                    break;
+                case 45:
+                    {
+                        Console.WriteLine("Proc45");
+                        double x = Convert.ToDouble(Console.ReadLine());
+                        double a = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < 6; i++)
+                        {
+                            double k = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine(Power4(x, a, k));
+                        }
+                    }
+                    break;
+                case 46:
+                    {
+                        Console.WriteLine("Proc46");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < 3; i++)
+                        {
+                            int b = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(NOD2(a, b));
+                        }
+                    }
+                    break;
+                case 47:
+                    {
+                        Console.WriteLine("Proc47");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < 3; i++)
+                        {
+                            int p = Convert.ToInt32(Console.ReadLine());
+                            int q = Convert.ToInt32(Console.ReadLine());
+                            int res1, res2;
+                            Frac1(a * q + p * b, b * q, out res1, out res2);
+                            Console.WriteLine(res1 + "/" + res2);
+                        }
+                    }
+                    break;
+                case 48:
+                    {
+                        Console.WriteLine("Proc48");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < 3; i++)
+                        {
+                            int b = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(NOK2(a, b));
+                        }
+                    }
+                    break;
+                case 49:
+                    {
+                        Console.WriteLine("Proc49");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        int c = Convert.ToInt32(Console.ReadLine());
+                        int d = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(NOD3(a, b, c));
+                        Console.WriteLine(NOD3(a, c, d));
+                        Console.WriteLine(NOD3(b, c, d));
+                    }
+                    break;
+                case 50:
+                    {
+                        Console.WriteLine("Proc50");
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int t = Convert.ToInt32(Console.ReadLine());
+                            int s, m, h;
+                            TimeToHMS(t, out h, out m, out s);
+                            Console.WriteLine(h);
+                            Console.WriteLine(m);
+                            Console.WriteLine(s);
+                        }
+                    }
+                    break;
+                case 51:
+                    {
+                        Console.WriteLine("Proc51");
+                        int t = Convert.ToInt32(Console.ReadLine());
+                        int h = Convert.ToInt32(Console.ReadLine());
+                        int m = Convert.ToInt32(Console.ReadLine());
+                        int s = Convert.ToInt32(Console.ReadLine());
+                        IncTime(t, ref h, ref m, ref s);
+                        Console.WriteLine(h);
+                        Console.WriteLine(m);
+                        Console.WriteLine(s);
+                    }
+                    break;
+                case 52:
+                    {
+                        Console.WriteLine("Proc52");
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int y = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(IsLeapYear(y));
+                        }
+                    }
+                    break;
+                case 53:
+                    {
+                        Console.WriteLine("Proc53");
+                        int y = Convert.ToInt32(Console.ReadLine());
+                        for (byte i = 0; i < 3; i++)
+                        {
+                            int m = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(MonthDays(m, y));
+                        }
+                    }
+                    break;
+                case 54:
+                    {
+                        Console.WriteLine("Proc54");
+                        for (int i = 0; i < 3; i++)
+                        {
+                            int d = Convert.ToInt32(Console.ReadLine());
+                            int m = Convert.ToInt32(Console.ReadLine());
+                            int y = Convert.ToInt32(Console.ReadLine());
+                            PrevDate(ref d,ref  m, ref y);
+                            Console.WriteLine(d);
+                            Console.WriteLine(m);
+                            Console.WriteLine(y);
+                        }
+                    }
+                    break;
+                case 55:
+                    {
+                        Console.WriteLine("Proc55");
+                        for (int i = 0; i < 3; i++)
+                        {
+                            int d = Convert.ToInt32(Console.ReadLine());
+                            int m = Convert.ToInt32(Console.ReadLine());
+                            int y = Convert.ToInt32(Console.ReadLine());
+                            NextDate(ref d, ref m, ref y);
+                            Console.WriteLine(d);
+                            Console.WriteLine(m);
+                            Console.WriteLine(y);
+                        }
+                    }
+                    break;
             }
-        }
-
-        public static bool Even(int k) => k % 2 == 0;
-
-        public static bool IsSquare(int k) => Math.Sqrt(k) == (int)Math.Sqrt(k);
-
-        public static bool IsPower5(int k)
-        {
-            while(k % 5 == 0)
-            {
-                k /= 5;
-            }
-            return k == 1;
-        }
-
-
-        public static bool IsPowerN(int k, int n)
-        {
-            while (k % n == 0)
-            {
-                k /= n;
-            }
-            return k == 1;
-        }
-
-        public static bool IsPrime(int n)
-        {
-            for(int i = 2; i <= Math.Sqrt(n); i++)
-            {
-                if(n % i == 0)
-                {
-                    return false;
-                }
-            }
-            return true;
         }
     }
 }
-

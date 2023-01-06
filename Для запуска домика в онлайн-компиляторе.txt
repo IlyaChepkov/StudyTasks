@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+/******************************************************************************
 
-namespace IlyaCode
-{
-    internal static class House
-    {
-        const Byte c = 5;
+                            Online C# Compiler.
+                Code, Compile, Run and Debug C# program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+using System;
+using System.Threading;
+class HelloWorld {
+    
+     const Byte c = 5;
         static char s = '█';
-        public static void Do()
-        {
-            string str = Console.ReadLine();
+  static void Main() {
+      string str = Console.ReadLine();
             s = str.Length > 0 ? str[0] : '█';
             while (true)
             {
@@ -30,8 +30,9 @@ namespace IlyaCode
                     Paint(100 - k, 0);
                 }
             }
-        }
-
+  }
+  
+  
         public static void Paint(int x, int y)
         {
             for (int i = 0; i <= y; i++)
@@ -64,8 +65,7 @@ namespace IlyaCode
                 }
                 Console.WriteLine();
             }
-            Thread.Sleep(10);
+            Thread.Sleep(100);
             Console.Clear();
         }
-    }
 }
