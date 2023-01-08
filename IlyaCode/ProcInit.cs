@@ -522,8 +522,8 @@
             h += t / 3600;
         }
 
-        public static bool IsLeapYear(int y) =>
-            y % 4 == 0 && (y % 100 != 0 || y % 400 == 0);
+        public static bool IsLeapYear(int y) 
+            => y % 4 == 0 && (y % 100 != 0 || y % 400 == 0);
 
         public static int MonthDays(int m, int y)
         {
@@ -592,6 +592,32 @@
                 d = 1;
             }
 
+        }
+
+        public static double Leng(double xA, double yA, double xB, double yB)
+            => Math.Sqrt(Power3(xA - xB, 2) + Power3(yA - yB, 2));
+
+        public static double Perim(double xA, double yA, double xB, double yB, double xC, double yC)
+            => Leng(xA, yA, xB, yB) + Leng(xB, yB, xC, yC) + Leng(xC, yC, xA, yA);
+
+        public static double Area(double xA, double yA, double xB, double yB, double xC, double yC)
+        {
+            double p = Perim(xA, yA, xB, yB, xC, yC) / 2;
+            return Math.Sqrt(p
+                                * (p - Leng(xA, yA, xB, yB))
+                                * (p - Leng(xC, yC, xA, yA))
+                                * (p - Leng(xB, yB, xC, yC)));
+        }
+
+        public static double Dist(double xP, double yP, double xA, double yA, double xB, double yB)
+            => 2 * Area(xP, yP, xA, yA, xB, yB) / Leng(xA, yA, xB, yB);
+
+        public static void Heights(double xA, double yA, double xB, double yB, double xC, double yC,
+                                    out double hA, out double hB, out double hC)
+        {
+            hA = Dist(xA, yA, xB, yB, xC, yC);
+            hB = Dist(xB, yB, xA, yA, xC, yC);
+            hC = Dist(xC, yC, xA, yA, xB, yB);
         }
     }
 }

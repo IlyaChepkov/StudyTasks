@@ -46,6 +46,9 @@ internal class Program
             case 9:
                 Proc.Do();
                 break;
+            case 10:
+                Minmax.Do();
+                break;
         }
         Console.ReadLine();
     }

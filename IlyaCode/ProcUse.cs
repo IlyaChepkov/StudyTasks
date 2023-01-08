@@ -683,6 +683,93 @@ namespace IlyaCode
                         }
                     }
                     break;
+                case 56:
+                    {
+                        Console.WriteLine("Proc56");
+                        double xa = Convert.ToDouble(Console.ReadLine());
+                        double ya = Convert.ToDouble(Console.ReadLine());
+                        for (byte i = 0; i < 3; i++)
+                        {
+                            double xb = Convert.ToDouble(Console.ReadLine());
+                            double yb = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine(Leng(xa, ya, xb, yb));
+                        }
+                    }
+                    break;
+                case 57:
+                    {
+                        Console.WriteLine("Proc57");
+                        double xa = Convert.ToDouble(Console.ReadLine());
+                        double ya = Convert.ToDouble(Console.ReadLine());
+                        double xb = Convert.ToDouble(Console.ReadLine());
+                        double yb = Convert.ToDouble(Console.ReadLine());
+                        double xc = Convert.ToDouble(Console.ReadLine());
+                        double yc = Convert.ToDouble(Console.ReadLine());
+                        double xd = Convert.ToDouble(Console.ReadLine());
+                        double yd = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine(Perim(xa, ya, xb, yb, xc, yc));
+                        Console.WriteLine(Perim(xa, ya, xb, yb, xd, yd));
+                        Console.WriteLine(Perim(xa, ya, xc, yc, xd, yd));
+                    }
+                    break;
+                case 58:
+                    {
+                        Console.WriteLine("Proc58");
+                        double xa = Convert.ToDouble(Console.ReadLine());
+                        double ya = Convert.ToDouble(Console.ReadLine());
+                        double xb = Convert.ToDouble(Console.ReadLine());
+                        double yb = Convert.ToDouble(Console.ReadLine());
+                        double xc = Convert.ToDouble(Console.ReadLine());
+                        double yc = Convert.ToDouble(Console.ReadLine());
+                        double xd = Convert.ToDouble(Console.ReadLine());
+                        double yd = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine(Area(xa, ya, xb, yb, xc, yc));
+                        Console.WriteLine(Area(xa, ya, xb, yb, xd, yd));
+                        Console.WriteLine(Area(xa, ya, xc, yc, xd, yd));
+                    }
+                    break;
+                case 59:
+                    {
+                        Console.WriteLine("Proc59");
+                        double xp = Convert.ToDouble(Console.ReadLine());
+                        double yp = Convert.ToDouble(Console.ReadLine());
+                        double xa = Convert.ToDouble(Console.ReadLine());
+                        double ya = Convert.ToDouble(Console.ReadLine());
+                        double xb = Convert.ToDouble(Console.ReadLine());
+                        double yb = Convert.ToDouble(Console.ReadLine());
+                        double xc = Convert.ToDouble(Console.ReadLine());
+                        double yc = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine(Dist(xp, yp, xa, ya, xb, yb));
+                        Console.WriteLine(Dist(xp, yp, xa, ya, xc, yc));
+                        Console.WriteLine(Dist(xp, yp, xb, yb, xc, yc));
+                    }
+                    break;
+                case 60:
+                    {
+                        Console.WriteLine("Proc60");
+                        double xa = Convert.ToDouble(Console.ReadLine());
+                        double ya = Convert.ToDouble(Console.ReadLine());
+                        double xb = Convert.ToDouble(Console.ReadLine());
+                        double yb = Convert.ToDouble(Console.ReadLine());
+                        double xc = Convert.ToDouble(Console.ReadLine());
+                        double yc = Convert.ToDouble(Console.ReadLine());
+                        double xd = Convert.ToDouble(Console.ReadLine());
+                        double yd = Convert.ToDouble(Console.ReadLine());
+                        double h1, h2, h3;
+                        Heights(xa, ya, xb, yb, xc, yc, out h1, out h2, out h3);
+                        Console.WriteLine(h1);
+                        Console.WriteLine(h2);
+                        Console.WriteLine(h3);
+                        Heights(xa, ya, xb, yb, xd, yd, out h1, out h2, out h3);
+                        Console.WriteLine(h1);
+                        Console.WriteLine(h2);
+                        Console.WriteLine(h3);
+                        Heights(xa, ya, xc, yc, xd, yd, out h1, out h2, out h3);
+                        Console.WriteLine(h1);
+                        Console.WriteLine(h2);
+                        Console.WriteLine(h3);
+                    }
+                    break;
             }
         }
     }
