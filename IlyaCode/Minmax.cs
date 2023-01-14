@@ -60,6 +60,45 @@
                 case 17:
                     MinMax17();
                     break;
+                case 18:
+                    MinMax18();
+                    break;
+                case 19:
+                    MinMax19();
+                    break;
+                case 20:
+                    MinMax20();
+                    break;
+                case 21:
+                    MinMax21();
+                    break;
+                case 22:
+                    MinMax22();
+                    break;
+                case 23:
+                    MinMax23();
+                    break;
+                case 24:
+                    MinMax24();
+                    break;
+                case 25:
+                    MinMax25();
+                    break;
+                case 26:
+                    MinMax26();
+                    break;
+                case 27:
+                    MinMax27();
+                    break;
+                case 28:
+                    MinMax28();
+                    break;
+                case 29:
+                    MinMax29();
+                    break;
+                case 30:
+                    MinMax3();
+                    break;
             }
         }
 
@@ -232,7 +271,7 @@
         public static void MinMax9()
         {
             int n = Convert.ToInt32(Console.ReadLine());
-            double max= Convert.ToDouble(Console.ReadLine());
+            double max = Convert.ToDouble(Console.ReadLine());
             int numberFirst = 1;
             int numberLast = 1;
             for (int i = 2; i <= n; i++)
@@ -400,6 +439,376 @@
                 }
             }
             Console.WriteLine(numberLast);
+        }
+
+        public static void MinMax18()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double max = Convert.ToDouble(Console.ReadLine());
+            int numberFirst = 1;
+            int numberLast = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (max < numeric)
+                {
+                    max = numeric;
+                    numberFirst = i;
+                }
+                if (max == numeric)
+                {
+                    numberLast = i;
+                }
+            }
+            Console.WriteLine(numberFirst == numberLast ? 0 : numberLast - numberFirst - 1);
+        }
+
+        public static void MinMax19()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double min = Convert.ToDouble(Console.ReadLine());
+            int count = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (min >= numeric)
+                {
+                    if (min == numeric)
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        count = 1;
+                        min = numeric;
+                    }
+                }
+            }
+            Console.WriteLine(count);
+        }
+
+
+        public static void MinMax20()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double min = Convert.ToDouble(Console.ReadLine());
+            double max = min;
+            int countMin = 1;
+            int countMax = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (min >= numeric)
+                {
+                    if (min == numeric)
+                    {
+                        countMin++;
+                    }
+                    else
+                    {
+                        countMin = 1;
+                        min = numeric;
+                    }
+                }
+                if (max <= numeric)
+                {
+                    if (max == numeric)
+                    {
+                        countMax++;
+                    }
+                    else
+                    {
+                        countMax = 1;
+                        max = numeric;
+                    }
+                }
+            }
+            Console.WriteLine(min == max ? countMin : countMax + countMin);
+        }
+
+        public static void MinMax21()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double min = Convert.ToDouble(Console.ReadLine());
+            double max = min;
+            int countMin = 1;
+            int countMax = 1;
+            double sum = min;
+            for (int i = 2; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                sum += numeric;
+                if (min >= numeric)
+                {
+                    if (min == numeric)
+                    {
+                        countMin++;
+                    }
+                    else
+                    {
+                        countMin = 1;
+                        min = numeric;
+                    }
+                }
+                if (max <= numeric)
+                {
+                    if (max == numeric)
+                    {
+                        countMax++;
+                    }
+                    else
+                    {
+                        countMax = 1;
+                        max = numeric;
+                    }
+                }
+            }
+            if (min == max)
+            {
+                Console.WriteLine(0.0 / 0.0);
+            }
+            else
+            {
+                sum -= min * countMin + max * countMax;
+                Console.WriteLine(sum / (n - countMin - countMax));
+            }
+        }
+
+        public static void MinMax22()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double minFirst = Convert.ToDouble(Console.ReadLine());
+            double minLast = Convert.ToDouble(Console.ReadLine());
+            Proc.MinMax(ref minFirst, ref minLast);
+            for (int i = 3; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (minLast > numeric)
+                {
+                    minLast = numeric;
+                }
+                if (minFirst > numeric)
+                {
+                    minLast = minFirst;
+                    minFirst = numeric;
+                }
+            }
+            Console.WriteLine(minFirst);
+            Console.WriteLine(minLast);
+        }
+
+        public static void MinMax23()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double maxFirst = Convert.ToDouble(Console.ReadLine());
+            double maxMidle = Convert.ToDouble(Console.ReadLine());
+            double maxLast = Convert.ToDouble(Console.ReadLine());
+            Proc.SortInc3(ref maxLast, ref maxMidle, ref maxFirst);
+            for (int i = 4; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (maxFirst < numeric)
+                {
+                    maxLast = maxMidle;
+                    maxMidle = maxFirst;
+                    maxFirst = numeric;
+                }
+                else
+                {
+                    if (maxMidle < numeric)
+                    {
+                        maxLast = maxMidle;
+                        maxMidle = numeric;
+                    }
+                    else
+                    {
+                        if (maxLast < numeric)
+                        {
+                            maxLast = numeric;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(maxFirst);
+            Console.WriteLine(maxMidle);
+            Console.WriteLine(maxLast);
+        }
+
+        public static void MinMax24()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double? maxSum = null;
+            double now = Convert.ToDouble(Console.ReadLine());
+            for (int i = 2; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (!maxSum.HasValue || maxSum < numeric + now)
+                {
+                    maxSum = numeric + now;
+                }
+                now = numeric;
+            }
+            Console.WriteLine(maxSum);
+        }
+        public static void MinMax25()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double? minMul = null;
+            int number = 0;
+            double now = Convert.ToDouble(Console.ReadLine());
+            for (int i = 2; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (!minMul.HasValue || minMul > numeric * now)
+                {
+                    minMul = numeric * now;
+                    number = i;
+                }
+                now = numeric;
+            }
+            Console.WriteLine(number - 1);
+            Console.WriteLine(number);
+        }
+
+        public static void MinMax26()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            int maxCount = 0;
+            int count = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (numeric % 2 == 0)
+                {
+                    count++;
+                    if (count > maxCount)
+                    {
+                        maxCount = count;
+                    }
+                }
+                else
+                {
+                    count = 0;
+                }
+            }
+            Console.WriteLine(maxCount);
+        }
+        public static void MinMax27()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            int maxCount = 1;
+            int count = 1;
+            int maxNumber = 1;
+            int number = 1;
+            double now = -1;
+            for (int i = 1; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (numeric == now)
+                {
+                    count++;
+                    if (count > maxCount)
+                    {
+                        maxNumber = number;
+                        maxCount = count;
+                    }
+                }
+                else
+                {
+                    count = 1;
+                    now = numeric;
+                    number = i;
+                }
+            }
+            Console.WriteLine(maxNumber);
+        }
+
+        public static void MinMax28()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            int maxCount = 0;
+            int count = 0;
+            int maxNumber = 0;
+            int number = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (numeric == 1)
+                {
+                    count++;
+                    if (count >= maxCount)
+                    {
+                        maxNumber = number;
+                        maxCount = count;
+                    }
+                }
+                else
+                {
+                    count = 0;
+                    number = i + 1;
+                }
+            }
+            Console.WriteLine(maxNumber);
+            Console.WriteLine(maxCount);
+        }
+
+        public static void MinMax29()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double min = Convert.ToDouble(Console.ReadLine());
+            int maxCount = 1;
+            int count = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (min == numeric)
+                {
+                    count++;
+                    if (count > maxCount)
+                    {
+                        maxCount = count;
+                    }
+                }
+                else
+                {
+                    count = 1;
+                    if (min > numeric)
+                    {
+                        maxCount = 1;
+                        min = numeric;
+                    }
+                }
+            }
+            Console.WriteLine(maxCount);
+        }
+        public static void MinMax30()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            double max = Convert.ToDouble(Console.ReadLine());
+            int minCount = 1;
+            int count = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                double numeric = Convert.ToDouble(Console.ReadLine());
+                if (max == numeric)
+                {
+                    count++;
+                }
+                else
+                {
+                    if (count < minCount)
+                    {
+                        minCount = count;
+                    }
+                    count = 1;
+                    if (max < numeric)
+                    {
+                        minCount = 1;
+                        max = numeric;
+                    }
+                }
+            }
+            Console.WriteLine(minCount);
         }
     }
 }
