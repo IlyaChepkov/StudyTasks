@@ -97,7 +97,7 @@
                     MinMax29();
                     break;
                 case 30:
-                    MinMax3();
+                    MinMax30();
                     break;
             }
         }
@@ -781,34 +781,46 @@
             }
             Console.WriteLine(maxCount);
         }
+
         public static void MinMax30()
         {
             int n = Convert.ToInt32(Console.ReadLine());
             double max = Convert.ToDouble(Console.ReadLine());
-            int minCount = 1;
-            int count = 1;
+            int minCount = n;
+            int? count = 1;
             for (int i = 2; i <= n; i++)
             {
                 double numeric = Convert.ToDouble(Console.ReadLine());
                 if (max == numeric)
                 {
-                    count++;
+                    if (count != null)
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        count = 1;
+                    }
                 }
                 else
                 {
-                    if (count < minCount)
+                    if (count != null && count < minCount)
                     {
-                        minCount = count;
+                        minCount = count.Value;
                     }
-                    count = 1;
                     if (max < numeric)
                     {
-                        minCount = 1;
+                        minCount = n;
                         max = numeric;
+                        count = 1;
+                    }
+                    else
+                    {
+                        count = null;
                     }
                 }
             }
-            Console.WriteLine(minCount);
+            Console.WriteLine(count != null && count < minCount ? count : minCount);
         }
     }
 }

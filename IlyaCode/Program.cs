@@ -49,6 +49,9 @@ internal class Program
             case 10:
                 Minmax.Do();
                 break;
+            case 11:
+                IlyaCode.Array.Do();
+                break;
         }
         Console.ReadLine();
     }
