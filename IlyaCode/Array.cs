@@ -257,5 +257,131 @@
                 Console.WriteLine(array[i]);
             }
         }
+        public static void Array16()
+        {
+            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(i % 2 == 0 ? array[i / 2] :
+                    array[array.Length - (i + 1) / 2]);
+            }
+        }
+
+        public static void Array17()
+        {
+            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine((i % 4) switch
+                {
+                    0 => array[i / 2],
+                    1 => array[(i + 1) / 2],
+                    2 => array[array.Length - (i + 1) / 2],
+                    3 => array[array.Length - (i + 1) / 2],
+                });
+            }
+        }
+
+        public static void Array18()
+        {
+            int[] array = new int[10];
+            int k = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] < array[9])
+                {
+                    k = array[i];
+                    break;
+                }
+            }
+            Console.WriteLine(k);
+        }
+
+        public static void Array19()
+        {
+            int[] array = new int[10];
+            int number = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                if (array[0] < array[i] && array[i] < array[9])
+                {
+                    number = i + 1;
+                    break;
+                }
+            }
+            Console.WriteLine(number);
+        }
+
+        public static void Array20()
+        {
+            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            double sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            int k = Convert.ToInt32(Console.ReadLine());
+            int l = Convert.ToInt32(Console.ReadLine());
+            for (int i = k - 1; i < l; i++)
+            {
+                sum += array[i];
+            }
+            Console.WriteLine(sum);
+        }
+
+        public static void Array21()
+        {
+            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            double sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            int k = Convert.ToInt32(Console.ReadLine());
+            int l = Convert.ToInt32(Console.ReadLine());
+            for (int i = k - 1; i < l; i++)
+            {
+                sum += array[i];
+            }
+            Console.WriteLine(sum / (l - k + 1));
+        }
+
+        public static void Array22()
+        {
+            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            double sumkl = 0;
+            double sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            int k = Convert.ToInt32(Console.ReadLine());
+            int l = Convert.ToInt32(Console.ReadLine());
+            for (int i = k - 1; i < l; i++)
+            {
+                sumkl += array[i];
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+            }
+            Console.WriteLine(sum - sumkl);
+        }
     }
 }
