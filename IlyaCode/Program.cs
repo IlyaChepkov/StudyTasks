@@ -7,6 +7,9 @@ internal class Program
         Console.WriteLine("Введите номер раздела");
         switch (Convert.ToInt32(Console.ReadLine()))
         {
+            case -5:
+                OGE.Do();
+                break;
             case -4:
                 House.Do();
                 break;
