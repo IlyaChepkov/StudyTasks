@@ -578,7 +578,7 @@
             {
                 array[i] = Convert.ToInt32(Console.ReadLine());
             }
-            for (int i = array.Length - 1;i > 1; i--)
+            for (int i = array.Length - 1; i > 1; i--)
             {
                 if (array[i - 1] < array[i] && array[i] > array[i + 1])
                 {
@@ -717,7 +717,7 @@
             int[] array = new int[Convert.ToInt32(Console.ReadLine())];
             for (int i = 0; i < array.Length; i++)
             {
-                
+
                 array[i] = Convert.ToInt32(Console.ReadLine());
             }
             int count = 0;
@@ -858,7 +858,7 @@
                 array[i] = Convert.ToDouble(Console.ReadLine());
             }
             int indexI = 0;
-            int indexJ = 1; 
+            int indexJ = 1;
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
@@ -870,8 +870,35 @@
                     }
                 }
             }
-            Console.WriteLine(indexI);
-            Console.WriteLine(indexJ);
+            Console.WriteLine(indexI + 1);
+            Console.WriteLine(indexJ + 1);
+        }
+
+        public static void Array46()
+        {
+            double r = Convert.ToDouble(Console.ReadLine());
+            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            double sum = array[0] + array[1];
+            int indexI = 0;
+            int indexJ = 1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (Math.Abs(array[i] + array[j] - r) < Math.Abs(sum - r))
+                    {
+                        indexI = i;
+                        indexJ = j;
+                        sum = array[i] + array[j];
+                    }
+                }
+            }
+            Console.WriteLine(array[indexI]);
+            Console.WriteLine(array[indexJ]);
         }
     }
 }
