@@ -900,6 +900,53 @@
             Console.WriteLine(array[indexI]);
             Console.WriteLine(array[indexJ]);
         }
+
+        public static void Array47()
+        {
+            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            int count = array.Length;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[i] == array[j])
+                    {
+                        count--;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(count);
+        }
+        public static void Array48()
+        {
+            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            int max = 1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                int count = 1;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[i] == array[j])
+                    {
+                     count++;
+                    }
+                }
+                if (max < count)
+                {
+                    max = count;
+                }
+            }
+            Console.WriteLine(max);
+        }
     }
 }
 
