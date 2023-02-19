@@ -937,7 +937,7 @@
                 {
                     if (array[i] == array[j])
                     {
-                     count++;
+                        count++;
                     }
                 }
                 if (max < count)
@@ -946,6 +946,52 @@
                 }
             }
             Console.WriteLine(max);
+        }
+
+        public static void Array49()
+        {
+            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] > array.Length && array[i] < 1)
+                {
+                    Console.WriteLine(i + 1);
+                    return;
+                }
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[i] == array[j])
+                    {
+                        Console.WriteLine(j + 1);
+                        return;
+                    }
+                }
+            }
+            Console.WriteLine(0);
+        }
+        public static void Array50()
+        {
+            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[i] > array[j])
+                    {
+                        count++;
+                    }
+                }
+            }
+            Console.WriteLine(count);
         }
     }
 }
