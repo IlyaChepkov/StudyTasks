@@ -330,12 +330,8 @@
 
         public static void Array20()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             double sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
             int k = Convert.ToInt32(Console.ReadLine());
             int l = Convert.ToInt32(Console.ReadLine());
             for (int i = k - 1; i < l; i++)
@@ -347,12 +343,8 @@
 
         public static void Array21()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             double sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
             int k = Convert.ToInt32(Console.ReadLine());
             int l = Convert.ToInt32(Console.ReadLine());
             for (int i = k - 1; i < l; i++)
@@ -364,13 +356,9 @@
 
         public static void Array22()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             double sumkl = 0;
             double sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
             int k = Convert.ToInt32(Console.ReadLine());
             int l = Convert.ToInt32(Console.ReadLine());
             for (int i = k - 1; i < l; i++)
@@ -385,12 +373,8 @@
         }
         public static void Array23()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             double sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
             int k = Convert.ToInt32(Console.ReadLine());
             int l = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < k - 1; i++)
@@ -717,7 +701,6 @@
             int[] array = new int[Convert.ToInt32(Console.ReadLine())];
             for (int i = 0; i < array.Length; i++)
             {
-
                 array[i] = Convert.ToInt32(Console.ReadLine());
             }
             int count = 0;
@@ -756,11 +739,7 @@
         public static void Array40()
         {
             double r = Convert.ToDouble(Console.ReadLine());
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             double min = array[0];
             for (int i = 1; i < array.Length; i++)
             {
@@ -774,11 +753,7 @@
 
         public static void Array41()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             int index = 1;
             for (int i = 2; i < array.Length; i++)
             {
@@ -794,11 +769,7 @@
         public static void Array42()
         {
             double r = Convert.ToDouble(Console.ReadLine());
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             int index = 1;
             for (int i = 2; i < array.Length; i++)
             {
@@ -813,11 +784,7 @@
 
         public static void Array43()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             int count = 1;
             for (int i = 1; i < array.Length; i++)
             {
@@ -831,11 +798,7 @@
 
         public static void Array44()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
@@ -852,11 +815,7 @@
 
         public static void Array45()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             int indexI = 0;
             int indexJ = 1;
             for (int i = 0; i < array.Length; i++)
@@ -877,11 +836,7 @@
         public static void Array46()
         {
             double r = Convert.ToDouble(Console.ReadLine());
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             double sum = array[0] + array[1];
             int indexI = 0;
             int indexJ = 1;
@@ -903,11 +858,7 @@
 
         public static void Array47()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             int count = array.Length;
             for (int i = 0; i < array.Length; i++)
             {
@@ -924,11 +875,7 @@
         }
         public static void Array48()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             int max = 1;
             for (int i = 0; i < array.Length; i++)
             {
@@ -950,11 +897,7 @@
 
         public static void Array49()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] > array.Length && array[i] < 1)
@@ -975,11 +918,7 @@
         }
         public static void Array50()
         {
-            double[] array = new double[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToDouble(Console.ReadLine());
-            }
+            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
             for (int i = 0; i < array.Length; i++)
             {
@@ -993,6 +932,138 @@
             }
             Console.WriteLine(count);
         }
+
+        public static void Array51()
+        {
+            
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = Input(a.Length);
+            for (int i = 0; i < a.Length; i++)
+            {
+                Proc.Swap(ref a[i], ref b[i]);
+            }
+            Output(a);
+            Output(b);
+        }
+
+        public static void Array52()
+        {
+
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = new double[a.Length];
+            for (int i = 0; i < b.Length; i++)
+            {
+                if (a[i] < 5)
+                {
+                    b[i] = a[i] * 2;
+                }
+                else
+                {
+                    b[i] = a[i] / 2;
+                }
+            }
+            Output(b);
+        }
+
+        public static void Array53()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = Input(a.Length);
+            double[] c = new double[a.Length];
+            for (int i = 0; i < c.Length; i++)
+            {
+                if (b[i] > a[i])
+                {
+                    c[i] = b[i];
+                }
+                else
+                {
+                    c[i] = a[i];
+                }
+            }
+            Output(c);
+        }
+
+        public static void Array54()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            int count = 0;
+            for (int i = 0; i < a.Length ; i++)
+            {
+                if (a[i] % 2 == 0)
+                {
+                    count++;
+                }
+            }
+            double[] b = new double[count];
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] % 2 == 0)
+                {
+                    b[^count] = a[i];
+                    count--;
+                }
+            }
+            Output(b);
+        }
+
+        public static void Array55()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = new double[a.Length / 2];
+            for (int i = 0; i < b.Length; i++)
+            {
+                b[i] = a[i * 2];
+            }
+            Output(b);
+        }
+
+        public static void Array56()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = new double[a.Length / 3];
+            for (int i = 0; i < b.Length; i++)
+            {
+                b[i] = a[i * 3 + 2];
+            }
+            Output(b);
+        }
+
+        public static void Array57()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = new double[a.Length];
+            for (int i = 0; i < b.Length / 2; i++)
+            {
+                b[i] = a[i * 2 + 1];
+            }
+            for (int i = b.Length / 2; i < b.Length; i++)
+            {
+                b[i] = a[(i - b.Length / 2) * 2];
+            }
+            Output(b);
+        }
+
+        public static double[] Input(int n)
+        {
+            double[] a = new double[n];
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            return a;
+        }
+
+
+
+        public static void Output<T>(T[] a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine(a[i]);
+            }
+        }
+
     }
 }
 
