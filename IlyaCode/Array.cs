@@ -1,4 +1,7 @@
-﻿namespace IlyaCode
+﻿using System.Diagnostics.Tracing;
+using System.Runtime.InteropServices;
+
+namespace IlyaCode
 {
     internal static class Array
     {
@@ -1004,6 +1007,7 @@
                     count--;
                 }
             }
+            Console.WriteLine(b.Length);
             Output(b);
         }
 
@@ -1015,6 +1019,7 @@
             {
                 b[i] = a[i * 2];
             }
+            Console.WriteLine(b.Length);
             Output(b);
         }
 
@@ -1026,6 +1031,7 @@
             {
                 b[i] = a[i * 3 + 2];
             }
+            Console.WriteLine(b.Length);
             Output(b);
         }
 
@@ -1036,12 +1042,135 @@
             for (int i = 0; i < b.Length / 2; i++)
             {
                 b[i] = a[i * 2 + 1];
+
             }
             for (int i = b.Length / 2; i < b.Length; i++)
             {
                 b[i] = a[(i - b.Length / 2) * 2];
             }
             Output(b);
+        }
+        public static void Array58()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = new double[a.Length];
+            double sum = 0;
+            for (int i = 0; i < b.Length; i++)
+            {
+                sum += a[i];
+                b[i] = sum;
+            }
+            Output(b);
+        }
+        public static void Array59()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = new double[a.Length];
+            double sum = 0;
+            for (int i = 0; i < b.Length; i++)
+            {
+                sum += a[i];
+                b[i] = sum / (i + 1);
+            }
+            Output(b);
+        }
+        public static void Array60()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = new double[a.Length];
+            double sum = 0;
+            for (int i = 0; i < b.Length; i++)
+            {
+                sum += a[^(i + 1)];
+                b[^(i + 1)] = sum;
+            }
+            Output(b);
+        }
+        public static void Array61()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] b = new double[a.Length];
+            double sum = 0;
+            for (int i = 0; i < b.Length; i++)
+            {
+                sum += a[^(i + 1)];
+                b[^(i + 1)] = sum / (i + 1);
+            }
+            Output(b);
+        }
+        public static void Array62()
+        {
+            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            int pCount = 0;
+            int nCount = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] > 0)
+                {
+                    pCount++;
+                }
+                else
+                {
+                    if (a[i] < 0)
+                    {
+                        nCount++;
+                    }
+                }
+            }
+            double[] b = new double[pCount];
+            double[] c = new double[nCount];
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] > 0)
+                {
+                    b[^pCount] = a[i];
+                    pCount--;
+                }
+                else
+                {
+                    if (a[i] < 0)
+                    {
+                        c[^nCount] = a[i];
+                        nCount--;
+                    }
+                }
+            }
+            Console.WriteLine(b.Length);
+            Output(b);
+            Console.WriteLine(c.Length);
+            Output(c);
+        }
+        public static void Array63()
+        {
+            double[] a = Input(5);
+            double[] b = Input(5);
+            double[] c = new double[10];
+            for (int i = 0, j = 0, k = 0; i < 10; i++)
+            {
+                if (k == 5)
+                {
+                    c[i] = a[j];
+                    j++;
+                    continue;
+                }
+                if (j == 5)
+                {
+                    c[i] = b[k];
+                    k++;
+                    continue;
+                }
+                if (a[j] < b[k])
+                {
+                    c[i] = a[j];
+                    j++;
+                }
+                else
+                {
+                    c[i] = b[k];
+                    k++;
+                }
+            }
+            Output(c);
         }
 
         public static double[] Input(int n)
@@ -1053,9 +1182,6 @@
             }
             return a;
         }
-
-
-
         public static void Output<T>(T[] a)
         {
             for (int i = 0; i < a.Length; i++)
