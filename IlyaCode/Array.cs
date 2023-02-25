@@ -130,11 +130,7 @@ namespace IlyaCode
 
         public static void Array8()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int k = 0;
             for (int i = 0; i < array.Length; i++)
             {
@@ -149,11 +145,7 @@ namespace IlyaCode
 
         public static void Array9()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int k = 0;
             for (int i = array.Length - 1; i >= 0; i--)
             {
@@ -168,11 +160,7 @@ namespace IlyaCode
 
         public static void Array10()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] % 2 == 0)
@@ -191,12 +179,8 @@ namespace IlyaCode
 
         public static void Array11()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int k = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
             for (int i = k - 1; i < array.Length; i += k)
             {
                 Console.WriteLine(array[i]);
@@ -205,11 +189,7 @@ namespace IlyaCode
 
         public static void Array12()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 1; i < array.Length; i += 2)
             {
                 Console.WriteLine(array[i]);
@@ -218,11 +198,7 @@ namespace IlyaCode
 
         public static void Array13()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = array.Length - 1; i >= 0; i -= 2)
             {
                 Console.WriteLine(array[i]);
@@ -231,11 +207,7 @@ namespace IlyaCode
 
         public static void Array14()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 1; i < array.Length; i += 2)
             {
                 Console.WriteLine(array[i]);
@@ -248,11 +220,7 @@ namespace IlyaCode
 
         public static void Array15()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length; i += 2)
             {
                 Console.WriteLine(array[i]);
@@ -264,11 +232,7 @@ namespace IlyaCode
         }
         public static void Array16()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine(i % 2 == 0 ? array[i / 2] :
@@ -278,11 +242,7 @@ namespace IlyaCode
 
         public static void Array17()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine((i % 4) switch
@@ -297,12 +257,8 @@ namespace IlyaCode
 
         public static void Array18()
         {
-            int[] array = new int[10];
+            int[] array = IntInput(10);
             int k = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] < array[9])
@@ -316,12 +272,8 @@ namespace IlyaCode
 
         public static void Array19()
         {
-            int[] array = new int[10];
+            int[] array = IntInput(10);
             int number = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
             for (int i = array.Length - 1; i >= 0; i--)
             {
                 if (array[0] < array[i] && array[i] < array[9])
@@ -395,11 +347,7 @@ namespace IlyaCode
 
         public static void Array24()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int d = array[1] - array[0];
             for (int i = 1; i < array.Length - 1; i++)
             {
@@ -414,11 +362,7 @@ namespace IlyaCode
 
         public static void Array25()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int q = array[1] / array[0];
             for (int i = 1; i < array.Length - 1; i++)
             {
@@ -434,11 +378,7 @@ namespace IlyaCode
         public static void Array26()
         {
             int number = 0;
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length - 1; i++)
             {
                 if (array[i] % 2 == array[i + 1] % 2)
@@ -453,11 +393,7 @@ namespace IlyaCode
         public static void Array27()
         {
             int number = 0;
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length - 1; i++)
             {
                 if (array[i] > 0 == array[i + 1] > 0)
@@ -471,11 +407,7 @@ namespace IlyaCode
 
         public static void Array28()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int min = array[1];
             for (int i = 3; i < array.Length; i += 2)
             {
@@ -489,11 +421,7 @@ namespace IlyaCode
 
         public static void Array29()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int max = array[0];
             for (int i = 2; i < array.Length; i += 2)
             {
@@ -507,11 +435,7 @@ namespace IlyaCode
 
         public static void Array30()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
             for (int i = 1; i < array.Length; i++)
             {
@@ -526,11 +450,7 @@ namespace IlyaCode
 
         public static void Array31()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
             for (int i = array.Length - 1; i >= 1; i--)
             {
@@ -545,11 +465,7 @@ namespace IlyaCode
 
         public static void Array32()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 1; i < array.Length - 1; i++)
             {
                 if (array[i - 1] > array[i] && array[i] < array[i + 1])
@@ -562,11 +478,7 @@ namespace IlyaCode
 
         public static void Array33()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = array.Length - 1; i > 1; i--)
             {
                 if (array[i - 1] < array[i] && array[i] > array[i + 1])
@@ -579,11 +491,7 @@ namespace IlyaCode
 
         public static void Array34()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int? maxMin = null;
             for (int i = 1; i < array.Length - 1; i++)
             {
@@ -603,11 +511,7 @@ namespace IlyaCode
 
         public static void Array35()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int? minMax = null;
             for (int i = 1; i < array.Length - 1; i++)
             {
@@ -627,11 +531,7 @@ namespace IlyaCode
 
         public static void Array36()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int max = array[0] > array[^1] ? array[0] : array[^1];
             for (int i = 1; i < array.Length - 1; i++)
             {
@@ -649,11 +549,7 @@ namespace IlyaCode
 
         public static void Array37()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
             bool localCount = false;
             for (int i = 1; i < array.Length; i++)
@@ -676,11 +572,7 @@ namespace IlyaCode
 
         public static void Array38()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
             bool localCount = false;
             for (int i = 1; i < array.Length; i++)
@@ -703,11 +595,7 @@ namespace IlyaCode
 
         public static void Array39()
         {
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            int[] array = IntInput(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
             bool localCount = false;
             bool localMinCount = false;
