@@ -1,5 +1,7 @@
-﻿using System.Diagnostics.Tracing;
+﻿using System.ComponentModel;
+using System.Diagnostics.Tracing;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace IlyaCode
 {
@@ -333,7 +335,7 @@ namespace IlyaCode
 
         public static void Array20()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double sum = 0;
             int k = Convert.ToInt32(Console.ReadLine());
             int l = Convert.ToInt32(Console.ReadLine());
@@ -346,7 +348,7 @@ namespace IlyaCode
 
         public static void Array21()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double sum = 0;
             int k = Convert.ToInt32(Console.ReadLine());
             int l = Convert.ToInt32(Console.ReadLine());
@@ -359,7 +361,7 @@ namespace IlyaCode
 
         public static void Array22()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double sumkl = 0;
             double sum = 0;
             int k = Convert.ToInt32(Console.ReadLine());
@@ -376,7 +378,7 @@ namespace IlyaCode
         }
         public static void Array23()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double sum = 0;
             int k = Convert.ToInt32(Console.ReadLine());
             int l = Convert.ToInt32(Console.ReadLine());
@@ -742,7 +744,7 @@ namespace IlyaCode
         public static void Array40()
         {
             double r = Convert.ToDouble(Console.ReadLine());
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double min = array[0];
             for (int i = 1; i < array.Length; i++)
             {
@@ -756,7 +758,7 @@ namespace IlyaCode
 
         public static void Array41()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int index = 1;
             for (int i = 2; i < array.Length; i++)
             {
@@ -772,7 +774,7 @@ namespace IlyaCode
         public static void Array42()
         {
             double r = Convert.ToDouble(Console.ReadLine());
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int index = 1;
             for (int i = 2; i < array.Length; i++)
             {
@@ -787,7 +789,7 @@ namespace IlyaCode
 
         public static void Array43()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int count = 1;
             for (int i = 1; i < array.Length; i++)
             {
@@ -801,7 +803,7 @@ namespace IlyaCode
 
         public static void Array44()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
@@ -818,7 +820,7 @@ namespace IlyaCode
 
         public static void Array45()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int indexI = 0;
             int indexJ = 1;
             for (int i = 0; i < array.Length; i++)
@@ -839,7 +841,7 @@ namespace IlyaCode
         public static void Array46()
         {
             double r = Convert.ToDouble(Console.ReadLine());
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double sum = array[0] + array[1];
             int indexI = 0;
             int indexJ = 1;
@@ -861,7 +863,7 @@ namespace IlyaCode
 
         public static void Array47()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int count = array.Length;
             for (int i = 0; i < array.Length; i++)
             {
@@ -878,7 +880,7 @@ namespace IlyaCode
         }
         public static void Array48()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int max = 1;
             for (int i = 0; i < array.Length; i++)
             {
@@ -900,7 +902,7 @@ namespace IlyaCode
 
         public static void Array49()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] > array.Length && array[i] < 1)
@@ -921,7 +923,7 @@ namespace IlyaCode
         }
         public static void Array50()
         {
-            double[] array = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
             for (int i = 0; i < array.Length; i++)
             {
@@ -939,8 +941,8 @@ namespace IlyaCode
         public static void Array51()
         {
             
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
-            double[] b = Input(a.Length);
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            double[] b = DoubleInput(a.Length);
             for (int i = 0; i < a.Length; i++)
             {
                 Proc.Swap(ref a[i], ref b[i]);
@@ -952,7 +954,7 @@ namespace IlyaCode
         public static void Array52()
         {
 
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = new double[a.Length];
             for (int i = 0; i < b.Length; i++)
             {
@@ -970,8 +972,8 @@ namespace IlyaCode
 
         public static void Array53()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
-            double[] b = Input(a.Length);
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            double[] b = DoubleInput(a.Length);
             double[] c = new double[a.Length];
             for (int i = 0; i < c.Length; i++)
             {
@@ -989,7 +991,7 @@ namespace IlyaCode
 
         public static void Array54()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
             for (int i = 0; i < a.Length ; i++)
             {
@@ -1013,7 +1015,7 @@ namespace IlyaCode
 
         public static void Array55()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = new double[a.Length / 2];
             for (int i = 0; i < b.Length; i++)
             {
@@ -1025,7 +1027,7 @@ namespace IlyaCode
 
         public static void Array56()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = new double[a.Length / 3];
             for (int i = 0; i < b.Length; i++)
             {
@@ -1037,7 +1039,7 @@ namespace IlyaCode
 
         public static void Array57()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = new double[a.Length];
             for (int i = 0; i < b.Length / 2; i++)
             {
@@ -1052,7 +1054,7 @@ namespace IlyaCode
         }
         public static void Array58()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = new double[a.Length];
             double sum = 0;
             for (int i = 0; i < b.Length; i++)
@@ -1064,7 +1066,7 @@ namespace IlyaCode
         }
         public static void Array59()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = new double[a.Length];
             double sum = 0;
             for (int i = 0; i < b.Length; i++)
@@ -1076,7 +1078,7 @@ namespace IlyaCode
         }
         public static void Array60()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = new double[a.Length];
             double sum = 0;
             for (int i = 0; i < b.Length; i++)
@@ -1088,7 +1090,7 @@ namespace IlyaCode
         }
         public static void Array61()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = new double[a.Length];
             double sum = 0;
             for (int i = 0; i < b.Length; i++)
@@ -1100,7 +1102,7 @@ namespace IlyaCode
         }
         public static void Array62()
         {
-            double[] a = Input(Convert.ToInt32(Console.ReadLine()));
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int pCount = 0;
             int nCount = 0;
             for (int i = 0; i < a.Length; i++)
@@ -1142,8 +1144,8 @@ namespace IlyaCode
         }
         public static void Array63()
         {
-            double[] a = Input(5);
-            double[] b = Input(5);
+            double[] a = DoubleInput(5);
+            double[] b = DoubleInput(5);
             double[] c = new double[10];
             for (int i = 0, j = 0, k = 0; i < 10; i++)
             {
@@ -1172,13 +1174,30 @@ namespace IlyaCode
             }
             Output(c);
         }
+        public static void Array64()
+        {
+            int[] a = IntInput(Convert.ToInt32(Console.ReadLine()));
+            int[] b = IntInput(Convert.ToInt32(Console.ReadLine()));
+            int[] c = IntInput(Convert.ToInt32(Console.ReadLine()));
+            int[] d = Concat(Concat(a, b), c);
+            Output(d);
+        }
 
-        public static double[] Input(int n)
+        public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
             for (int i = 0; i < a.Length; i++)
             {
                 a[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            return a;
+        }
+        public static int[] IntInput(int n)
+        {
+            int[] a = new int[n];
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = Convert.ToInt32(Console.ReadLine());
             }
             return a;
         }
@@ -1189,7 +1208,36 @@ namespace IlyaCode
                 Console.WriteLine(a[i]);
             }
         }
-
+        public static int[] Concat(int[]a, int[]b)
+        {
+            int[] c = new int[a.Length + b.Length];
+            for (int i = 0, j = 0, k = 0; i < c.Length; i++)
+            {
+                if (k == b.Length)
+                {
+                    c[i] = a[j];
+                    j++;
+                    continue;
+                }
+                if (j == a.Length)
+                {
+                    c[i] = b[k];
+                    k++;
+                    continue;
+                }
+                if (a[j] > b[k])
+                {
+                    c[i] = a[j];
+                    j++;
+                }
+                else
+                {
+                    c[i] = b[k];
+                    k++;
+                }
+            }
+            return c;
+        }
     }
 }
 
