@@ -1182,7 +1182,97 @@ namespace IlyaCode
             int[] d = Concat(Concat(a, b), c);
             Output(d);
         }
-
+        public static void Array65()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            double ak = a[k];
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] += ak;
+            }
+            Output(a);
+        }
+        public static void Array66()
+        {
+            int[] a = IntInput(Convert.ToInt32(Console.ReadLine()));
+            int firstEven = 1;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] % 2 == 0)
+                {
+                    if (firstEven == 1)
+                    {
+                        firstEven = a[i];
+                    }
+                    a[i] += firstEven;
+                }
+            }
+            Output(a);
+        }
+        public static void Array67()
+        {
+            int[] a = IntInput(Convert.ToInt32(Console.ReadLine()));
+            int lastOdd = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[^(i + 1)] % 2 != 0)
+                {
+                    if (lastOdd == 0)
+                    {
+                        lastOdd = a[^(i + 1)];
+                    }
+                    a[^(i + 1)] += lastOdd;
+                }
+            }
+            Output(a);
+        }
+        public static void Array68()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int min = 0;
+            int max = 0;
+            for (int i = 1; i < a.Length; i++)
+            {
+                if (a[i] < a[min])
+                {
+                    min = i;
+                }
+                if (a[i] > a[max])
+                {
+                    max = i;
+                }
+            }
+            Proc.Swap(ref a[min], ref a[max]);
+            Output(a);
+        }
+        public static void Array69()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 1; i < a.Length; i += 2)
+            {
+                Proc.Swap(ref a[i], ref a[i - 1]);
+            }
+            Output(a);
+        }
+        public static void Array70()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < a.Length / 2; i++)
+            {
+                Proc.Swap(ref a[i], ref a[a.Length / 2 + i]);
+            }
+            Output(a);
+        }
+        public static void Array71()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < a.Length / 2; i++)
+            {
+                Proc.Swap(ref a[i], ref a[^(i + 1)]);
+            }
+            Output(a);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
