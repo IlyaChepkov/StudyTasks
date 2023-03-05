@@ -1233,7 +1233,46 @@
             }
             Output(a);
         }
-
+        public static void Array76()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 1; i < a.Length - 1; i++)
+            {
+                if (a[i] > a[i - 1] && a[i] > a[i + 1])
+                {
+                    a[i] = 0;
+                    i++;
+                }
+            }
+            Output(a);
+        }
+        public static void Array77()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 1; i < a.Length - 1; i++)
+            {
+                if (a[i] < a[i - 1] && a[i] < a[i + 1])
+                {
+                    a[i] = a[i] * a[i];
+                    i++;
+                }
+            }
+            Output(a);
+        }
+        public static void Array78()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            double prev = a[0];
+            a[0] = (a[0] + a[1]) / 2;
+            for (int i = 1; i < a.Length - 1; i++)
+            {
+                double now = a[i];
+                a[i] = (prev + a[i] + a[i + 1]) / 3;
+                prev = now;
+            }
+            a[^1] = (a[^1] + prev) / 2;
+            Output(a);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
