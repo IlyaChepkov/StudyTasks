@@ -1,9 +1,4 @@
-﻿using System.ComponentModel;
-using System.Diagnostics.Tracing;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-
-namespace IlyaCode
+﻿namespace IlyaCode
 {
     internal static class Array
     {
@@ -828,7 +823,7 @@ namespace IlyaCode
 
         public static void Array51()
         {
-            
+
             double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             double[] b = DoubleInput(a.Length);
             for (int i = 0; i < a.Length; i++)
@@ -881,7 +876,7 @@ namespace IlyaCode
         {
             double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int count = 0;
-            for (int i = 0; i < a.Length ; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] % 2 == 0)
                 {
@@ -1161,6 +1156,84 @@ namespace IlyaCode
             }
             Output(a);
         }
+        public static void Array72()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            int l = Convert.ToInt32(Console.ReadLine()) - 1;
+            for (; k < l; k++, l--)
+            {
+                Proc.Swap(ref a[k], ref a[l]);
+            }
+            Output(a);
+        }
+        public static void Array73()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine());
+            int l = Convert.ToInt32(Console.ReadLine()) - 2;
+            for (; k < l; k++, l--)
+            {
+                Proc.Swap(ref a[k], ref a[l]);
+            }
+            Output(a);
+        }
+        public static void Array74()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int min = 0;
+            int max = 0;
+            for (int i = 1; i < a.Length; i++)
+            {
+                if (a[i] < a[min])
+                {
+                    min = i;
+                }
+                if (a[i] > a[max])
+                {
+                    max = i;
+                }
+            }
+            if ( min > max)
+            {
+                Proc.Swap(ref min, ref max);
+            }
+            min++;
+            max--;
+            for (; min <= max; min++, max--)
+            {
+                a[min] = 0;
+                a[max] = 0;
+            }
+            Output(a);
+        }
+        public static void Array75()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int min = 0;
+            int max = 0;
+            for (int i = 1; i < a.Length; i++)
+            {
+                if (a[i] < a[min])
+                {
+                    min = i;
+                }
+                if (a[i] > a[max])
+                {
+                    max = i;
+                }
+            }
+            if (min > max)
+            {
+                Proc.Swap(ref min, ref max);
+            }
+            for (; min < max; min++, max--)
+            {
+                Proc.Swap(ref a[min], ref a[max]);
+            }
+            Output(a);
+        }
+
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
@@ -1186,7 +1259,7 @@ namespace IlyaCode
                 Console.WriteLine(a[i]);
             }
         }
-        public static int[] Concat(int[]a, int[]b)
+        public static int[] Concat(int[] a, int[] b)
         {
             int[] c = new int[a.Length + b.Length];
             for (int i = 0, j = 0, k = 0; i < c.Length; i++)

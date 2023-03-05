@@ -75,9 +75,9 @@
             k += d;
         }
 
-        public static void Swap(ref double x, ref double y)
+        public static void Swap<T>(ref T x, ref T y)
         {
-            double temp = x;
+            T temp = x;
             x = y;
             y = temp;
         }
