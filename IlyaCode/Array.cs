@@ -1273,6 +1273,26 @@
             a[^1] = (a[^1] + prev) / 2;
             Output(a);
         }
+        public static void Array79()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 1; i < a.Length; i++)
+            {
+                a[^i] = a[^(i + 1)];
+            }
+            a[0] = 0;
+            Output(a);
+        }
+        public static void Array80()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                a[i] = a[i + 1];
+            }
+            a[^1] = 0;
+            Output(a);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
