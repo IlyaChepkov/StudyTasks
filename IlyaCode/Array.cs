@@ -1194,7 +1194,7 @@
                     max = i;
                 }
             }
-            if ( min > max)
+            if (min > max)
             {
                 Proc.Swap(ref min, ref max);
             }
@@ -1291,6 +1291,34 @@
                 a[i] = a[i + 1];
             }
             a[^1] = 0;
+            Output(a);
+        }
+        public static void Array81()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i + k <= a.Length; i++)
+            {
+                a[^i] = a[^(k + i)];
+            }
+            for (int i = 0; i < k; i++)
+            {
+                a[i] = 0;
+            }
+            Output(a);
+        }
+        public static void Array82()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i + k < a.Length; i++)
+            {
+                a[i] = a[k + i];
+            }
+            for (int i = 1; i <= k; i++)
+            {
+                a[^i] = 0;
+            }
             Output(a);
         }
         public static double[] DoubleInput(int n)
