@@ -1321,6 +1321,66 @@
             }
             Output(a);
         }
+        public static void Array83()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            double prev = a[^1];
+            for (int i = 1; i < a.Length; i++)
+            {
+                a[^i] = a[^(i + 1)];
+            }
+            a[0] = prev;
+            Output(a);
+        }
+        public static void Array84()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            double prev = a[0];
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                a[i] = a[i + 1];
+            }
+            a[^1] = prev;
+            Output(a);
+        }
+        public static void Array85()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine()) % a.Length;
+            double[]  prevs = new double[k];
+            for(int i = 1; i <= k; i++)
+            {
+                prevs[^i] = a[^i];
+            }
+            for (int i = 1; i + k <= a.Length; i++)
+            {
+                a[^i] = a[^(k + i)];
+            }
+            for (int i = 0; i < k; i++)
+            {
+                a[i] = prevs[i];
+            }
+            Output(a);
+        }
+        public static void Array86()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine()) % a.Length;
+            double[] prevs = new double[k];
+            for (int i = 0; i < k; i++)
+            {
+                prevs[i] = a[i];
+            }
+            for (int i = 0; i + k < a.Length; i++)
+            {
+                a[i] = a[k + i];
+            }
+            for (int i = 1; i <= k; i++)
+            {
+                a[^i] = prevs[^i];
+            }
+            Output(a);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
