@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IlyaCode
 {
-    // Здесь будет классная задача на массивы, но я ее ещё не придумал
+    // Здесь будет классная задача на массивы
     // Герои тысячи и одного вооружения
     internal class SuperArray
     {

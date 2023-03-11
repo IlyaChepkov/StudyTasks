@@ -1381,6 +1381,85 @@
             }
             Output(a);
         }
+        public static void Array87()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 1; i < a.Length; i++)
+            {
+                if (a[i - 1] > a[i])
+                {
+                    Proc.Swap(ref a[i - 1], ref a[i]);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            Output(a);
+        }
+        public static void Array88()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 2; i < a.Length; i++)
+            {
+                if (a[^(i - 1)] < a[^i])
+                {
+                    Proc.Swap(ref a[^(i - 1)], ref a[^i]);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            Output(a);
+        }
+        public static void Array89()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 1; i < a.Length; i++)
+            {
+                if (a[i - 1] < a[i])
+                {
+                    if (i + 1 < a.Length)
+                    {
+                        if (a[i - 1] < a[1 + 1])
+                        {
+                            for (int j = i; j < a.Length; j++)
+                            {
+                                if (a[j - 1] < a[j])
+                                {
+                                    Proc.Swap(ref a[j - 1], ref a[j]);
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int j = i; j < a.Length; j++)
+                            {
+                                if (a[^(j - 1)] > a[^j])
+                                {
+                                    Proc.Swap(ref a[^(j - 1)], ref a[^j]);
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Proc.Swap(ref a[i - 1], ref a[i]);
+                    }
+                    break;
+                }
+            }
+            Output(a);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
