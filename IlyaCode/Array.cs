@@ -1460,6 +1460,23 @@
             }
             Output(a);
         }
+
+        public static void Array90()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            a = RemoveAt(a, Convert.ToInt32(Console.ReadLine()));
+            Output(a);
+        }
+
+        public static void Array91()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine());
+            int l = Convert.ToInt32(Console.ReadLine());
+            a = RemoveRange(a, k, l - k + 1);
+            Console.WriteLine(a.Length);
+            Output(a);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
@@ -1514,6 +1531,71 @@
                 }
             }
             return c;
+        }
+
+        public static T[] RemoveAt<T>(T[] input, int index)
+        {
+            if (index >= input.Length || index < 0) throw new ArgumentException("Ты дурак!? индекс не может быть больше или равен размеру массива!");
+            T[] output = new T[input.Length - 1];
+            for (int i = 0; i < index; i++)
+            {
+                output[i] = input[i];
+            }
+            for (int i = index; i < output.Length; i++)
+            {
+                output[i] = input[i + 1];
+            }
+            return output;
+        }
+
+        public static T[] RemoveRange<T>(T[] input, int index, int count)
+        {
+            if (index < 0 || count <= 0 || count + index - 1 >= input.Length) throw new ArgumentException("Ты дурак!? индекс не может быть больше или равен размеру массива!");
+            T[] output = new T[input.Length - count];
+            for (int i = 0; i < index; i++)
+            {
+                output[i] = input[i];
+            }
+            for (int i = index; i < output.Length; i++)
+            {
+                output[i] = input[i + count];
+            }
+            return output;
+        }
+
+        public static T[] Insert<T>(T[] input, int index, T value)
+        {
+            if (index > input.Length || index < 0) throw new ArgumentException("Ты дурак!? индекс не может быть больше или равен размеру массива!");
+            T[] output = new T[input.Length + 1];
+            for (int i = 0; i < index; i++)
+            {
+                output[i] = input[i];
+            }
+            output[index] = value;
+            for (int i = index + 1; i < output.Length; i++)
+            {
+                output[i] = input[i - 1];
+            }
+            return output;
+        }
+
+        public static T[] InsertRange<T>(T[] input, int index, T[] values)
+        {
+            if (index < 0 || index > input.Length) throw new ArgumentException("Ты дурак!? индекс не может быть больше или равен размеру массива!");
+            T[] output = new T[input.Length + values.Length];
+            for (int i = 0; i < index; i++)
+            {
+                output[i] = input[i];
+            }
+            for(int i = 0; i < values.Length; i++)
+            {
+                output[i + index] = values[i];
+            }
+            for (int i = index + values.Length; i < output.Length; i++)
+            {
+                output[i] = input[i - values.];
+            }
+            return output;
         }
     }
 }
