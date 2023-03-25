@@ -1572,6 +1572,94 @@ namespace IlyaCode
             }
             Output(a);
         }
+        public static void Array98()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                int count = 0;
+                for (int j = 0; j < a.Length; j++)
+                {
+                    if (a[i] == a[j])
+                    {
+                        count++;
+                    }
+                }
+                if (count < 3)
+                {
+                    for (int j = i + 1; j < a.Length; j++)
+                    {
+                        if (a[i] == a[j])
+                        {
+                           a = RemoveAt(a, j);
+                           j--;
+                        }
+                    }
+                    a = RemoveAt(a, i);
+                    i--;
+                }
+            }
+            Output(a);
+        }
+        public static void Array99()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                int count = 0;
+                for (int j = 0; j < a.Length; j++)
+                {
+                    if (a[i] == a[j])
+                    {
+                        count++;
+                    }
+                }
+                if (count > 2)
+                {
+                    for (int j = i + 1; j < a.Length; j++)
+                    {
+                        if (a[i] == a[j])
+                        {
+                            a = RemoveAt(a, j);
+                            j--;
+                        }
+                    }
+                    a = RemoveAt(a, i);
+                    i--;
+                }
+            }
+            Output(a);
+        }
+        public static void Array100()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                int count = 0;
+                for (int j = 0; j < a.Length; j++)
+                {
+                    if (a[i] == a[j])
+                    {
+                        count++;
+                    }
+                }
+                if (count == 2)
+                {
+                    for (int j = i + 1; j < a.Length; j++)
+                    {
+                        if (a[i] == a[j])
+                        {
+                            a = RemoveAt(a, j);
+                            j--;
+                        }
+                    }
+                    a = RemoveAt(a, i);
+                    i--;
+                }
+            }
+            Output(a);
+        }
+
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
@@ -1688,7 +1776,7 @@ namespace IlyaCode
             }
             for (int i = index + values.Length; i < output.Length; i++)
             {
-                output[i] = input[i - values.];
+                output[i] = input[i - values.Length];
             }
             return output;
         }
