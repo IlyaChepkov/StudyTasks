@@ -1,4 +1,6 @@
-﻿namespace IlyaCode
+﻿using System.Diagnostics.Tracing;
+
+namespace IlyaCode
 {
     internal static class Array
     {
@@ -1475,6 +1477,99 @@
             int l = Convert.ToInt32(Console.ReadLine());
             a = RemoveRange(a, k, l - k + 1);
             Console.WriteLine(a.Length);
+            Output(a);
+        }
+        public static void Array92()
+        {
+            int[] a = IntInput(Convert.ToInt32(Console.ReadLine()));
+            int countEven = 0;
+            for ( int i = 0; i < a.Length; i++)
+            {
+                if (a[i] % 2 == 0)
+                {
+                    countEven++;
+                }
+            }
+            int[] b = new int[countEven];
+            countEven = 0;
+            for (int i = 0; i < b.Length; i++)
+            {
+                if (a[i + countEven] % 2 == 1)
+                {
+                    countEven++;
+                    i--;
+                }
+                else
+                {
+                    b[i] = a[i + countEven];
+                }
+            }
+            Console.WriteLine(b.Length);
+            Output(b);
+        }
+        public static void Array93()
+        {
+            int[] a = IntInput(Convert.ToInt32(Console.ReadLine()));
+            int[] b = new int[a.Length / 2 + a.Length % 2];
+            for ( int i = 0; i < b.Length; i++)
+            {
+                b[i] = a[i * 2]; 
+            }
+            Output(a);
+        }
+        public static void Array94()
+        {
+            int[] a = IntInput(Convert.ToInt32(Console.ReadLine()));
+            int[] b = new int[a.Length / 2 + a.Length % 2];
+            for (int i = 0; i < b.Length; i++)
+            {
+                b[i] = a[i * 2 + 1];
+            }
+            Output(a);
+        }
+        public static void Array95()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                if (a[i] == a[i + 1])
+                {
+                    a = RemoveAt(a, i + 1);
+                    i--;
+                }
+            }
+            Output(a);
+        }
+        public static void Array96()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                for (int j = i + 1; j < a.Length; j++)
+                {
+                    if (a[i] == a[j])
+                    {
+                        a = RemoveAt(a, j);
+                        j--;
+                    }
+                }
+            }
+            Output(a);
+        }
+        public static void Array97()
+        {
+            double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = a.Length - 1; i > 0; i--)
+            {
+                for (int j = i - 1; j >= 0; j--)
+                {
+                    if (a[i] == a[j])
+                    {
+                        a = RemoveAt(a, j);
+                        i--;
+                    }
+                }
+            }
             Output(a);
         }
         public static double[] DoubleInput(int n)
