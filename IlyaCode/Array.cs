@@ -1749,6 +1749,46 @@ namespace IlyaCode
             }
             Output(t);
         }
+        public static void Array109()
+        {
+            double[] t = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < t.Length; i++)
+            {
+                if (t[i] < 0)
+                {
+                    Insert(t, i + 1, 0);
+                    i++;
+                }
+            }
+            Output(t);
+        }
+        public static void Array110()
+        {
+            int[] assets = IntInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < assets.Length; i++)
+            {
+                if (assets[i] % 2 == 0)
+                {
+                    Insert(assets, i, assets[i]);
+                    i++;
+                }
+            }
+            Output(assets);
+        }
+        public static void Array111()
+        {
+            int[] assets = IntInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < assets.Length; i++)
+            {
+                if (assets[i] % 2 == 1)
+                {
+                    Insert(assets, i, assets[i]);
+                    Insert(assets, i, assets[i]);
+                    i += 2;
+                }
+            }
+            Output(assets);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
