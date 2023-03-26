@@ -1717,6 +1717,38 @@ namespace IlyaCode
             boels = InsertRange(boels, index, new double[countBoels]);
             Output(boels);
         }
+        public static void Array106()
+        {
+            string[] assets = StringInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 1; i < assets.Length; i += 3)
+            {
+                assets = Insert(assets, i, assets[i]);
+            }
+            Output(assets);
+        }
+        public static void Array107()
+        {
+            string[] assets = StringInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < assets.Length; i += 4)
+            {
+                assets = Insert(assets, i, assets[i]);
+                assets = Insert(assets, i, assets[i]);
+            }
+            Output(assets);
+        }
+        public static void Array108()
+        {
+            double[] t = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < t.Length; i++)
+            {
+                if (t[i] > 0)
+                {
+                    Insert(t, i, 0);
+                    i++;
+                }
+            }
+            Output(t);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
@@ -1732,6 +1764,15 @@ namespace IlyaCode
             for (int i = 0; i < a.Length; i++)
             {
                 a[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            return a;
+        }
+        public static string[] StringInput(int n)
+        {
+            string[] a = new string[n];
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = Console.ReadLine();
             }
             return a;
         }
