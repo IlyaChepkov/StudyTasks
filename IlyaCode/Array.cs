@@ -1659,7 +1659,64 @@ namespace IlyaCode
             }
             Output(a);
         }
-
+        public static void Array101()
+        {
+            double[] boels = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int index = Convert.ToInt32(Console.ReadLine()) - 1;
+            boels = Insert(boels, index, 0);
+            Output(boels);
+        }
+        public static void Array102()
+        {
+            double[] boels = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int index = Convert.ToInt32(Console.ReadLine());
+            boels = Insert(boels, index, 0);
+            Output(boels);
+        }
+        public static void Array103()
+        {
+            double[] boels = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int min = 0;
+            int max = 0;
+            for (int i = 1; i < boels.Length; i++)
+            {
+                if (boels[min] > boels[i])
+                {
+                    min = i;
+                }
+                if (boels[max] < boels[i])
+                {
+                    max = i;
+                }
+            }
+            if (min < max)
+            {
+                boels = Insert(boels, min, 0);
+                boels = Insert(boels, max + 1, 0);
+            }
+            else
+            {
+                boels = Insert(boels, max, 0);
+                boels = Insert(boels, min + 1, 0);
+            }
+            Output(boels);
+        }
+        public static void Array104()
+        {
+            double[] boels = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int index = Convert.ToInt32(Console.ReadLine()) - 1;
+            int countBoels = Convert.ToInt32(Console.ReadLine());
+            boels = InsertRange(boels, index, new double[countBoels]);
+            Output(boels);
+        }
+        public static void Array105()
+        {
+            double[] boels = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            int index = Convert.ToInt32(Console.ReadLine());
+            int countBoels = Convert.ToInt32(Console.ReadLine());
+            boels = InsertRange(boels, index, new double[countBoels]);
+            Output(boels);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
