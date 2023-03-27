@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Tracing;
+﻿using System;
+using System.Diagnostics.Tracing;
 
 namespace IlyaCode
 {
@@ -1789,6 +1790,12 @@ namespace IlyaCode
             }
             Output(assets);
         }
+        public static void Array112()
+        {
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            BubbleSort(array);
+            Output(array);
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
@@ -1917,6 +1924,16 @@ namespace IlyaCode
                 output[i] = input[i - values.Length];
             }
             return output;
+        }
+        public static void BubbleSort(double[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                for (int j = 0; j < array.Length - i - 1; j++)
+                {
+                    Proc.MinMax(ref array[j], ref array[j + 1]);
+                }
+            }
         }
     }
 }
