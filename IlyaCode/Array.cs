@@ -1796,6 +1796,22 @@ namespace IlyaCode
             BubbleSort(array);
             Output(array);
         }
+        public static void Array113()
+        {
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            SelectSort(array);
+            Output(array);
+        }
+        public static void Array114()
+        {
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            Output(InsertSort(array));
+        }
+        public static void Array115()
+        {
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            Output(SuperBubbleSort(array));
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
@@ -1933,7 +1949,54 @@ namespace IlyaCode
                 {
                     Proc.MinMax(ref array[j], ref array[j + 1]);
                 }
+                Output(array);
             }
+        }
+        public static void SelectSort(double[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[min] > array[j])
+                    {
+                        min = j;
+                    }
+                }
+                Proc.Swap(ref array[i], ref array[min]);
+                Output(array);
+            }
+        }
+        public static double[] InsertSort(double[] array)
+        {
+            double[] output = new double[0];
+            for (int i = 0; i < array.Length; i++)
+            {
+                int j = 0;
+                while (j < output.Length && output[j] > array[i]) j++;
+                Insert(output, j, array[i]);
+                Output(output);
+            }
+            return output;
+        }
+
+        public static int[] SuperBubbleSort(double[] array)
+        {
+            int[] output = new int[array.Length];
+            for (int i = 1; i < array.Length; i++) output[i] = i;
+            for (int i = 0; i < output.Length - 1; i++)
+            {
+                for (int j = 0; j < output.Length - i - 1; j++)
+                {
+                    if (array[output[j]] > array[output[j + 1]])
+                    { 
+                        Proc.Swap(ref output[j], ref output[j + 1]);
+                    }
+                }
+                Output(output);
+            }
+            return output;
         }
     }
 }
