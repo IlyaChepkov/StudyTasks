@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics.Tracing;
-
-namespace IlyaCode
+﻿namespace IlyaCode
 {
     internal static class Array
     {
@@ -1350,8 +1347,8 @@ namespace IlyaCode
         {
             double[] a = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             int k = Convert.ToInt32(Console.ReadLine()) % a.Length;
-            double[]  prevs = new double[k];
-            for(int i = 1; i <= k; i++)
+            double[] prevs = new double[k];
+            for (int i = 1; i <= k; i++)
             {
                 prevs[^i] = a[^i];
             }
@@ -1484,7 +1481,7 @@ namespace IlyaCode
         {
             int[] a = IntInput(Convert.ToInt32(Console.ReadLine()));
             int countEven = 0;
-            for ( int i = 0; i < a.Length; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] % 2 == 0)
                 {
@@ -1512,9 +1509,9 @@ namespace IlyaCode
         {
             int[] a = IntInput(Convert.ToInt32(Console.ReadLine()));
             int[] b = new int[a.Length / 2 + a.Length % 2];
-            for ( int i = 0; i < b.Length; i++)
+            for (int i = 0; i < b.Length; i++)
             {
-                b[i] = a[i * 2]; 
+                b[i] = a[i * 2];
             }
             Output(a);
         }
@@ -1592,8 +1589,8 @@ namespace IlyaCode
                     {
                         if (a[i] == a[j])
                         {
-                           a = RemoveAt(a, j);
-                           j--;
+                            a = RemoveAt(a, j);
+                            j--;
                         }
                     }
                     a = RemoveAt(a, i);
@@ -1812,6 +1809,185 @@ namespace IlyaCode
             double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
             Output(SuperBubbleSort(array));
         }
+        public static void Array116()
+        {
+            double[] array = DoubleInput(Convert.ToInt32(Console.ReadLine()));
+            Output(GetSeries(array));
+        }
+        public static void Array117()
+        {
+            var series = GetSeries(DoubleInput(Convert.ToInt32(Console.ReadLine())));
+            for (int i = 0; i < series.Length; i += 2)
+            {
+               series = Insert(series, i, (0, 1));
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array118()
+        {
+            var series = GetSeries(DoubleInput(Convert.ToInt32(Console.ReadLine())));
+            for (int i = 0; i < series.Length; i += 2)
+            {
+                series = Insert(series, i + 1, (0, 1));
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array119()
+        {
+            var series = GetSeries(DoubleInput(Convert.ToInt32(Console.ReadLine())));
+            for (int i = 0; i < series.Length; i++)
+            {
+                series[i].Item2++;
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array120()
+        {
+            var series = GetSeries(DoubleInput(Convert.ToInt32(Console.ReadLine())));
+            for (int i = 0; i < series.Length; i++)
+            {
+                series[i].Item2--;
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array121()
+        {
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            if (k < series.Length)
+            {
+                series[k].Item2 *= 2;
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array122()
+        {
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            if (k < series.Length)
+            {
+                series = RemoveAt(series, k);
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array123()
+        {
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            if (k < series.Length)
+            {
+                Proc.Swap(ref series[0], ref series[k]);
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array124()
+        {
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            if (k < series.Length)
+            {
+                Proc.Swap(ref series[^1], ref series[k]);
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array125()
+        {
+            int l = Convert.ToInt32(Console.ReadLine());
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            for (int i = 0; i < series.Length; i++)
+            {
+                if (series[i].Item2 < l)
+                {
+                    series[i] = (0, 1);
+                }
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array126()
+        {
+            int l = Convert.ToInt32(Console.ReadLine());
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            for (int i = 0; i < series.Length; i++)
+            {
+                if (series[i].Item2 == l)
+                {
+                    series[i] = (0, 1);
+                }
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array127()
+        {
+            int l = Convert.ToInt32(Console.ReadLine());
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            for (int i = 0; i < series.Length; i++)
+            {
+                if (series[i].Item2 > l)
+                {
+                    series[i] = (0, 1);
+                }
+            }
+            Output(SeriesToArray(series));
+        }
+        public static void Array128()
+        {
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            int max = 0;
+            for (int i = 1; i < series.Length; i++)
+            {
+                if (series[max].Item2 < series[i].Item2)
+                {
+                    max = i;
+                }
+            }
+            series[max].Item2++;
+            Output(SeriesToArray(series));
+        }
+        public static void Array129()
+        {
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            int max = 0;
+            for (int i = 1; i < series.Length; i++)
+            {
+                if (series[max].Item2 <= series[i].Item2)
+                {
+                    max = i;
+                }
+            }
+            series[max].Item2++;
+            Output(SeriesToArray(series));
+        }
+        public static void Array130()
+        {
+            (double, int)[] series = GetSeries(DoubleInput
+                (Convert.ToInt32(Console.ReadLine())));
+            int max = series[0].Item2;
+            for (int i = 1; i < series.Length; i++)
+            {
+                if (series[max].Item2 < series[i].Item2)
+                {
+                    max = series[i].Item2;
+                }
+            }
+            for (int i = 0; i < series.Length; i++)
+            {
+                if (series[i].Item2 == max)
+                {
+                    series[i].Item2++;
+                }
+            }
+
+            Output(SeriesToArray(series));
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
@@ -1931,7 +2107,7 @@ namespace IlyaCode
             {
                 output[i] = input[i];
             }
-            for(int i = 0; i < values.Length; i++)
+            for (int i = 0; i < values.Length; i++)
             {
                 output[i + index] = values[i];
             }
@@ -1990,11 +2166,43 @@ namespace IlyaCode
                 for (int j = 0; j < output.Length - i - 1; j++)
                 {
                     if (array[output[j]] > array[output[j + 1]])
-                    { 
+                    {
                         Proc.Swap(ref output[j], ref output[j + 1]);
                     }
                 }
                 Output(output);
+            }
+            return output;
+        }
+        public static (T, int)[] GetSeries<T>(T[] input)
+        {
+            (T, int)[] output = new (T, int)[1];
+            output[0].Item1 = input[0];
+            output[0].Item2 = 1;
+            for (int i = 1; i < input.Length; i++)
+            {
+                if (output[^1].Item1.Equals(input[i]))
+                {
+                    output[^1].Item2++;
+                }
+                else
+                {
+                    output = Insert(output, output.Length, (input[i], 1));
+                }
+            }
+            return output;
+        }
+        public static T[] SeriesToArray<T>((T, int)[] input)
+        {
+            T[] output = new T[0];
+            for (int i = 0; i < input.Length; i++)
+            {
+                T[] values = new T[input[i].Item2];
+                for (int j = 0; j < values.Length; j++)
+                {
+                    values[j] = input[i].Item1;
+                }
+                output = InsertRange(output, output.Length, values);
             }
             return output;
         }
