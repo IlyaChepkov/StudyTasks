@@ -1,4 +1,6 @@
-﻿namespace IlyaCode
+﻿using System;
+
+namespace IlyaCode
 {
     internal static class Array
     {
@@ -1819,7 +1821,7 @@
             var series = GetSeries(DoubleInput(Convert.ToInt32(Console.ReadLine())));
             for (int i = 0; i < series.Length; i += 2)
             {
-               series = Insert(series, i, (0, 1));
+                series = Insert(series, i, (0, 1));
             }
             Output(SeriesToArray(series));
         }
@@ -1985,8 +1987,130 @@
                     series[i].Item2++;
                 }
             }
-
             Output(SeriesToArray(series));
+        }
+        public static void Array131()
+        {
+            (double, double)[] cordinats = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < cordinats.Length; i++)
+            {
+                cordinats[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                cordinats[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double) k = (Convert.ToDouble(Console.ReadLine()), 
+                                    Convert.ToDouble(Console.ReadLine()));
+            (double, double) min = cordinats[0];
+            for (int i = 1; i < cordinats.Length; i++)
+            {
+                if (PointDist(min, k) > PointDist(cordinats[i], k))
+                {
+                    min = cordinats[i];
+                }
+            }
+            Console.WriteLine(min);
+        }
+        public static void Array132()
+        {
+            (double, double)[] cordinats = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < cordinats.Length; i++)
+            {
+                cordinats[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                cordinats[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double) k = (0, 0);
+            (double, double)? max = null;
+            for (int i = 1; i < cordinats.Length; i++)
+            {
+                if ((cordinats[i].Item1 < 0 && cordinats[i].Item2 > 0) && 
+                    (max == null || PointDist(max.Value, k) < PointDist(cordinats[i], k)))
+                {
+                    max = cordinats[i];
+                }
+            }
+            Console.WriteLine(max != null ? max : k);
+        }
+        public static void Array133()
+        {
+            (double, double)[] cordinats = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < cordinats.Length; i++)
+            {
+                cordinats[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                cordinats[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double) k = (0, 0);
+            (double, double)? min = null;
+            for (int i = 1; i < cordinats.Length; i++)
+            {
+                if ((cordinats[i].Item1 < 0 == cordinats[i].Item2 < 0) &&
+                    (min == null || PointDist(min.Value, k) < PointDist(cordinats[i], k)))
+                {
+                    min = cordinats[i];
+                }
+            }
+            Console.WriteLine(min != null ? min : k);
+        }
+        public static void Array134()
+        {
+            (double, double)[] cordinats = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < cordinats.Length; i++)
+            {
+                cordinats[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                cordinats[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double) point1 = cordinats[0];
+            (double, double) point2 = cordinats[1];
+            for (int i = 0; i < cordinats.Length; i++)
+            {
+                for (int j = i + 1; j < cordinats.Length; j++)
+                {
+                    if (PointDist(point1, point2) < PointDist(cordinats[i], cordinats[j]))
+                    {
+                        point1 = cordinats[i];
+                        point2 = cordinats[j];
+                    }
+                }
+            }
+            Console.WriteLine(point1);
+            Console.WriteLine(point2);
+            Console.WriteLine(PointDist(point1, point2));
+        }
+
+        public static void Array135()
+        {
+            (double, double)[] storges = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < storges.Length; i++)
+            {
+                storges[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                storges[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double)[] bunkers = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < bunkers.Length; i++)
+            {
+                bunkers[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                bunkers[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double) storge = storges[0];
+            (double, double) bunker = bunkers[0];
+            for (int i = 0; i < storges.Length; i++)
+            {
+                for (int j = 0; j < bunkers.Length; j++)
+                {
+                    if (PointDist(storge, bunker) > PointDist(storges[i], bunkers[j]))
+                    {
+                        storge = storges[i];
+                        bunker = bunkers[j];
+                    }
+                }
+            }
+            Console.WriteLine(storge);
+            Console.WriteLine(bunker);
+            Console.WriteLine(PointDist(storge, bunker));
         }
         public static double[] DoubleInput(int n)
         {
@@ -2205,6 +2329,13 @@
                 output = InsertRange(output, output.Length, values);
             }
             return output;
+        }
+
+        public static double PointDist((double, double) point1, (double, double) point2)
+        {
+            //r = корень из ((x1-x2) в квадрате + (y1-y2) в квадрате)
+            return Math.Sqrt(Math.Pow(point1.Item1 - point2.Item1, 2) +
+                Math.Pow(point1.Item2 - point2.Item2, 2));
         }
     }
 }
