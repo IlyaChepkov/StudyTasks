@@ -35,6 +35,50 @@ namespace IlyaCode
             Output(matrix);
         }
 
+        public static void Matrix2()
+        {
+            int[,] matrix = new int[Convert.ToInt32(Console.ReadLine()),
+                                         Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < matrix.GetLength(1); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(0); j++)
+                {
+                    matrix[j, i] = (i + 1) * 5;
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix3()
+        {
+            string[,] matrix = new string[Convert.ToInt32(Console.ReadLine()),
+                                         Convert.ToInt32(Console.ReadLine())];
+            string[] array = Array.StringInput(matrix.GetLength(0));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = array[i];
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix4()
+        {
+            string[,] matrix = new string[Convert.ToInt32(Console.ReadLine()),
+                                         Convert.ToInt32(Console.ReadLine())];
+            string[] array = Array.StringInput(matrix.GetLength(1));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = array[j];
+                }
+            }
+            Output(matrix);
+        }
+
         public static void Output<T>(T[,] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
