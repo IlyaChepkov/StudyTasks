@@ -55,6 +55,9 @@ internal class Program
             case 11:
                 IlyaCode.Array.Do();
                 break;
+            case 12:
+                Matrix.Do();
+                break;
         }
         Console.ReadLine();
     }

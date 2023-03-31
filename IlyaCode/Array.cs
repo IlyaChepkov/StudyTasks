@@ -2186,6 +2186,101 @@ namespace IlyaCode
             Console.WriteLine(vertex3);
             Console.WriteLine(maxP);
         }
+        public static void Array138()
+        {
+            (double, double)[] bases = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < bases.Length; i++)
+            {
+                bases[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                bases[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double) vertex1 = (0, 0);
+            (double, double) vertex2 = (0, 0);
+            (double, double) vertex3 = (0, 0);
+            double? minP = null;
+            for (int i = 0; i < bases.Length; i++)
+            {
+                double p = 0;
+                for (int j = i + 1; j < bases.Length; j++)
+                {
+                    for (int k = j + 1; k < bases.Length; k++)
+                    {
+                        if (PointDist(bases[i], bases[j]) + PointDist(bases[k], bases[j]) >
+                                PointDist(bases[i], bases[k]) &&
+                                PointDist(bases[i], bases[j]) + PointDist(bases[i], bases[k]) >
+                                PointDist(bases[j], bases[k]) &&
+                                PointDist(bases[i], bases[k]) + PointDist(bases[k], bases[j]) >
+                                PointDist(bases[i], bases[j]))
+                        {
+                            p = PointDist(bases[i], bases[j]) +
+                            PointDist(bases[i], bases[k]) +
+                            PointDist(bases[j], bases[k]);
+                            if (minP == null || minP > p)
+                            {
+                                minP = p;
+                                vertex1 = bases[i];
+                                vertex2 = bases[j];
+                                vertex3 = bases[k];
+                            }
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(vertex1);
+            Console.WriteLine(vertex2);
+            Console.WriteLine(vertex3);
+            Console.WriteLine(minP);
+        }
+        public static void Array139()
+        {
+            (double, double)[] array = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                array[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[min].Item1 > array[j].Item1 || 
+                        (array[min].Item1 == array[j].Item1 && array[min].Item2 > array[j].Item2))
+                    {
+                        min = j;
+                    }
+                }
+                Proc.Swap(ref array[i], ref array[min]);
+                Output(array);
+            }
+        }
+        public static void Array140()
+        {
+            (double, double)[] array = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                array[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int max = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[max].Item1 + array[max].Item2 < array[j].Item1 + array[j].Item2 || 
+                        (array[max].Item1 + array[max].Item2 == array[j].Item1 + array[j].Item2 && 
+                        array[max].Item1 < array[j].Item1))
+                    {
+                        max = j;
+                    }
+                }
+                Proc.Swap(ref array[i], ref array[max]);
+                Output(array);
+            }
+        }
         public static double[] DoubleInput(int n)
         {
             double[] a = new double[n];
