@@ -79,6 +79,38 @@ namespace IlyaCode
             Output(matrix);
         }
 
+        public static void Matrix5()
+        {
+            double[,] matrix = new double[Convert.ToInt32(Console.ReadLine()),
+                                         Convert.ToInt32(Console.ReadLine())];
+            double d = Convert.ToInt32(Console.ReadLine());
+            double[] array = Array.DoubleInput(matrix.GetLength(0));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = array[i] + d * j;
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix6()
+        {
+            double[,] matrix = new double[Convert.ToInt32(Console.ReadLine()),
+                                         Convert.ToInt32(Console.ReadLine())];
+            double d = Convert.ToInt32(Console.ReadLine());
+            double[] array = Array.DoubleInput(matrix.GetLength(1));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = array[j] + d * i;
+                }
+            }
+            Output(matrix);
+        }
+
         public static void Output<T>(T[,] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
