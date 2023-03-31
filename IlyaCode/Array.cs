@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace IlyaCode
 {
@@ -2111,6 +2112,79 @@ namespace IlyaCode
             Console.WriteLine(storge);
             Console.WriteLine(bunker);
             Console.WriteLine(PointDist(storge, bunker));
+        }
+        public static void Array136()
+        {
+            (double, double)[] bases = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < bases.Length; i++)
+            {
+                bases[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                bases[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double) baseMin = bases[0];
+            double? sumMin = null;
+            for (int i = 0; i < bases.Length; i++)
+            {
+                double sum = 0;
+                for (int j = 0; j < bases.Length; j++)
+                {
+                    sum += PointDist(bases[i], bases[j]);
+                }
+               if (sumMin == null || sumMin > sum)
+                {
+                    sumMin = sum;
+                    baseMin = bases[i];
+                }
+            }
+            Console.WriteLine(baseMin);
+            Console.WriteLine(sumMin);
+        }
+        public static void Array137()
+        {
+            (double, double)[] bases = new (double, double)
+                                [Convert.ToInt32(Console.ReadLine())];
+            for (int i = 0; i < bases.Length; i++)
+            {
+                bases[i].Item1 = Convert.ToDouble(Console.ReadLine());
+                bases[i].Item2 = Convert.ToDouble(Console.ReadLine());
+            }
+            (double, double) vertex1 = (0, 0);
+            (double, double) vertex2 = (0, 0);
+            (double, double) vertex3 = (0, 0);
+            double? maxP = null;
+            for (int i = 0; i < bases.Length; i++)
+            {
+                double p = 0;
+                for (int j = i + 1; j < bases.Length; j++)
+                {
+                    for (int k = j + 1; k < bases.Length; k++)
+                    {
+                        if (PointDist(bases[i], bases[j]) + PointDist(bases[k], bases[j]) > 
+                                PointDist(bases[i], bases[k]) &&
+                                PointDist(bases[i], bases[j]) + PointDist(bases[i], bases[k]) >
+                                PointDist(bases[j], bases[k]) &&
+                                PointDist(bases[i], bases[k]) + PointDist(bases[k], bases[j]) >
+                                PointDist(bases[i], bases[j]))
+                        {
+                            p = PointDist(bases[i], bases[j]) +
+                            PointDist(bases[i], bases[k]) +
+                            PointDist(bases[j], bases[k]);
+                            if (maxP == null || maxP < p)
+                            {
+                                maxP = p;
+                                vertex1 = bases[i];
+                                vertex2 = bases[j];
+                                vertex3 = bases[k];
+                            }
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(vertex1);
+            Console.WriteLine(vertex2);
+            Console.WriteLine(vertex3);
+            Console.WriteLine(maxP);
         }
         public static double[] DoubleInput(int n)
         {
