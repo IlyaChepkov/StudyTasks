@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -302,6 +303,67 @@ namespace IlyaCode
             }
         }
 
+        public static void Matrix17()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            int sum = 0;
+            int mul = 1;
+            for (int i = 0; i < matrix.GetLength(1); i++)
+            {
+                sum += matrix[k, i];
+                mul *= matrix[k, i];
+            }
+            Console.WriteLine(sum);
+            Console.WriteLine(mul);
+        }
+
+        public static void Matrix18()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            int sum = 0;
+            int mul = 1;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                sum += matrix[i, k];
+                mul *= matrix[i, k];
+            }
+            Console.WriteLine(sum);
+            Console.WriteLine(mul);
+        }
+
+        public static void Matrix19()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    sum += matrix[i, j];
+                }
+                Console.WriteLine(sum);
+            }
+        }
+
+        public static void Matrix20()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                int mul = 1;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    mul *= matrix[i, j];
+                }
+                Console.WriteLine(mul);
+            }
+        }
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
@@ -310,6 +372,19 @@ namespace IlyaCode
                 for (int j = 0; j < n; j++)
                 {
                     matrix[i, j] = Console.ReadLine();
+                }
+            }
+            return matrix;
+        }
+
+        public static int[,] IntInput(int m, int n)
+        {
+            int[,] matrix = new int[m, n];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    matrix[i, j] = Convert.ToInt32(Console.ReadLine());
                 }
             }
             return matrix;
