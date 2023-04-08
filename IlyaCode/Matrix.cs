@@ -364,6 +364,73 @@ namespace IlyaCode
                 Console.WriteLine(mul);
             }
         }
+
+        public static void Matrix21()
+        {
+            double[,] matrix = DoubleInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0); i += 2)
+            {
+                double sum = 0;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    sum += matrix[i, j];
+                }
+                Console.WriteLine(sum / matrix.GetLength(1));
+            }
+        }
+
+        public static void Matrix22()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            for (int j = 1; j < matrix.GetLength(1); j += 2)
+            {
+                int sum = 0;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    sum += matrix[i, j];
+                }
+                Console.WriteLine(sum);
+            }
+        }
+
+        public static void Matrix23()
+        {
+            double[,] matrix = DoubleInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                double? min = null;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (min == null || min > matrix[i, j])
+                    {
+                        min = matrix[i, j];
+                    }
+                }
+                Console.WriteLine(min);
+            }
+        }
+
+        public static void Matrix24()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                int? max = null;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (max == null || max < matrix[j, i])
+                    {
+                        max = matrix[i, j];
+                    }
+                }
+                Console.WriteLine(max);
+            }
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
@@ -400,6 +467,19 @@ namespace IlyaCode
                 }
                 Console.WriteLine();
             }
+        }
+
+        public static double[,] DoubleInput(int m, int n)
+        {
+            double[,] matrix = new double[m, n];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    matrix[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            return matrix;
         }
     }
 }
