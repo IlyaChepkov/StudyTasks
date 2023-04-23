@@ -431,6 +431,52 @@ namespace IlyaCode
             }
         }
 
+        public static void Matrix25()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            int? maxSum = null;
+            int maxString = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    sum += matrix[i, j];
+                }
+                if (maxSum == null || maxSum < sum)
+                {
+                    maxSum = sum;
+                    maxString = i;
+                }
+            }
+            Console.WriteLine(maxString + 1);
+            Console.WriteLine(maxSum);
+        }
+
+        public static void Matrix26()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            int? minMul = null;
+            int minColumn = 0;
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                int mul = 1;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    mul *= matrix[i, j];
+                }
+                if (minMul == null || minMul > mul)
+                {
+                    minMul = mul;
+                    minColumn = j;
+                }
+            }
+            Console.WriteLine(minColumn + 1);
+            Console.WriteLine(minMul);
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
