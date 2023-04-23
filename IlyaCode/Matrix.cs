@@ -477,6 +477,108 @@ namespace IlyaCode
             Console.WriteLine(minMul);
         }
 
+        public static void Matrix27()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            int? max = null;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                int min = matrix[i, 0];
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (min > matrix[i, j])
+                    {
+                        min = matrix[i, j];
+                    }
+                }
+                if (max == null || max < min)
+                {
+                    max = min;
+                }
+            }
+            Console.WriteLine(max);
+        }
+        
+        public static void Matrix28()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                                Convert.ToInt32(Console.ReadLine()));
+            int? min = null;
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                int max = matrix[0, j];
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (max < matrix[i, j])
+                    {
+                        max = matrix[i, j];
+                    }
+                }
+                if (min == null || min > max)
+                {
+                    min = max;
+                }
+            }
+            Console.WriteLine(min);
+        }
+
+        public static void Matrix29()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                int count = 0;
+                double avg = 0;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    avg += matrix[i, j];
+                }
+                avg /= matrix.GetLength(1);
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] < avg)
+                    {
+                        count++;
+                    }
+                }
+                Console.WriteLine(count);
+            }
+        }
+
+        public static void Matrix30()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                int count = 0;
+                double avg = 0;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    avg += matrix[i, j];
+                }
+                avg /= matrix.GetLength(0);
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, j] > avg)
+                    {
+                        count++;
+                    }
+                }
+                Console.WriteLine(count);
+            }
+        }
+        public static void Matrix31()
+        {
+
+        }
+
+        public static void Matrix32()
+        {
+
+        }
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
