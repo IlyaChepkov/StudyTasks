@@ -572,13 +572,199 @@ namespace IlyaCode
         }
         public static void Matrix31()
         {
-
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                              Convert.ToInt32(Console.ReadLine()));
+            double avg = 0;
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    avg += matrix[i, j];
+                }
+            }
+            avg /= matrix.Length;
+            int line = 0;
+            int column = 0;
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (Math.Abs(matrix[i, j] - avg) < Math.Abs(matrix[line, column] - avg))
+                    {
+                        line = i;
+                        column = j;
+                    }
+                }
+            }
+            Console.WriteLine(line + 1);
+            Console.WriteLine(column + 1);
         }
 
         public static void Matrix32()
         {
-
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                              Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                int plus = 0;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] > 0)
+                    {
+                        plus++;
+                    }
+                    if (matrix[i, j] < 0)
+                    {
+                        plus--;
+                    }
+                }
+                if (plus == 0)
+                {
+                    Console.WriteLine(i + 1);
+                    return;
+                }
+            }
+            Console.WriteLine(0);
         }
+        public static void Matrix33()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                              Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                int plus = 0;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[matrix.GetLength(0) - i - 1, matrix.GetLength(1) - j - 1] > 0)
+                    {
+                        plus++;
+                    }
+                    if (matrix[matrix.GetLength(0) - i - 1, matrix.GetLength(1) - j - 1] < 0)
+                    {
+                        plus--;
+                    }
+                }
+                if (plus == 0)
+                {
+                    Console.WriteLine(matrix.GetLength(1) - j);
+                    return;
+                }
+            }
+            Console.WriteLine(0);
+        }
+
+        public static void Matrix34()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                              Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                bool isOdd = false;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[matrix.GetLength(0) - i - 1, matrix.GetLength(1) - j - 1] % 2 == 1)
+                    {
+                        isOdd = true;
+                        break;
+                    }
+                }
+                if (!isOdd) // !!!!!!!
+                {
+                    Console.WriteLine(matrix.GetLength(0) - i);
+                    return;
+                }
+            }
+            Console.WriteLine(0);
+        }
+
+        public static void Matrix35()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                              Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                bool isEven = false;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, j] % 2 == 0)
+                    {
+                        isEven = true;
+                        break;
+                    }
+                }
+                if (!isEven) // !!!!!!!
+                {
+                    Console.WriteLine(j + 1);
+                    return;
+                }
+            }
+            Console.WriteLine(0);
+        }
+
+        public static void Matrix36()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                              Convert.ToInt32(Console.ReadLine()));
+            int count = matrix.GetLength(0) - 1;
+            for (int i = 1; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    bool firstHas = false;
+                    bool iHas = false;
+                    for (int k = 0; k < matrix.GetLength(1); k++)
+                    {
+                        if (matrix[0, j] == matrix[i, k])
+                        {
+                            firstHas = true;
+                        }
+                        if (matrix[i, j] == matrix[0, k])
+                        {
+                            iHas = true;
+                        }
+                    }
+                    if (!(firstHas && iHas)) // !!!!!!
+                    {
+                        count--;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(count);
+        }
+
+        public static void Matrix37()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int count = matrix.GetLength(1) - 1;
+            for (int j = 1; j < matrix.GetLength(1); j++)
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    bool firstHas = false;
+                    bool iHas = false;
+                    for (int k = 0; k < matrix.GetLength(0); k++)
+                    {
+                        if (matrix[i, matrix.GetLength(1) - 1] == matrix[k, matrix.GetLength(1) - j - 1])
+                        {
+                            firstHas = true;
+                        }
+                        if (matrix[i, matrix.GetLength(1) - j - 1] == matrix[k, matrix.GetLength(1) - 1])
+                        {
+                            iHas = true;
+                        }
+                    }
+                    if (!(firstHas && iHas)) // !!!!!!
+                    {
+                        count--;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(count);
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
