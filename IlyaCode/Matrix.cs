@@ -765,6 +765,118 @@ namespace IlyaCode
             Console.WriteLine(count);
         }
 
+        public static void Matrix38()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                              Convert.ToInt32(Console.ReadLine()));
+            int count = matrix.GetLength(0);
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    bool has = false;
+                    for (int k = 0; k < matrix.GetLength(1); k++)
+                    {
+                        if (matrix[i, j] == matrix[i, k])
+                        {
+                            has = true;
+                            break;
+                        } 
+                    }
+                    if (has)
+                    {
+                        count--;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(count);
+        }
+
+        public static void Matrix39()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int count = matrix.GetLength(1);
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    bool has = false;
+                    for (int k = 0; k < matrix.GetLength(0); k++)
+                    {
+                        if (matrix[i, j] == matrix[k, j])
+                        {
+                            has = true;
+                            break;
+                        }
+                    }
+                    if (has)
+                    {
+                        count--;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(count);
+        }
+
+        public static void Matrix40()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int number = 1;
+            int maxCount = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    int count = 1;
+                    for (int k = j + 1; k < matrix.GetLength(1); k++)
+                    {
+                        if (matrix[i, j] == matrix[i, k])
+                        {
+                            count++;
+                        }
+                    }
+                    if (maxCount <= count)
+                    {
+                        maxCount = count;
+                        number = i + 1;
+                    }
+                }
+            }
+            Console.WriteLine(number);
+        }
+
+        public static void Matrix41()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int number = 1;
+            int maxCount = 0;
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    int count = 1;
+                    for (int k = j + 1; k < matrix.GetLength(0); k++)
+                    {
+                        if (matrix[i, j] == matrix[k, j])
+                        {
+                            count++;
+                        }
+                    }
+                    if (maxCount < count)
+                    {
+                        maxCount = count;
+                        number = j + 1;
+                    }
+                }
+            }
+            Console.WriteLine(number);
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
