@@ -1180,6 +1180,78 @@ namespace IlyaCode
             Output(matrix);
         }
 
+        public static void Matrix55()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0) / 2; i++)
+            {
+                matrix = SwapRow(matrix, i, i + matrix.GetLength(0) / 2);
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix56()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1) / 2; j++)
+            {
+                matrix = SwapCollumn(matrix, j, j + matrix.GetLength(1) / 2);
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix57()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0) / 2; i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1) / 2; j++)
+                {
+                    Proc.Swap(ref matrix[i, j], ref matrix[i + matrix.GetLength(0) / 2, j + matrix.GetLength(1) / 2]);
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix58()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0) / 2; i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1) / 2; j++)
+                {
+                    Proc.Swap(ref matrix[i, j + matrix.GetLength(1) / 2], ref matrix[i + matrix.GetLength(0) / 2, j]);
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix59()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0) / 2; i++)
+            {
+                matrix = SwapRow(matrix, i, matrix.GetLength(0) - i - 1);
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix60()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1) / 2; j++)
+            {
+                matrix = SwapCollumn(matrix, j, matrix.GetLength(1) - j - 1);
+            }
+            Output(matrix);
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
