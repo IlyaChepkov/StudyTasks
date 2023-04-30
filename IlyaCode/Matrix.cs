@@ -1132,6 +1132,54 @@ namespace IlyaCode
             Output(SwapCollumn(matrix, minNum, maxNum));
         }
 
+        public static void Matrix53()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                bool isPlus = true;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, matrix.GetLength(0) - j - 1] <= 0)
+                    {
+                        isPlus = false;
+                        break;
+                    }
+                }
+                if (isPlus)
+                {
+                    Output(SwapCollumn(matrix, 0, j));
+                    return;
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix54()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                bool isMines = true;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, j] >= 0)
+                    {
+                        isMines = false;
+                        break;
+                    }
+                }
+                if (isMines)
+                {
+                    Output(SwapCollumn(matrix, matrix.GetLength(1) - 1, j));
+                    return;
+                }
+            }
+            Output(matrix);
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
