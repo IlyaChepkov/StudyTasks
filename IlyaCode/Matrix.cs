@@ -1779,6 +1779,118 @@ namespace IlyaCode
             }
         }
 
+        public static void Matrix88()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for ( int i = m; i < d.Length; i++)
+            {
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    d[i][j] = 0;
+                }
+            }
+            Output(GetFromMainD(d));
+        }
+
+        public static void Matrix89()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetSubMainD(IntInput(m, m));
+            for (int i = 0; i < m - 1; i++)
+            {
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    d[i][j] = 0;
+                }
+            }
+            Output(GetFromSubMainD(d));
+        }
+
+        public static void Matrix90()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetSubMainD(IntInput(m, m));
+            for (int i = m - 1; i < d.Length; i++)
+            {
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    d[i][j] = 0;
+                }
+            }
+            Output(GetFromSubMainD(d));
+        }
+
+        public static void Matrix91()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    d[i][j] = 0;
+                }
+            }
+            Output(GetFromMainD(d));
+        }
+
+        public static void Matrix92()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = 0; i < m - 1; i++)
+            {
+                for (int j = 0; j < d[i].Length / 2; j++)
+                {
+                    d[i][j] = 0;
+                }
+            }
+            Output(GetFromMainD(d));
+        }
+
+        public static void Matrix93()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = 0; i < m - 1; i++)
+            {
+                for (int j = d[i].Length / 2; j < d[i].Length; j++)
+                {
+                    d[i][j] = 0;
+                }
+            }
+            Output(GetFromMainD(d));
+        }
+
+        public static void Matrix94()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = m - 1; i < d.Length; i++)
+            {
+                for (int j = 0; j < d[i].Length / 2 + d[i].Length % 2; j++)
+                {
+                    d[i][j] = 0;
+                }
+            }
+            Output(GetFromMainD(d));
+        }
+
+        public static void Matrix95()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = m - 1; i < d.Length; i++)
+            {
+                for (int j = d[i].Length / 2; j < d[i].Length; j++)
+                {
+                    d[i][j] = 0;
+                }
+            }
+            Output(GetFromMainD(d));
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
@@ -1993,9 +2105,25 @@ namespace IlyaCode
             return d;
         }
 
-        public static T[,] GetFromMainD<T>(T[][] matrix)
+        public static T[,] GetFromMainD<T>(T[][] d)
         {
-            return null;
+            int m = (d.Length + 1) / 2;
+            T[,] matrix = new T[m, m];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    matrix[j, m - i - 1 + j] = d[i][j];
+                }
+            }
+            for (int i = 0; i < m - 1; i++)
+            {
+                for (int j = 0; j < d[i + m].Length; j++)
+                {
+                    matrix[i + j + 1, j] = d[i + m][j];
+                }
+            }
+            return matrix;
         }
 
         public static T[][] GetSubMainD<T>(T[,] matrix)
@@ -2021,9 +2149,25 @@ namespace IlyaCode
             return d;
         }
 
-        public static T[,] GetFromSubMainD<T>(T[][] matrix)
+        public static T[,] GetFromSubMainD<T>(T[][] d)
         {
-            return null;
+            int m = (d.Length + 1) / 2;
+            T[,] matrix = new T[m, m];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    matrix[i - j, j] = d[i][j];
+                }
+            }
+            for (int i = 0; i < m - 1; i++)
+            {
+                for (int j = 0; j < d[i + m].Length; j++)
+                {
+                    matrix[m - 1 - j, i + j + 1] = d[i + m][j];
+                }
+            }
+            return matrix;
         }
     }
 }
