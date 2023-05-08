@@ -1252,6 +1252,533 @@ namespace IlyaCode
             Output(matrix);
         }
 
+        public static void Matrix61()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            Output(RemoveRow(matrix, k));
+        }
+
+        public static void Matrix62()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int k = Convert.ToInt32(Console.ReadLine()) - 1; 
+            Output(RemoveCollumn(matrix, k));
+        }
+
+        public static void Matrix63()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int min = matrix[0, 0];
+            int indexRow = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j< matrix.GetLength(1); j++)
+                {
+                    if (min > matrix[i, j])
+                    {
+                        indexRow = i;
+                        min = matrix[i, j];
+                    }
+                }
+            }
+            Output(RemoveRow(matrix, indexRow));
+        }
+
+        public static void Matrix64()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int max = matrix[0, 0];
+            int indexCollumn = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (max < matrix[i, j])
+                    {
+                        indexCollumn = j;
+                        max = matrix[i, j];
+                    }
+                }
+            }
+            Output(RemoveCollumn(matrix, indexCollumn));
+        }
+
+        public static void Matrix65()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                bool isplus = true;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, j] <= 0)
+                    {
+                        isplus = false;
+                        break;
+                    }
+                }
+                if (isplus)
+                {
+                    matrix = RemoveCollumn(matrix, j);
+                    break;
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix66()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                bool isMines = true;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, matrix.GetLength(1) - j - 1] >=
+                        0)
+                    {
+                        isMines = false;
+                        break;
+                    }
+                }
+                if (isMines)
+                {
+                    matrix = RemoveCollumn(matrix, j);
+                    break;
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix67()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                bool isplus = true;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, j] <= 0)
+                    {
+                        isplus = false;
+                        break;
+                    }
+                }
+                if (isplus)
+                {
+                    matrix = RemoveCollumn(matrix, j);             
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix68()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int index = Convert.ToInt32(Console.ReadLine()) - 1;
+            Output(InsertRow(matrix, new int[matrix.GetLength(1)], index));
+        }
+
+        public static void Matrix69()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int index = Convert.ToInt32(Console.ReadLine()) - 1;
+            int[] insert = new int[matrix.GetLength(0)];
+            for (int i = 0; i < insert.Length; i++) insert[i] = 1;
+            Output(InsertCollumn(matrix, insert, index + 1));
+        }
+
+        public static void Matrix70()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int max = matrix[0, 0];
+            int maxRow = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (max < matrix[i, j])
+                    {
+                        max = matrix[i, j];
+                        maxRow = i;
+                    }
+                }
+            }
+            int[] insert = new int[matrix.GetLength(1)];
+            for (int i = 0; i < insert.Length; i++) insert[i] = matrix[maxRow, i];
+            Output(InsertRow(matrix, insert, maxRow));
+        }
+
+        public static void Matrix71()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int min = matrix[0, 0];
+            int minCollumn = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (min > matrix[i, j])
+                    {
+                        min = matrix[i, j];
+                        minCollumn = j;
+                    }
+                }
+            }
+            int[] insert = new int[matrix.GetLength(0)];
+            for (int i = 0; i < insert.Length; i++) insert[i] = matrix[i, minCollumn];
+            Output(InsertCollumn(matrix, insert, minCollumn));
+        }
+
+        public static void Matrix72()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                bool isPlus = true;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, j] <= 0)
+                    {
+                        isPlus = false;
+                        break;
+                    }
+                }
+                if (isPlus)
+                {
+                    int[] insert = new int[matrix.GetLength(0)];
+                    for (int i = 0; i < insert.Length; i++) insert[i] = 1;
+                    matrix = InsertCollumn(matrix, insert, j);
+                    break;
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix73()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                bool isMines = true;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, matrix.GetLength(1) - j - 1] >= 0)
+                    {
+                        isMines = false;
+                        break;
+                    }
+                }
+                if (isMines)
+                {
+                    matrix = InsertCollumn(matrix, new int[matrix.GetLength(0)],
+                        matrix.GetLength(1) - j); 
+                    break;
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix74()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int[,] output = new int[matrix.GetLength(0), matrix.GetLength(1)];
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    bool isAllSmaller = true;
+                    for (int y = -1; y <= 1; y++)
+                    {
+                        for (int x = -1; x <= 1; x++)
+                        {
+                            if (!(y == 0 && x == 0) &&
+                                i + y >= 0 && i + y < matrix.GetLength(0) &&
+                                j + x >= 0 && j + x < matrix.GetLength(1))
+                            {
+                                if (matrix[i, j] >= matrix[i + y, j + x])
+                                {
+                                    isAllSmaller = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!isAllSmaller) break;
+                    }
+                    if (!isAllSmaller)
+                    {
+                        output[i, j] = matrix[i, j];
+                    }
+                }
+            }
+            Output(output);
+        }
+
+        public static void Matrix75()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            int[,] output = new int[matrix.GetLength(0), matrix.GetLength(1)];
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    bool isAllBigger = true;
+                    for (int y = -1; y <= 1; y++)
+                    {
+                        for (int x = -1; x <= 1; x++)
+                        {
+                            if (!(y == 0 && x == 0) &&
+                                i + y >= 0 && i + y < matrix.GetLength(0) &&
+                                j + x >= 0 && j + x < matrix.GetLength(1))
+                            {
+                                if (matrix[i, j] <= matrix[i + y, j + x])
+                                {
+                                    isAllBigger = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!isAllBigger) break;
+                    }
+                   output[i, j] = isAllBigger? -matrix[i, j] : matrix[i, j];
+                }
+            }
+            Output(output);
+        }
+
+        public static void Matrix76()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0) - 1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < matrix.GetLength(0); j++)
+                {
+                    if (matrix[min, 0] > matrix[j, 0])
+                    {
+                        min = j;
+                    }
+                }
+                matrix = SwapRow(matrix, min, i);
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix77()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int j = 0; j < matrix.GetLength(1) - 1; j++)
+            {
+                int max = j;
+                for (int i = j + 1; i < matrix.GetLength(1); i++)
+                {
+                    if (matrix[matrix.GetLength(0) - 1, max] < matrix[matrix.GetLength(0) - 1, j])
+                    {
+                        max = i;
+                    }
+                }
+                matrix = SwapCollumn(matrix, max, j);
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix78()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(0) - 1; i++)
+            {
+                int maxIndex = -1;
+                int max = 0;
+                for (int j = i; j < matrix.GetLength(0); j++)
+                {
+                     
+                    int min = matrix[j, 0];
+                    for (int k = 0; k < matrix.GetLength(1); k++)
+                    {
+                        if (min > matrix[j, k])
+                        {
+                            min = matrix[j, k];
+                        }
+                    }
+                    if (maxIndex == -1 || max < min)
+                    {
+                        maxIndex = j;
+                        max = min;
+                    }
+                }
+                matrix = SwapRow(matrix, maxIndex, i);
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix79()
+        {
+            int[,] matrix = IntInput(Convert.ToInt32(Console.ReadLine()),
+                                               Convert.ToInt32(Console.ReadLine()));
+            for (int i = 0; i < matrix.GetLength(1) - 1; i++)
+            {
+                int minIndex = -1;
+                int min = 0;
+                for (int j = i; j < matrix.GetLength(1); j++)
+                {
+
+                    int max = matrix[0, j];
+                    for (int k = 0; k < matrix.GetLength(0); k++)
+                    {
+                        if (max < matrix[k, j])
+                        {
+                            max = matrix[k, j];
+                        }
+                    }
+                    if (minIndex == -1 || min > max)
+                    {
+                        minIndex = j;
+                        min = max;
+                    }
+                }
+                matrix = SwapCollumn(matrix, minIndex, i);
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix80()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[,] matrix = IntInput(m, m);
+            int sum = 0;
+            for (int i = 0; i < m; i++)
+            {
+                sum += matrix[i, i];
+            }
+            Console.WriteLine(sum);
+        }
+
+        public static void Matrix81()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[,] matrix = IntInput(m, m);
+            int sum = 0;
+            for (int i = 0; i < m; i++)
+            {
+                sum += matrix[i, m - i - 1];
+            }
+            Console.WriteLine(sum / m);
+        }
+
+        public static void Matrix82()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = 0; i < d.Length; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    sum += d[i][j];
+                }
+                Console.WriteLine(sum);
+            }
+        }
+
+        public static void Matrix83()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetSubMainD(IntInput(m, m));
+            for (int i = 0; i < d.Length; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    sum += d[i][j];
+                }
+                Console.WriteLine(sum);
+            }
+        }
+        public static void Matrix84()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = 0; i < d.Length; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    sum += d[i][j];
+                }
+                Console.WriteLine(sum / d[i].Length);
+            }
+        }
+
+        public static void Matrix85()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetSubMainD(IntInput(m, m));
+            for (int i = 0; i < d.Length; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    sum += d[i][j];
+                }
+                Console.WriteLine(sum / d[i].Length);
+            }
+        }
+
+        public static void Matrix86()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = 0; i < d.Length; i++)
+            {
+                int min = d[i][0];
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    if (min > d[i][j])
+                    {
+                        min = d[i][j];
+                    }
+                }
+                Console.WriteLine(min);
+            }
+        }
+
+        public static void Matrix87()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetSubMainD(IntInput(m, m));
+            for (int i = 0; i < d.Length; i++)
+            {
+                int max = d[i][0];
+                for (int j = 0; j > d[i].Length; j++)
+                {
+                    if (max < d[i][j])
+                    {
+                        max = d[i][j];
+                    }
+                }
+                Console.WriteLine(max);
+            }
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
@@ -1308,7 +1835,7 @@ namespace IlyaCode
             if ((firstIndex < 0 || SecondIndex < 0) || 
                 (firstIndex >= matrix.GetLength(0) || SecondIndex >= matrix.GetLength(0)))
             {
-                throw new ArgumentException("Ты болбес таких строк не существует");
+                throw new ArgumentException("таких строк не существует");
             }
             for (int i = 0; i < matrix.GetLength(1); i++)
             {
@@ -1322,13 +1849,181 @@ namespace IlyaCode
             if ((firstIndex < 0 || SecondIndex < 0) ||
                 (firstIndex >= matrix.GetLength(1) || SecondIndex >= matrix.GetLength(1)))
             {
-                throw new ArgumentException("Ты болбес таких столбцов не существует");
+                throw new ArgumentException("таких столбцов не существует");
             }
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 Proc.Swap(ref matrix[i, firstIndex], ref matrix[i, SecondIndex]);
             }
             return matrix;
+        }
+
+        public static T[,] RemoveRow<T>(T[,] input, int index)
+        {
+            if (index < 0 || index >= input.GetLength(0))
+            {
+                throw new ArgumentException("такой строки не существует");
+            }
+            T[,] output = new T[input.GetLength(0) - 1, input.GetLength(1)];
+            for (int i = 0; i < output.GetLength(0); i++)
+            {
+                for (int j = 0; j < output.GetLength(1); j++)
+                {
+                    if (i >= index)
+                    {
+                        output[i, j] = input[i + 1, j];
+                    }
+                    else
+                    {
+                        output[i, j] = input[i, j];
+                    }
+                }
+            }
+            return output;
+        }
+
+        public static T[,] RemoveCollumn<T>(T[,] input, int index)
+        {
+            if (index < 0 || index >= input.GetLength(1))
+            {
+                throw new ArgumentException("такого столбца не существует");
+            }
+            T[,] output = new T[input.GetLength(0), input.GetLength(1) - 1];
+            for (int j = 0; j < output.GetLength(1); j++)
+            {
+                for (int i = 0; i < output.GetLength(0); i++)
+                {
+                    if (j >= index)
+                    {
+                        output[i, j] = input[i, j + 1];
+                    }
+                    else
+                    {
+                        output[i, j] = input[i, j];
+                    }
+                }
+            }
+            return output;
+        }
+
+        public static T[,] InsertRow<T>(T[,] input, T[] array, int index)
+        {
+            if (index < 0 || index > input.GetLength(0))
+            {
+                throw new ArgumentException("такой строки не существует");
+            }
+            if (array.Length != input.GetLength(1))
+            {
+                throw new ArgumentException("неправильный размер строки");
+            }
+            T[,] output = new T[input.GetLength(0) + 1, input.GetLength(1)];
+            for (int i = 0; i < input.GetLength(0); i++)
+            {
+                for (int j = 0; j < input.GetLength(1); j++)
+                {
+                    if (i < index)
+                    {
+                        output[i, j] = input[i, j];
+                    }
+                    else
+                    {
+                        output[i + 1, j] = input[i, j];
+                    }
+                }
+            }
+            for (int j = 0; j < array.Length; j++)
+            {
+                output[index, j] = array[j];
+            }
+            return output;
+        }
+
+        public static T[,] InsertCollumn<T>(T[,] input, T[] array, int index)
+        {
+            if (index < 0 || index > input.GetLength(1))
+            {
+                throw new ArgumentException("такго столбца не существует");
+            }
+            if (array.Length != input.GetLength(0))
+            {
+                throw new ArgumentException("неправильный размер столбца");
+            }
+            T[,] output = new T[input.GetLength(0), input.GetLength(1) + 1];
+            for (int j = 0; j < input.GetLength(1); j++)
+            {
+                for (int i = 0; i < input.GetLength(0); i++)
+                {
+                    if (j < index)
+                    {
+                        output[i, j] = input[i, j];
+                    }
+                    else
+                    {
+                        output[i, j + 1] = input[i, j];
+                    }
+                }
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                output[i, index] = array[i];
+            }
+            return output;
+        }
+
+        public static T[][] GetMainD<T>(T[,] matrix)
+        {
+            int m = matrix.GetLength(0);
+            T[][] d = new T[m * 2 - 1][];
+            for (int i = 0; i < m; i++)
+            {
+                d[i] = new T[i + 1];
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    d[i][j] = matrix[j, m - i - 1 + j];
+                }
+            }
+            for (int i = 0; i < m - 1; i++)
+            {
+                d[i + m] = new T[m - i - 1];
+                for (int j = 0; j < d[i + m].Length; j++)
+                {
+                    d[i + m][j] = matrix[i + j + 1, j];
+                }
+            }
+            return d;
+        }
+
+        public static T[,] GetFromMainD<T>(T[][] matrix)
+        {
+            return null;
+        }
+
+        public static T[][] GetSubMainD<T>(T[,] matrix)
+        {
+            int m = matrix.GetLength(0);
+            T[][] d = new T[m * 2 - 1][];
+            for (int i = 0; i < m; i++)
+            {
+                d[i] = new T[i + 1];
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    d[i][j] = matrix[i - j, j];
+                }
+            }
+            for (int i = 0; i < m - 1; i++)
+            {
+                d[i + m] = new T[m - i - 1];
+                for (int j = 0; j < d[i + m].Length; j++)
+                {
+                    d[i + m][j] = matrix[m - 1 - j, i + j + 1];
+                }
+            }
+            return d;
+        }
+
+        public static T[,] GetFromSubMainD<T>(T[][] matrix)
+        {
+            return null;
         }
     }
 }
