@@ -1891,6 +1891,62 @@ namespace IlyaCode
             Output(GetFromMainD(d));
         }
 
+        public static void Matrix96()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            for (int i = 0; i < m - 1; i++)
+            {
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    Proc.Swap(ref d[i][j], ref d[^(i + 1)][j]);
+                }
+            }
+            Output(GetFromMainD(d));
+        }
+
+        public static void Matrix97()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetSubMainD(IntInput(m, m));
+            for (int i = 0; i < m - 1; i++)
+            {
+                for (int j = 0; j < d[i].Length; j++)
+                {
+                    Proc.Swap(ref d[i][j], ref d[^(i + 1)][j]);
+                }
+            }
+            Output(GetFromSubMainD(d));
+        }
+
+        public static void Matrix98()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[,] matrix = IntInput(m, m);
+            for (int i = 0; i < m / 2 + m % 2; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Proc.Swap(ref matrix[i, j], ref matrix[m - i - 1, m - j - 1]);
+                }
+            }
+            Output(matrix);
+        }
+
+        public static void Matrix99()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetSubMainD(IntInput(m, m));
+            Output(GetFromMainD(d));
+        }
+
+        public static void Matrix100()
+        {
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[][] d = GetMainD(IntInput(m, m));
+            Output(GetFromSubMainD(d));
+        }
+
         public static string[,] StringInput(int m, int n)
         {
             string[,] matrix = new string[m, n];
