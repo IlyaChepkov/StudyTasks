@@ -61,6 +61,9 @@ internal class Program
             case 12:
                 Matrix.Do();
                 break;
+            case 13:
+                Strings.Do();
+                break;
         }
         Console.ReadLine();
     }
