@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -427,6 +428,201 @@ namespace IlyaCode
             string input1 = Console.ReadLine();
             string input2 = Console.ReadLine();
             Console.WriteLine(input1.Replace(input2, ""));
+        }
+
+        public static void String36()
+        {
+            string input = Console.ReadLine();
+            string input1 = Console.ReadLine();
+            string input2 = Console.ReadLine();
+            int indexOf = input.IndexOf(input1);
+            string output = input;
+            if (indexOf != -1)
+            {
+                output = input.Remove(indexOf) + input2 + input.Substring(indexOf + input1.Length);
+            }
+            Console.WriteLine(output);
+        }
+        public static void String37()
+        {
+            string input = Console.ReadLine();
+            string input1 = Console.ReadLine();
+            string input2 = Console.ReadLine();
+            int indexOf = input.LastIndexOf(input1);
+            string output = input;
+            if (indexOf != -1)
+            {
+                output = input.Remove(indexOf) + input2 + input.Substring(indexOf + input1.Length);
+            }
+            Console.WriteLine(output);
+        }
+        public static void String38()
+        {
+            string input = Console.ReadLine();
+            string input1 = Console.ReadLine();
+            string input2 = Console.ReadLine();
+            Console.WriteLine(input.Replace(input1, input2));
+        }
+
+        public static void String39()
+        {
+            string input = Console.ReadLine();
+            string[] array = input.Split(' ');
+            Console.WriteLine(array.Length >= 3 ? array[1] : "");
+        }
+
+        public static void String40()
+        {
+            string input = Console.ReadLine();
+            int indexOf = input.IndexOf(' ');
+            int lastIndexOf = input.LastIndexOf(' ');
+            Console.WriteLine(indexOf == lastIndexOf ? "" : input.Substring(indexOf, lastIndexOf - indexOf));
+        }
+        public static void String41()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            Console.WriteLine(array.Length);
+        }
+
+        public static void String42()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i][0] == array[i][^1])
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
+        }
+
+        public static void String43()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i].Contains('А'))
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
+        }
+        public static void String44()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                int countA = 0;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] == 'А')
+                    {
+                        countA++;
+                    }
+                }
+                if (countA == 3) count++;
+            }
+            Console.WriteLine(count);
+        }
+
+        public static void String45()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            int min = array[0].Length;
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (min > array[i].Length)
+                    min = array[i].Length;
+            }
+            Console.WriteLine(min);
+        }
+        public static void String46()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            int max = array[0].Length;
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (max < array[i].Length)
+                    max = array[i].Length;
+            }
+            Console.WriteLine(max);
+        }
+
+        public static void String47()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            input = input.Replace(' ', '.');
+            Console.WriteLine(input);
+        }
+        public static void String48()
+        {
+            string input = Console.ReadLine();
+            string[] array = input.Split(' ');
+            input = "";
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i].Length != 0)
+                {
+                    input += array[i][0] + array[i].Substring(1).Replace(array[i][0], '.');
+                }
+                if (i < array.Length - 1)
+                {
+                    input += ' ';
+                }
+            }
+            Console.WriteLine(input);
+        }
+        public static void String49()
+        {
+            string input = Console.ReadLine();
+            string[] array = input.Split(' ');
+            input = "";
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i].Length != 0)
+                {
+                    input += array[i].Remove(array[i].Length - 1).Replace(array[i][^1], '.') + array[i][^1];
+                }
+                if (i < array.Length - 1)
+                {
+                    input += ' ';
+                }
+            }
+            Console.WriteLine(input);
+        }
+        public static void String50()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            input = "";
+            for (int i = 0; i < array.Length; i++)
+            {
+                input += array[^(i + 1)];
+                if (i < array.Length - 1)
+                {
+                    input += ' ';
+                }
+            }
+            Console.WriteLine(input);
         }
     }
 }
