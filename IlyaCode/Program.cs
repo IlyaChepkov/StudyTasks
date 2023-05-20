@@ -64,6 +64,12 @@ internal class Program
             case 13:
                 Strings.Do();
                 break;
+            case 14:
+                StudyFile.Do();
+                break;
+            default:
+                Console.WriteLine("Ты болбес? Такого раздела не существует!!!");
+                break;
         }
         Console.ReadLine();
     }

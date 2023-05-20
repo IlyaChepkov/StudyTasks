@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace IlyaCode
@@ -623,6 +624,374 @@ namespace IlyaCode
                 }
             }
             Console.WriteLine(input);
+        }
+
+        public static void String51()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            System.Array.Sort(array);
+            for(int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i]);
+                if (i < array.Length - 1)
+                {
+                    Console.Write(' ');
+                }
+            }
+        }
+
+        public static void String52()
+        {
+            string input = Console.ReadLine();
+            Console.WriteLine(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(input));
+        }
+
+        public static void String53()
+        {
+            string input = Console.ReadLine();
+            int count = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (Char.IsPunctuation(input[i]))
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
+        }
+        public static void String54()
+        {
+            string input = Console.ReadLine();
+            int count = 0;
+            input = input.ToUpper();
+            for (int i = 0; i < input.Length; i++)
+            {
+                switch (input[i])
+                {
+                    case 'А':
+                    case 'Е':
+                    case 'И':
+                    case 'О':
+                    case 'У':
+                    case 'Ы':
+                    case 'Э':
+                    case 'Ю':
+                    case 'Я':
+                        count++;
+                        break;
+                }
+            }
+            Console.WriteLine(count);
+        }
+        public static void String55()
+        {
+            string input = Console.ReadLine();
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (Char.IsPunctuation(input[i]))
+                {
+                    input = input.Replace(input[i].ToString(), "");
+                    i--;
+                }
+            }
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            string max = array[0];
+            for (int i = 1; i < input.Length; i++)
+            {
+                if (max.Length < array[i].Length)
+                {
+                    max = array[i];
+                }
+            }
+            Console.WriteLine(max);
+        }
+        public static void String56()
+        {
+            string input = Console.ReadLine();
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (Char.IsPunctuation(input[i]))
+                {
+                    input = input.Replace(input[i].ToString(), "");
+                    i--;
+                }
+            }
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            string[] array = input.Split(' ');
+            string min = array[0];
+            for (int i = 1; i < input.Length; i++)
+            {
+                if (min.Length >= array[i].Length)
+                {
+                    min = array[i];
+                }
+            }
+            Console.WriteLine(min);
+        }
+        public static void String57()
+        {
+            string input = Console.ReadLine();
+            while (input.IndexOf("  ") != -1) input = input.Replace("  ", " ");
+            Console.WriteLine(input);
+        }
+
+        public static void String58()
+        {
+            string input = Console.ReadLine();
+            string[] array = input.Split('\\');
+            int index = array[^1].LastIndexOf('.');
+            Console.WriteLine(array[^1].Remove(index));
+        }
+        public static void String59()
+        {
+            string input = Console.ReadLine();
+            int index = input.LastIndexOf('.');
+            Console.WriteLine(input.Substring(index + 1));
+        }
+        public static void String60()
+        {
+            string input = Console.ReadLine();
+            string[] array = input.Split('\\');
+            Console.WriteLine(array.Length > 2 ? array[1] : "\\");
+        }
+        public static void String61()
+        {
+            string input = Console.ReadLine();
+            string[] array = input.Split('\\');
+            Console.WriteLine(array.Length > 2 ? array[^2] : "\\");
+        }
+
+        public static void String62()
+        {
+            string input = Console.ReadLine();
+            string output = "";
+            for (int  i = 0; i < input.Length; i++)
+            {
+                if (Char.IsLetter(input[i]))
+                {
+                    if (input[i] == 'я' || input[i] == 'Я')
+                    {
+                        output += (char)(input[i] - ('я' - 'а'));
+                        continue;
+                    }
+                    output += (char)(input[i] + 1);
+                }
+                else
+                {
+                    output += input[i];
+                }
+            }
+            Console.WriteLine(output);
+        }
+        public static void String63()
+        {
+            string input = Console.ReadLine();
+            byte k = Convert.ToByte(Console.ReadLine());
+            string output = "";
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (Char.IsLetter(input[i]))
+                {
+                    if (input[i] >= 'а' && input[i] <= 'я')
+                    {
+                        if (input[i] + k > 'я')
+                        {
+                            output += (char)(input[i] - ('я' - 'а') + k - 1);
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (input[i] + k > 'Я')
+                        {
+                            output += (char)(input[i] - ('я' - 'а') + k - 1);
+                            continue;
+                        }
+                    }
+                    output += (char)(input[i] + k);
+                }
+                else
+                {
+                    output += input[i];
+                }
+            }
+            Console.WriteLine(output);
+        }
+        public static void String64()
+        {
+            string input = Console.ReadLine();
+            byte k = Convert.ToByte(Console.ReadLine());
+            string output = "";
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (Char.IsLetter(input[i]))
+                {
+                    if (input[i] >= 'а' && input[i] <= 'я')
+                    {
+                        if (input[i] - k < 'а')
+                        {
+                            output += (char)(input[i] + ('я' - 'а') - k + 1);
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (input[i] - k > 'А')
+                        {
+                            output += (char)(input[i] + ('я' - 'а') - k + 1);
+                            continue;
+                        }
+                    }
+                    output += (char)(input[i] - k);
+                }
+                else
+                {
+                    output += input[i];
+                }
+            }
+            Console.WriteLine(output);
+        }
+        public static void String65()
+        {
+            string input = Console.ReadLine();
+            char c = Convert.ToChar(Console.ReadLine());
+            sbyte k = (sbyte)(input[0] - c);
+            string output = "";
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (Char.IsLetter(input[i]))
+                {
+                    if (input[i] >= 'а' && input[i] <= 'я')
+                    {
+                        if (input[i] - k < 'а')
+                        {
+                            output += (char)(input[i] + ('я' - 'а') - k + 1);
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (input[i] - k > 'А')
+                        {
+                            output += (char)(input[i] + ('я' - 'а') - k + 1);
+                            continue;
+                        }
+                    }
+                    output += (char)(input[i] - k);
+                }
+                else
+                {
+                    output += input[i];
+                }
+            }
+            Console.WriteLine(output);
+        }
+        public static void String66()
+        {
+            string input = Console.ReadLine();
+            string output = "";
+            for (int i = 1; i < input.Length; i += 2)
+            {
+                output += input[i];
+            }
+            for (int i = input.Length % 2 == 0 ? 2 : 1 ; i <= input.Length; i += 2)
+            {
+                output += input[^i];
+            }
+            Console.WriteLine(output);
+        }
+        public static void String67()
+        {
+            string input = Console.ReadLine();
+            string output = "";
+            for (int i = 0; i < input.Length / 2; i++)
+            {
+                output += input[^(i + 1)];
+                output += input[i];
+            }
+            output += input[input.Length / 2];
+            Console.WriteLine(output);
+        }
+        public static void String68()
+        {
+            string input = Console.ReadLine().ToLower();
+            string latLetter = "";
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] >= 'a' && input[i] <= 'z')
+                {
+                    latLetter += input[i];
+                }
+            }
+            for (int i = 0; i < latLetter.Length - 1; i++)
+            {
+                if (latLetter[i] >= latLetter[i + 1])
+                {
+                    Console.WriteLine(false);
+                    return;
+                }
+            }
+            Console.WriteLine(true);
+        }
+        public static void String69()
+        {
+            string input = Console.ReadLine();
+            int c = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] == '(')
+                {
+                    c++;
+                }
+                if (input[i] == ')')
+                {
+                    c--;
+                }
+                if (c < 0)
+                {
+                    Console.WriteLine(i + 1);
+                    return;
+                }
+            }
+            Console.WriteLine(c == 0 ? 0 : -1);
+        }
+        public static void String70()
+        {
+            string input = Console.ReadLine();
+            char[] array = new char[0]; // (){}[] ([{}])
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] == '(' || input[i] == '{' || input[i] == '[')
+                {
+                    Array.Insert(array, 0, input[i]);
+                }
+                if (input[i] == ')' || input[i] == '}' || input[i] == ']')
+                {
+                    if (array.Length == 0)
+                    {
+                        Console.WriteLine(i + 1);
+                        return;
+                    }
+                    else
+                    {
+                        if ((array[0] == '(' && input[i] == ')') ||
+                            (array[0] == '[' && input[i] == ']') ||
+                            (array[0] == '{' && input[i] == '}') )
+                        {
+                            Array.RemoveAt(array, 0);
+                        }
+                        else
+                        {
+                            Console.WriteLine(i + 1);
+                            return;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(array.Length > 0 ? -1 : 0);
         }
     }
 }
