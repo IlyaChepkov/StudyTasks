@@ -622,15 +622,207 @@ namespace IlyaCode
         public static void File29()
         {
             string s = Console.ReadLine();
-            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.Write);
             stream.SetLength(200);
             stream.Close();
         }
         public static void File30()
         {
             string s = Console.ReadLine();
-            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.Write);
             stream.SetLength(stream.Length / 2);
+            stream.Close();
+        }
+
+        public static void File31()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryWriter writer = new BinaryWriter(stream);
+            BinaryReader reader = new BinaryReader(stream);
+            for (int i = 0; i < 50; i++)
+            {
+                stream.Seek(-4 * (50 - i), SeekOrigin.End);
+                int value = reader.ReadInt32();
+                stream.Seek(i * 4, SeekOrigin.Begin);
+                writer.Write(value);
+            }
+            stream.SetLength(200);
+            writer.Close();
+            reader.Close();
+            stream.Close();
+        }
+
+        public static void File32()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryWriter writer = new BinaryWriter(stream);
+            BinaryReader reader = new BinaryReader(stream);
+            for (int i = 0; i < stream.Length / 8; i++)
+            {
+                stream.Seek(-4 * (stream.Length / 8 - i), SeekOrigin.End);
+                int value = reader.ReadInt32();
+                stream.Seek(i * 4, SeekOrigin.Begin);
+                writer.Write(value);
+            }
+            stream.SetLength(stream.Length / 2);
+            writer.Close();
+            reader.Close();
+            stream.Close();
+        }
+        public static void File33()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryWriter writer = new BinaryWriter(stream);
+            BinaryReader reader = new BinaryReader(stream);
+            for (int i = 1; i < stream.Length / 8 + stream.Length % 2; i++)
+            {
+                stream.Seek(i * 8, SeekOrigin.Begin);
+                int value = reader.ReadInt32();
+                stream.Seek(i * 4, SeekOrigin.Begin);
+                writer.Write(value);
+            }
+            stream.SetLength(stream.Length / 2 + stream.Length % 2 * 4);
+            writer.Close();
+            reader.Close();
+            stream.Close();
+        }
+        public static void File34()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryWriter writer = new BinaryWriter(stream);
+            BinaryReader reader = new BinaryReader(stream);
+            int j = 0;
+            for (int i = 0; i < stream.Length / 4; i++)
+            {
+                stream.Seek(i * 4, SeekOrigin.Begin);
+                int value = reader.ReadInt32();
+                if (value >= 0)
+                {
+                    stream.Seek(j * 4, SeekOrigin.Begin);
+                    writer.Write(value);
+                    j++;
+                }
+            }
+            stream.SetLength(j * 4);
+            writer.Close();
+            reader.Close();
+            stream.Close();
+        }
+        public static void File35()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            while (stream.Length < 200)
+            {
+                Insert(stream, 0, 0);
+            }
+            stream.Close();
+        }
+        public static void File36()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryReader reader = new BinaryReader(stream);
+            BinaryWriter writer = new BinaryWriter(stream);
+            long count = stream.Length / 4;
+            for (int i = 0; i < count; i++)
+            {
+                stream.Seek(i * 4, SeekOrigin.Begin);
+                int value = reader.ReadInt32();
+                stream.Seek(0, SeekOrigin.End);
+                writer.Write(value);
+            }
+            reader.Close();
+            writer.Close();
+            stream.Close();
+        }
+        public static void File37()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryReader reader = new BinaryReader(stream);
+            BinaryWriter writer = new BinaryWriter(stream);
+            long count = stream.Length / 4;
+            for (int i = 1; i <= count; i++)
+            {
+                stream.Seek((count - i)* 4, SeekOrigin.Begin);
+                int value = reader.ReadInt32();
+                stream.Seek(0, SeekOrigin.End);
+                writer.Write(value);
+            }
+            reader.Close();
+            writer.Close();
+            stream.Close();
+        }
+        public static void File38()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryReader reader = new BinaryReader(stream);
+            for (int i = 0; i < stream.Length / 4; i += 2)
+            {
+                Insert(stream, i, reader.ReadInt32());
+                stream.Seek(8, SeekOrigin.Current);
+            }
+            reader.Close();
+            stream.Close();
+        }
+        public static void File39()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryReader reader = new BinaryReader(stream);
+            for (int i = 0; i < stream.Length / 4; i++)
+            {
+                int value = reader.ReadInt32();
+                if (value <= 10 && value >= 5)
+                {
+                    Insert(stream, i, value);
+                    stream.Seek(4, SeekOrigin.Current);
+                }
+            }
+            reader.Close();
+            stream.Close();
+        }
+
+        public static void File40()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryWriter writer = new BinaryWriter(stream);
+            for (int i = 1; i < stream.Length / 4; i += 2)
+            {
+                writer.Write(0);
+                Insert(stream, i, 0);
+                stream.Seek(8, SeekOrigin.Current);
+            }
+            writer.Close();
+            stream.Close();
+        }
+        public static void File41()
+        {
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.ReadWrite);
+            BinaryReader reader = new BinaryReader(stream);
+            BinaryWriter writer = new BinaryWriter(stream);
+            for (int i = 0; i < stream.Length / 4; i++)
+            {
+                int value = reader.ReadInt32();
+                if (value > 0)
+                {
+                    stream.Seek(-4, SeekOrigin.Current);
+                    writer.Write(0);
+                    Insert(stream, i, 0);
+                    Insert(stream, i, 0);
+                    stream.Seek(8, SeekOrigin.Current);
+                }
+            }
+            reader.Close();
+            writer.Close();
             stream.Close();
         }
         public static int GetInt(FileStream stream, int k)
@@ -651,5 +843,24 @@ namespace IlyaCode
             }
             return res;
         }
+        public static void Insert(FileStream stream, int k, int value)
+        {
+            long position = stream.Position;
+            BinaryReader reader = new BinaryReader(stream);
+            BinaryWriter writer = new BinaryWriter(stream);
+            stream.Seek(k * 4, SeekOrigin.Begin);
+            for (; k < stream.Length / 4; k++)
+            {
+                int prev = reader.ReadInt32();
+                stream.Seek(-4, SeekOrigin.Current);
+                writer.Write(value);
+                value = prev;
+            }
+            writer.Write(value);
+            stream.Position = position;
+            writer.Close();
+            reader.Close();
+        }
+
     }
 }
