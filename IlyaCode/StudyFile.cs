@@ -825,6 +825,156 @@ namespace IlyaCode
             writer.Close();
             stream.Close();
         }
+        public static void File42()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            File.Copy(s1, "newFile");
+            File.Replace(s2, s1, null);
+            File.Replace("newFile", s2, null);
+            File.Delete("newFile");
+        }
+        public static void File43()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            File.Copy(s1, s2);
+        }
+        public static void File44()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string s3 = Console.ReadLine();
+            FileInfo info1 = new FileInfo(s1);
+            FileInfo info2 = new FileInfo(s2);
+            FileInfo info3 = new FileInfo(s3);
+            if (info1.Length > info2.Length)
+            {
+                if (info1.Length > info3.Length)
+                {
+                    if (info2.Length > info3.Length)
+                    {
+                        File.Replace(s3, s1, null);
+                    }    
+                    else
+                    {
+                        File.Replace(s2, s1, null);
+                    }
+                }
+                else
+                {
+                    File.Replace(s2, s3, null);
+                }
+            }
+            else if (info2.Length > info3.Length)
+            {
+                if (info1.Length > info3.Length)
+                {
+                    File.Replace(s3, s2, null);
+                }
+                else
+                {
+                    File.Replace(s1, s2, null);
+                }
+            }
+            else
+            {
+                File.Replace(s1, s3, null);
+            }
+        }
+        public static void File45()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string s3 = Console.ReadLine();
+            FileInfo info1 = new FileInfo(s1);
+            FileInfo info2 = new FileInfo(s2);
+            FileInfo info3 = new FileInfo(s3);
+            if (info1.Length > info2.Length)
+            {
+                if (info1.Length > info3.Length)
+                {
+                    if (info2.Length > info3.Length)
+                    {
+                        File.Replace(s1, s3, null);
+                    }
+                    else
+                    {
+                        File.Replace(s1, s2, null);
+                    }
+                }
+                else
+                {
+                    File.Replace(s3, s2, null);
+                }
+            }
+            else if (info2.Length > info3.Length)
+            {
+                if (info1.Length > info3.Length)
+                {
+                    File.Replace(s2, s3, null);
+                }
+                else
+                {
+                    File.Replace(s2, s1, null);
+                }
+            }
+            else
+            {
+                File.Replace(s3, s1, null);
+            }
+        }
+        public static void File46()
+        {
+            string s0 = Console.ReadLine();
+            int n = Convert.ToInt32(Console.ReadLine());
+            FileStream stream = new FileStream(s0, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream);
+            for (int i = 0; i < n; i++)
+            {
+                string sI = Console.ReadLine();
+                FileStream streamI = new FileStream(sI, FileMode.Open, FileAccess.Read);
+                BinaryReader reader = new BinaryReader(streamI);
+                for (int j = 0; j < streamI.Length; j++)
+                {
+                    writer.Write(reader.ReadByte());
+                }
+                reader.Close();
+                streamI.Close();
+            }
+            writer.Close();
+            stream.Close();
+        }
+        public static void File47()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.ReadWrite);
+            long count1 = stream1.Length;
+            FileStream stream2 = new FileStream(s2, FileMode.Open, FileAccess.ReadWrite);
+            long count2 = stream2.Length;
+            BinaryWriter writer1 = new BinaryWriter(stream1);
+            BinaryWriter writer2 = new BinaryWriter(stream2);
+            BinaryReader reader1 = new BinaryReader(stream1);
+            BinaryReader reader2 = new BinaryReader(stream2);
+            stream1.Seek(0, SeekOrigin.End);
+            for (int i = 0; i < count2; i++)
+            {
+                writer1.Write(reader2.ReadByte());
+            }
+            stream2.Seek(0, SeekOrigin.End);
+            stream1.Seek(0, SeekOrigin.Begin);
+            for (int i = 0; i < count1; i++)
+            {
+                writer2.Write(reader1.ReadByte());
+            }
+            writer1.Close();
+            writer2.Close();
+            reader1.Close();
+            reader2.Close();
+            stream1.Close();
+            stream2.Close();
+        }
         public static int GetInt(FileStream stream, int k)
         {
             long pos = stream.Position;
