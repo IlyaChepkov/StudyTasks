@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace IlyaCode
 {
@@ -200,7 +201,7 @@ namespace IlyaCode
 
         public static void File12()
         {
-                        string s1 = Console.ReadLine();
+            string s1 = Console.ReadLine();
             string s2 = Console.ReadLine();
             string s3 = Console.ReadLine();
             FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
@@ -749,7 +750,7 @@ namespace IlyaCode
             long count = stream.Length / 4;
             for (int i = 1; i <= count; i++)
             {
-                stream.Seek((count - i)* 4, SeekOrigin.Begin);
+                stream.Seek((count - i) * 4, SeekOrigin.Begin);
                 int value = reader.ReadInt32();
                 stream.Seek(0, SeekOrigin.End);
                 writer.Write(value);
@@ -855,7 +856,7 @@ namespace IlyaCode
                     if (info2.Length > info3.Length)
                     {
                         File.Replace(s3, s1, null);
-                    }    
+                    }
                     else
                     {
                         File.Replace(s2, s1, null);
@@ -975,6 +976,311 @@ namespace IlyaCode
             stream1.Close();
             stream2.Close();
         }
+        public static void File48()
+        {
+            string sA = Console.ReadLine();
+            string sB = Console.ReadLine();
+            string sC = Console.ReadLine();
+            string sD = Console.ReadLine();
+            FileStream streamA = new FileStream(sA, FileMode.Open, FileAccess.Read);
+            FileStream streamB = new FileStream(sB, FileMode.Open, FileAccess.Read);
+            FileStream streamC = new FileStream(sC, FileMode.Open, FileAccess.Read);
+            FileStream streamD = new FileStream(sD, FileMode.Create, FileAccess.Write);
+            BinaryReader readerA = new BinaryReader(streamA);
+            BinaryReader readerB = new BinaryReader(streamB);
+            BinaryReader readerC = new BinaryReader(streamC);
+            BinaryWriter writerD = new BinaryWriter(streamD);
+            for (int i = 0; i < streamA.Length / 4; i++)
+            {
+                writerD.Write(readerA.ReadInt32());
+                writerD.Write(readerB.ReadInt32());
+                writerD.Write(readerC.ReadInt32());
+            }
+            readerA.Close();
+            readerB.Close();
+            readerC.Close();
+            writerD.Close();
+            streamA.Close();
+            streamB.Close();
+            streamC.Close();
+            streamD.Close();
+        }
+
+        public static void File49()
+        {
+            BinaryReader[] array = new BinaryReader[4];
+            long? min = null;
+            for (int i = 0; i < array.Length; i++)
+            {
+                string s = Console.ReadLine();
+                FileStream stream = new FileStream(s, FileMode.Open, FileAccess.Read);
+                array[i] = new BinaryReader(stream);
+                if (min == null || min > array[i].BaseStream.Length / 4)
+                {
+                    min = array[i].BaseStream.Length / 4;
+                }
+            }
+            string sE = Console.ReadLine();
+            FileStream streamE = new FileStream(sE, FileMode.Create, FileAccess.Write);
+            BinaryWriter writerE = new BinaryWriter(streamE);
+            for (int i = 0; i < min; i++)
+            {
+                for (int j = 0; j < array.Length; j++)
+                {
+                    writerE.Write(array[j].ReadInt32());
+                }
+            }
+            writerE.Close();
+            streamE.Close();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i].Close();
+                array[i].BaseStream.Close();
+            }
+        }
+        public static void File50()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string s3 = Console.ReadLine();
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Open, FileAccess.Read);
+            FileStream stream3 = new FileStream(s3, FileMode.Create, FileAccess.Write);
+            BinaryReader reader1 = new BinaryReader(stream1);
+            BinaryReader reader2 = new BinaryReader(stream2);
+            BinaryWriter writer = new BinaryWriter(stream3);
+            int value1 = reader1.ReadInt32();
+            int value2 = reader2.ReadInt32();
+            for (int i = 0, j = 0; i < stream1.Length / 4 || j < stream2.Length / 4;)
+            {
+                if (i == stream1.Length / 4)
+                {
+                    writer.Write(value2);
+                    j++;
+                    if (j < stream2.Length / 4)
+                    {
+                        value2 = reader2.ReadInt32();
+                    }
+                    continue;
+                }
+                if (j == stream2.Length / 4)
+                {
+                    writer.Write(value1);
+                    i++;
+                    if (i < stream1.Length / 4)
+                    {
+                        value1 = reader1.ReadInt32();
+                    }
+                    continue;
+                }
+                if (value1 < value2)
+                {
+                    writer.Write(value1);
+                    i++;
+                    if (i < stream1.Length / 4)
+                    {
+                        value1 = reader1.ReadInt32();
+                    }
+                }
+                else 
+                {
+                    writer.Write(value2);
+                    j++;
+                    if (j < stream2.Length / 4)
+                    {
+                        value2 = reader2.ReadInt32();
+                    }
+                }
+            }
+            reader1.Close();
+            reader2.Close();
+            writer.Close();
+            stream1.Close();
+            stream2.Close();
+            stream3.Close();
+        }
+        public static void File51()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string s3 = Console.ReadLine();
+            string s4 = Console.ReadLine();
+            Concat(s1, s2, "New_file");
+            Concat(s3, "New_file", s4);
+            File.Delete("New_file");
+        }
+        public static void File52()
+        {
+            string s0 = Console.ReadLine();
+            int n = Convert.ToInt32(Console.ReadLine());
+            FileStream stream = new FileStream(s0, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream);
+            writer.Write(n);
+            BinaryReader[] array = new BinaryReader[n];
+            for (int i = 0; i < n; i++)
+            {
+                string sI = Console.ReadLine();
+                FileStream streamI = new FileStream(sI, FileMode.Open, FileAccess.Read);
+                writer.Write(streamI.Length);
+                array[i] = new BinaryReader(streamI);
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < array[i].BaseStream.Length; j++)
+                {
+                    writer.Write(array[i].ReadByte());
+                }
+                array[i].Close();
+                array[i].BaseStream.Close();
+            }
+            writer.Close();
+            stream.Close();
+        }
+        public static void File53()
+        {
+            string s = Console.ReadLine();
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            string rar = Console.ReadLine();
+            FileStream rarStream = new FileStream(rar, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(rarStream);
+            int n = reader.ReadInt32();
+            if (k > n)
+            {
+                Console.WriteLine("Такого файла не существует");
+                reader.Close();
+                rarStream.Close();
+                return;
+            }
+            FileStream stream = new FileStream(s, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream);
+            long sum = 0;
+            for (int i = 0; i < k; i++)
+            {
+                sum += reader.ReadInt64();
+            }
+            long lenght = reader.ReadInt64();
+            stream.Seek(n * 8 + 4 + sum, SeekOrigin.Begin);
+            for (int i = 0; i < lenght; i++)
+            {
+                writer.Write(reader.ReadByte());
+            }
+            writer.Close();
+            reader.Close();
+            stream.Close();
+            rarStream.Close();
+        }
+
+        public static void File54()
+        {
+            string s = Console.ReadLine();
+            string rar = Console.ReadLine();
+            FileStream rarStream = new FileStream(rar, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(rarStream);
+            FileStream stream = new FileStream(s, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream);
+            int n = reader.ReadInt32();
+            long[] lenghts = new long[n];
+            for (int i = 0; i < n; i++)
+            {
+                lenghts[i] = reader.ReadInt64();
+            }
+            int sum = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < lenghts[i]; j++)
+                {
+                    sum += reader.ReadByte();
+                }
+                writer.Write(sum / lenghts[i]);
+            }
+            writer.Close();
+            reader.Close();
+            stream.Close();
+            rarStream.Close();
+        }
+        public static void File55()
+        {
+            string s0 = Console.ReadLine();
+            int n = Convert.ToInt32(Console.ReadLine());
+            FileStream stream = new FileStream(s0, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream);
+            writer.Write(n);
+            for (int i = 0; i < n; i++)
+            {
+                string sI = Console.ReadLine();
+                FileStream streamI = new FileStream(sI, FileMode.Open, FileAccess.Read);
+                BinaryReader readerI = new BinaryReader(streamI);
+                writer.Write(streamI.Length);
+                for (int j = 0; j < streamI.Length; j++)
+                {
+                    writer.Write(readerI.ReadByte());
+                }
+                readerI.Close();
+                streamI.Close();
+            }
+            writer.Close();
+            stream.Close();
+        }
+        public static void File56()
+        {
+            string s = Console.ReadLine();
+            int k = Convert.ToInt32(Console.ReadLine()) - 1;
+            string rar = Console.ReadLine();
+            FileStream rarStream = new FileStream(rar, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(rarStream);
+            int n = reader.ReadInt32();
+            if (k > n)
+            {
+                Console.WriteLine("Такого файла не существует");
+                reader.Close();
+                rarStream.Close();
+                return;
+            }
+            FileStream stream = new FileStream(s, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream);
+            for (int i = i = 0; i < k; i++)
+            {
+                long lenghtI = reader.ReadInt64();
+                rarStream.Seek(lenghtI, SeekOrigin.Current);
+            }
+            long lenght = reader.ReadInt64();
+            for (int i = 0; i < lenght; i++)
+            {
+                writer.Write(reader.ReadByte());
+            }
+            writer.Close();
+            reader.Close();
+            stream.Close();
+            rarStream.Close();
+        }
+
+        public static void File57()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string rar = Console.ReadLine();
+            FileStream rarStream = new FileStream(rar, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(rarStream);
+             int n = reader.ReadInt32();
+            FileStream stream1 = new FileStream(s1, FileMode.Create, FileAccess.Write);
+            FileStream stream2 = new FileStream(s1, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer1 = new BinaryWriter(stream1);
+            BinaryWriter writer2 = new BinaryWriter(stream2);
+            for (int i = 0; i < n; i++)
+            {
+                long lenghtI = reader.ReadInt64();
+                writer1.Write(reader.ReadByte());
+                rarStream.Seek(lenghtI != 1 ? lenghtI - 2 : -1, SeekOrigin.Current);
+                writer2.Write(reader.ReadByte());
+            }
+            writer1.Close();
+            writer2.Close();
+            reader.Close();
+            stream1.Close();
+            stream2.Close();
+            rarStream.Close();
+        }
+
         public static int GetInt(FileStream stream, int k)
         {
             long pos = stream.Position;
@@ -1012,5 +1318,63 @@ namespace IlyaCode
             reader.Close();
         }
 
+        public static void Concat(string s1, string s2, string s3)
+        {
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Open, FileAccess.Read);
+            FileStream stream3 = new FileStream(s3, FileMode.Create, FileAccess.Write);
+            BinaryReader reader1 = new BinaryReader(stream1);
+            BinaryReader reader2 = new BinaryReader(stream2);
+            BinaryWriter writer = new BinaryWriter(stream3);
+            int value1 = reader1.ReadInt32();
+            int value2 = reader2.ReadInt32();
+            for (int i = 0, j = 0; i < stream1.Length / 4 || j < stream2.Length / 4;)
+            {
+                if (i == stream1.Length / 4)
+                {
+                    writer.Write(value2);
+                    j++;
+                    if (j < stream2.Length / 4)
+                    {
+                        value2 = reader2.ReadInt32();
+                    }
+                    continue;
+                }
+                if (j == stream2.Length / 4)
+                {
+                    writer.Write(value1);
+                    i++;
+                    if (i < stream1.Length / 4)
+                    {
+                        value1 = reader1.ReadInt32();
+                    }
+                    continue;
+                }
+                if (value1 > value2)
+                {
+                    writer.Write(value1);
+                    i++;
+                    if (i < stream1.Length / 4)
+                    {
+                        value1 = reader1.ReadInt32();
+                    }
+                }
+                else
+                {
+                    writer.Write(value2);
+                    j++;
+                    if (j < stream2.Length / 4)
+                    {
+                        value2 = reader2.ReadInt32();
+                    }
+                }
+            }
+            reader1.Close();
+            reader2.Close();
+            writer.Close();
+            stream1.Close();
+            stream2.Close();
+            stream3.Close();
+        }
     }
 }
