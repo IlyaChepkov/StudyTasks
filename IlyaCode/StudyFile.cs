@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 using System.Text;
 
 namespace IlyaCode
@@ -1883,6 +1883,302 @@ namespace IlyaCode
             }
         }
 
+        public static void File74()
+        {
+            int i = Convert.ToInt32(Console.ReadLine()) - 1;
+            int j = Convert.ToInt32(Console.ReadLine()) - 1;
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream);
+            int n = (int)Math.Sqrt(stream.Length / 4);
+            if (i < 0 || j < 0 || i >= n || j >= n)
+            {
+                Console.WriteLine(0);
+            }
+            else
+            {
+                stream.Seek((i * n + j) * 4, SeekOrigin.Begin);
+                Console.WriteLine(reader.ReadInt32());
+            }
+            reader.Close();
+            stream.Close();
+        }
+        public static void File75()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Create, FileAccess.Write);
+            BinaryReader reader = new BinaryReader(stream1);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            int n = (int)Math.Sqrt(stream1.Length / 4);
+            for (int j = 0; j < n; j++)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    stream1.Seek((n * i + j) * 4, SeekOrigin.Begin);
+                    writer.Write(reader.ReadInt32());
+                }
+            }
+            reader.Close();
+            writer.Close();
+            stream1.Close();
+            stream2.Close();
+        }
+
+        public static void File76()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string s3 = Console.ReadLine();
+            MatrixMul(s1, s2, s3);
+        }
+
+        public static void File77()
+        {
+            int i = Convert.ToInt32(Console.ReadLine()) - 1;
+            int j = Convert.ToInt32(Console.ReadLine()) - 1;
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream);
+            int countJ = reader.ReadInt32();
+            int countI = (int)(stream.Length / 4  - 1) / countJ;
+            if (i < 0 || j < 0 || i >= countI || j >= countJ)
+            {
+                Console.WriteLine(0);
+            }
+            else
+            {
+                stream.Seek((i * countJ + j) * 4, SeekOrigin.Begin);
+                Console.WriteLine(reader.ReadInt32());
+            }
+            reader.Close();
+            stream.Close();
+        }
+        public static void File78()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Create, FileAccess.Write);
+            BinaryReader reader = new BinaryReader(stream1);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            int countJ = reader.ReadInt32();
+            int countI = (int)(stream1.Length / 4 - 1) / countJ;
+            for (int j = 0; j < countJ; j++)
+            {
+                for (int i = 0; i < countI; i++)
+                {
+                    stream1.Seek((countJ * i + j) * 4, SeekOrigin.Begin);
+                    writer.Write(reader.ReadInt32());
+                }
+            }
+            reader.Close();
+            writer.Close();
+            stream1.Close();
+            stream2.Close();
+        }
+
+        public static void File79()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string s3 = Console.ReadLine();
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Open, FileAccess.Read);
+            BinaryReader reader1 = new BinaryReader(stream1);
+            BinaryReader reader2 = new BinaryReader(stream2);
+            int countJ1 = reader1.ReadInt32();
+            int countI1 = (int)(stream1.Length / 4 - 1) / countJ1;
+            int countJ2 = reader2.ReadInt32();
+            int countI2 = (int)(stream2.Length / 4 - 1) / countJ2;
+            if (countJ1 == countI2)
+            {
+                FileStream stream3 = new FileStream(s3, FileMode.Create, FileAccess.Write);
+                BinaryWriter writer = new BinaryWriter(stream3);
+                for (int i = 0; i < countI1; i++)
+                {
+                    for (int j = 0; j < countJ2; j++)
+                    {
+                        int sum = 0;
+                        for (int k = 0; k < countJ2; k++)
+                        {
+                            stream1.Seek((countJ1 * i + k) * 4, SeekOrigin.Begin);
+                            stream2.Seek((countJ2 * k + j) * 4, SeekOrigin.Begin);
+                            sum += reader1.ReadInt32() * reader2.ReadInt32();
+                        }
+                        writer.Write(sum);
+                    }
+                }
+                writer.Close();
+                stream3.Close();
+            }
+            reader1.Close();
+            reader2.Close();
+            stream1.Close();
+            stream2.Close();
+        }
+
+        public static void File80()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            SetUp(s1, s2);
+        }
+        public static void File81()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            SetDown(s1, s2);
+        }
+
+        public static void File82()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream1);
+            FileStream stream2 = new FileStream(s2, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            int n = (int)Math.Sqrt(stream1.Length / 4);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i - 1; j <= i + 1; j++)
+                {
+                    if (j >= 0 && j < n)
+                    {
+                        stream1.Seek((i * n + j) * 4, SeekOrigin.Begin);
+                        writer.Write(reader.ReadInt32());
+                    }
+                }
+            }
+            writer.Close();
+            reader.Close();
+            stream1.Close();
+            stream2.Close();
+        }
+        public static void File83()
+        {
+            int i = Convert.ToInt32(Console.ReadLine()) - 1;
+            int j = Convert.ToInt32(Console.ReadLine()) - 1;
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream);
+            int n = (int)(Math.Sqrt(stream.Length / 2 + 0.25) - 0.5);
+            Console.WriteLine(n);
+            if (i < 0 || j < 0 || i >= n || j >= n)
+            {
+                Console.WriteLine("элемент отсутствует"); 
+            }
+            else if (j < i)
+            {
+                Console.WriteLine(0);
+            }
+            else
+            {
+                stream.Seek((i * n + j - i) * 4, SeekOrigin.Begin);
+                Console.WriteLine(reader.ReadInt32());
+            }
+            reader.Close();
+            stream.Close();
+        }
+
+        public static void File84()
+        {
+            int i = Convert.ToInt32(Console.ReadLine()) - 1;
+            int j = Convert.ToInt32(Console.ReadLine()) - 1;
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream);
+            int n = (int)(Math.Sqrt(stream.Length / 2 + 0.25) - 0.5);
+            Console.WriteLine(n);
+            if (i < 0 || j < 0 || i >= n || j >= n)
+            {
+                Console.WriteLine("элемент отсутствует");
+            }
+            else if (j > i)
+            {
+                Console.WriteLine(0);
+            }
+            else
+            {
+                stream.Seek((i * n + j - (2 * n * i - i * i - i) / 2) * 4, SeekOrigin.Begin);
+                Console.WriteLine(reader.ReadInt32());
+            }
+            reader.Close();
+            stream.Close();
+        }
+
+        public static void File85()
+        {
+            int i = Convert.ToInt32(Console.ReadLine()) - 1;
+            int j = Convert.ToInt32(Console.ReadLine()) - 1;
+            string s = Console.ReadLine();
+            FileStream stream = new FileStream(s, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream);
+            int n = (int)((stream.Length / 4 + 2) / 3);
+            Console.WriteLine(n);
+            if (i < 0 || j < 0 || i >= n || j >= n)
+            {
+                Console.WriteLine("элемент отсутствует");
+            }
+            else if (Math.Abs(j - i) > 1)
+            {
+                Console.WriteLine(0);
+            }
+            else
+            {
+                stream.Seek(((i == 1 ? 2 : 3 * i) + j - i + 1) * 4, SeekOrigin.Begin);
+                Console.WriteLine(reader.ReadInt32());
+            }
+            reader.Close();
+            stream.Close();
+        }
+
+        public static void File86()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            GetUp(s1,  s2);
+        }
+
+        public static void File87()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            GetDown(s1, s2);
+        }
+
+        public static void File88()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            GetD(s1, s2);
+        }
+        public static void File89()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string s3 = Console.ReadLine();
+            GetUp(s1, "New_file89_1");
+            GetUp(s2, "New_file89_2");
+            MatrixMul("New_file89_1", "New_file89_2", "New_file89_3");
+            SetUp("New_file89_3", s3);
+            for (int i = 1; i <= 3; i++) File.Delete($"New_file89_{i}");
+        }
+
+        public static void File90()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            string s3 = Console.ReadLine();
+            GetDown(s1, "New_file90_1");
+            GetDown(s2, "New_file90_2");
+            MatrixMul("New_file90_1", "New_file90_2", "New_file90_3");
+            SetDown("New_file90_3", s3);
+            for (int i = 1; i <= 3; i++) File.Delete($"New_file90_{i}");
+        }
+
         public static int GetInt(FileStream stream, int k)
         {
             long pos = stream.Position;
@@ -1996,6 +2292,161 @@ namespace IlyaCode
             stream1.Close();
             stream2.Close();
             stream3.Close();
+        }
+
+        public static void GetUp(string s1, string s2)
+        {
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Create, FileAccess.Write);
+            BinaryReader reader = new BinaryReader(stream1);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            int n = (int)(Math.Sqrt(stream1.Length / 2 + 0.25) - 0.5);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (j < i)
+                    {
+                        writer.Write(0);
+                    }
+                    else
+                    {
+                        writer.Write(reader.ReadInt32());
+                    }
+                }
+            }
+            reader.Close();
+            writer.Close();
+            stream1.Close();
+            stream2.Close();
+        }
+        public static void GetDown(string s1, string s2)
+        {
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Create, FileAccess.Write);
+            BinaryReader reader = new BinaryReader(stream1);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            int n = (int)(Math.Sqrt(stream1.Length / 2 + 0.25) - 0.5);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (j > i)
+                    {
+                        writer.Write(0);
+                    }
+                    else
+                    {
+                        writer.Write(reader.ReadInt32());
+                    }
+                }
+            }
+            reader.Close();
+            writer.Close();
+            stream1.Close();
+            stream2.Close();
+        }
+        public static void GetD(string s1, string s2)
+        {
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Create, FileAccess.Write);
+            BinaryReader reader = new BinaryReader(stream1);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            int n = (int)((stream1.Length / 4 + 2) / 3);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (Math.Abs(j - i) > 1)
+                    {
+                        writer.Write(0);
+                    }
+                    else
+                    {
+                        writer.Write(reader.ReadInt32());
+                    }
+                }
+            }
+            reader.Close();
+            writer.Close();
+            stream1.Close();
+            stream2.Close();
+        }
+
+        public static void MatrixMul(string s1, string s2, string s3)
+        {
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            FileStream stream2 = new FileStream(s2, FileMode.Open, FileAccess.Read);
+            if (stream1.Length == stream2.Length)
+            {
+                FileStream stream3 = new FileStream(s3, FileMode.Create, FileAccess.Write);
+                BinaryReader reader1 = new BinaryReader(stream1);
+                BinaryReader reader2 = new BinaryReader(stream2);
+                BinaryWriter writer = new BinaryWriter(stream3);
+                int n = (int)Math.Sqrt(stream1.Length / 4);
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        int sum = 0;
+                        for (int k = 0; k < n; k++)
+                        {
+                            stream1.Seek((n * i + k) * 4, SeekOrigin.Begin);
+                            stream2.Seek((n * k + j) * 4, SeekOrigin.Begin);
+                            sum += reader1.ReadInt32() * reader2.ReadInt32();
+                        }
+                        writer.Write(sum);
+                    }
+                }
+                reader1.Close();
+                reader2.Close();
+                writer.Close();
+                stream3.Close();
+            }
+            stream1.Close();
+            stream2.Close();
+        }
+
+        public static void SetUp(string s1, string s2)
+        {
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream1);
+            FileStream stream2 = new FileStream(s2, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            int n = (int)Math.Sqrt(stream1.Length / 4);
+            for (int i = 0; i < n; i++)
+            {
+                stream1.Seek((i * n + i) * 4, SeekOrigin.Begin);
+                for (int j = i; j < n; j++)
+                {
+                    writer.Write(reader.ReadInt32());
+                }
+            }
+            writer.Close();
+            reader.Close();
+            stream1.Close();
+            stream2.Close();
+        }
+
+        public static void SetDown(string s1, string s2)
+        {
+            FileStream stream1 = new FileStream(s1, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream1);
+            FileStream stream2 = new FileStream(s2, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            int n = (int)Math.Sqrt(stream1.Length / 4);
+            for (int i = 0; i < n; i++)
+            {
+                stream1.Seek(i * n * 4, SeekOrigin.Begin);
+                for (int j = 0; j <= i; j++)
+                {
+                    writer.Write(reader.ReadInt32());
+                }
+            }
+            writer.Close();
+            reader.Close();
+            stream1.Close();
+            stream2.Close();
         }
     }
 }
