@@ -67,6 +67,9 @@ internal class Program
             case 14:
                 StudyFile.Do();
                 break;
+            case 15:
+                Text.Do();
+                break;
             default:
                 Console.WriteLine("Ты болбес? Такого раздела не существует!!!");
                 break;
