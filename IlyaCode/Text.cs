@@ -151,17 +151,18 @@
         public static void Text11()
         {
             string fileName = Console.ReadLine();
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
+            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
             int count = 0;
-            long prev;
             while (!reader.EndOfStream)
             {
-                prev = stream.Position;
                 string s = reader.ReadLine();
                 if (s == "")
                 {
-                    long pos = stream.Position;
+                    reader.Close();
+                    stream.Close();
+                    stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+                    reader = new StreamReader(stream);
                     Insert(reader, "", count);
                     reader.Close();
                     stream.Close();
@@ -169,8 +170,7 @@
                     File.Move("textInsert", fileName);
                     stream = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
                     reader = new StreamReader(stream);
-                    stream.Position = pos;
-                    reader.ReadLine();
+                    for(int i = 0; i <= count + 1; i++) reader.ReadLine();
                 }
                 count++;
             }
