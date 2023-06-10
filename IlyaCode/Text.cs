@@ -1,4 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
+﻿using System.IO;
 
 namespace IlyaCode
 {
@@ -172,7 +172,7 @@ namespace IlyaCode
                     File.Move("textInsert", fileName);
                     stream = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
                     reader = new StreamReader(stream);
-                    for(int i = 0; i <= count + 1; i++) reader.ReadLine();
+                    for (int i = 0; i <= count + 1; i++) reader.ReadLine();
                 }
                 count++;
             }
@@ -465,6 +465,493 @@ namespace IlyaCode
             }
         }
 
+        public static void Text23()
+        {
+            int k = int.Parse(Console.ReadLine());
+            string fileName1 = Console.ReadLine();
+            string fileName2 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            FileStream stream2 = new FileStream(fileName2, FileMode.Create, FileAccess.Write);
+            StreamWriter reader2 = new StreamWriter(stream2);
+            int count = 0;
+            while (!reader1.EndOfStream)
+            {
+                count++;
+            }
+            reader1.Close();
+            stream1.Close();
+            stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            reader1 = new StreamReader(stream1);
+            for (int i = 0; i < count - k; i++)
+            {
+                reader1.ReadLine();
+            }
+            while (!reader1.EndOfStream)
+            {
+                reader2.Write(reader1.ReadLine());
+            }
+            reader1.Close();
+            stream1.Close();
+            reader2.Close();
+            stream2.Close();
+        }
+
+        public static void Text24()
+        {
+            string fileName1 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            bool mode = true;
+            int count = 0;
+            while (!reader1.EndOfStream)
+            {
+                string s = reader1.ReadLine();
+                if (s != "" && mode)
+                {
+                    count++;
+                    mode = false;
+                }
+                else if (s == "")
+                {
+                    mode = true;
+                }
+            }
+            reader1.Close();
+            stream1.Close();
+            Console.WriteLine(count);
+        }
+
+        public static void Text25()
+        {
+            int k = int.Parse(Console.ReadLine());
+            string fileName1 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            FileStream stream2 = new FileStream("textfile25_1", FileMode.Create, FileAccess.Write);
+            StreamWriter reader2 = new StreamWriter(stream2);
+            bool mode = true;
+            int count = 0;
+            while (!reader1.EndOfStream)
+            {
+                string s = reader1.ReadLine();
+                if (s != "" && mode)
+                {
+                    count++;
+                    mode = false;
+                }
+                else if (s == "")
+                {
+                    mode = true;
+                }
+                if (count != k || s == "")                          //'_'
+                {                                                   //+-+
+                    reader2.WriteLine(s);                           //=_= 
+                }                                                   //-_-
+            }                                                       //*_*
+            reader1.Close();                                        //"_"
+            stream1.Close();
+            reader2.Close();
+            stream2.Close();
+            File.Delete(fileName1);
+            File.Move("textfile25_1", fileName1);
+        }
+        public static void Text26()
+        {
+            string fileName1 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            int count = 0;
+            while (!reader1.EndOfStream)
+            {
+                string s = reader1.ReadLine();
+                if (s.StartsWith("     "))
+                {
+                    count++;
+                }
+            }
+            reader1.Close();
+            stream1.Close();
+            Console.WriteLine(count);
+        }
+
+        public static void Text27()
+        {
+            int k = int.Parse(Console.ReadLine());
+            string fileName1 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            FileStream stream2 = new FileStream("textfile25_1", FileMode.Create, FileAccess.Write);
+            StreamWriter reader2 = new StreamWriter(stream2);
+            int count = 0;
+            while (!reader1.EndOfStream)
+            {
+                string s = reader1.ReadLine();
+                if (s.StartsWith("     "))
+                {
+                    count++;
+                }
+                if (count != k)                                     //'_'
+                {                                                   //+-+
+                    reader2.WriteLine(s);                           //=_= 
+                }                                                   //-_-
+            }                                                       //*_*
+            reader1.Close();                                        //"_"
+            stream1.Close();
+            reader2.Close();
+            stream2.Close();
+            File.Delete(fileName1);
+            File.Move("textfile25_1", fileName1);
+        }
+
+        public static void Text28()
+        {
+            string fileName1 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            FileStream stream2 = new FileStream("textfile25_1", FileMode.Create, FileAccess.Write);
+            StreamWriter reader2 = new StreamWriter(stream2);
+            bool count = false;
+            while (!reader1.EndOfStream)
+            {
+                string s = reader1.ReadLine();
+                if (s.StartsWith("     "))
+                {
+                    if (count)
+                    {
+                        reader2.WriteLine("");
+                    }
+                }
+                reader2.WriteLine(s);
+                count = true;
+            }
+            reader1.Close();
+            stream1.Close();
+            reader2.Close();
+            stream2.Close();
+            File.Delete(fileName1);
+            File.Move("textfile25_1", fileName1);
+        }
+
+        public static void Text29()
+        {
+            string fileName1 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            string max = "";
+            while (!reader1.EndOfStream)
+            {
+                string s = reader1.ReadLine();
+                string[] array = s.Split(' ');
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (max.Length < array[i].Length)
+                    {
+                        max = array[i];
+                    }
+                }
+            }
+            reader1.Close();
+            stream1.Close();
+            Console.WriteLine(max == null ? "в тексте нет слов" : max);
+        }
+
+        public static void Text30()
+        {
+            string fileName1 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            string min = null;
+            while (!reader1.EndOfStream)
+            {
+                string s = reader1.ReadLine();
+                string[] array = s.Split(' ');
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if ((min == null || min.Length >= array[i].Length) && min != "")
+                    {
+                        min = array[i];
+                    }
+                }
+            }
+            reader1.Close();
+            stream1.Close();
+            Console.WriteLine(min == null ? "" : min);
+        }
+
+        public static void Text31()
+        {
+            int k = int.Parse(Console.ReadLine());
+            string fileName1 = Console.ReadLine();
+            string fileName2 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream(fileName2, FileMode.Open, FileAccess.Read);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (Char.IsPunctuation(s[i]))
+                    {
+                        s = s.Replace(s[i], ' ');
+                    }
+                }
+                string[] array = s.Split(' ');
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].Length == k)
+                    {
+                        writer.Write(array[i]);
+                    }
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text32()
+        {
+            char c = Console.ReadLine()[0];
+            string fileName1 = Console.ReadLine();
+            string fileName2 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream(fileName2, FileMode.Open, FileAccess.Read);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (Char.IsPunctuation(s[i]))
+                    {
+                        s = s.Replace(s[i], ' ');
+                    }
+                }
+                string[] array = s.Split(' ');
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].ToUpper().StartsWith(c))
+                    {
+                        writer.Write(array[i]);
+                    }
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text33()
+        {
+            char c = Console.ReadLine()[0];
+            string fileName1 = Console.ReadLine();
+            string fileName2 = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName1, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream(fileName2, FileMode.Open, FileAccess.Read);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (Char.IsPunctuation(s[i]))
+                    {
+                        s = s.Replace(s[i], ' ');
+                    }
+                }
+                string[] array = s.Split(' ');
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].ToLower().Contains(c))
+                    {
+                        writer.Write(array[i]);
+                    }
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text34()
+        {
+            string fileName = Console.ReadLine();
+            ToWord(fileName, 50);
+            File.Delete(fileName);
+            FileStream stream1 = new FileStream("Word.txt", FileMode.Open, FileAccess.Read);
+            StreamReader reader2 = new StreamReader(stream1);
+            FileStream stream3 = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+            StreamWriter reader4 = new StreamWriter(stream3);
+            while (!reader2.EndOfStream)
+            {
+                string s = reader2.ReadLine();
+                while (s.Length < 50) s = ' ' + s;
+                reader4.WriteLine(s);
+            }
+            reader2.Close();
+            reader4.Close();
+            stream1.Close();
+            stream3.Close();
+            File.Delete("Word.txt");
+        }
+
+        public static void Text35()
+        {
+            string fileName = Console.ReadLine();
+            ToWord(fileName, 50);
+            File.Delete(fileName);
+            FileStream stream1 = new FileStream("Word.txt", FileMode.Open, FileAccess.Read);
+            StreamReader reader2 = new StreamReader(stream1);
+            FileStream stream3 = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+            StreamWriter reader4 = new StreamWriter(stream3);
+            while (!reader2.EndOfStream)
+            {
+                string s = reader2.ReadLine();
+                while (s.Length / 2 < 25) s = ' ' + s;
+                reader4.WriteLine(s);
+            }
+            reader2.Close();
+            reader4.Close();
+            stream1.Close();
+            stream3.Close();
+            File.Delete("Word.txt");
+        }
+
+        public static void Text36()
+        {
+            string fileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader2 = new StreamReader(stream1);
+            FileStream stream3 = new FileStream("textFile36_1.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter reader4 = new StreamWriter(stream3);
+            while (!reader2.EndOfStream)
+            {
+                string s = reader2.ReadLine();
+                s = s.Trim();
+                while (s.Length / 2 < 25) s = ' ' + s;
+                reader4.WriteLine(s);
+            }
+            reader2.Close();
+            reader4.Close();
+            stream1.Close();
+            stream3.Close();
+            File.Delete(fileName);
+            File.Move("textFile36_1.txt", fileName);
+        }
+
+        public static void Text37()
+        {
+            string fileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader2 = new StreamReader(stream1);
+            FileStream stream3 = new FileStream("textFile36_1.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter reader4 = new StreamWriter(stream3);
+            string prev = reader2.ReadLine();
+            while (!reader2.EndOfStream)
+            {
+                string s = reader2.ReadLine();
+                if (s == "")
+                {
+                    reader4.WriteLine(prev);
+                }
+                else
+                {
+                    string[] array = prev.Split(' ');
+                    int count = 0;
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        if (array[i] != "") count++;
+                    }
+                    string space = "";
+                    for (int i = 0; i < (50 - prev.Length) / (count - 1); i++)
+                    {
+                        space += " ";
+                    }
+                    for (int i = 0; i < array.Length - 1; i++)
+                    {
+                        if (array[i] != "") array[i] += space;
+                    }
+                    for (int j = 2, i = (50 - prev.Length) % (count - 1); i > 0; i--, j++)
+                    {
+                        if (array[^j] != "")
+                        {
+                            array[^j] += " ";
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                }
+                prev = s;
+            }
+            reader4.WriteLine(prev);
+            reader2.Close();
+            reader4.Close();
+            stream1.Close();
+            stream3.Close();
+            File.Delete(fileName);
+            File.Move("textFile36_1.txt", fileName);
+        }
+
+        public static void Text38()
+        {
+            byte k = byte.Parse(Console.ReadLine());
+            string fileName1 = Console.ReadLine();
+            string fileName2 = Console.ReadLine();
+            ToWord(fileName1, k);
+            File.Move("Word.txt", fileName2);
+            File.Delete("Word.txt");
+        }
+
+        public static void Text39()
+        {
+            byte k = byte.Parse(Console.ReadLine());
+            string fileName1 = Console.ReadLine();
+            string fileName2 = Console.ReadLine();
+            ToWord(fileName1, k);
+            File.Move("Word.txt", fileName2);
+            File.Delete("Word.txt");
+        }
+
+        public static void Text40()
+        {
+            string binFileName1 = Console.ReadLine();
+            string binFileName2 = Console.ReadLine();
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(binFileName1, FileMode.Open, FileAccess.Read);
+            BinaryReader reader1 = new BinaryReader(stream1);
+            FileStream stream2 = new FileStream(binFileName2, FileMode.Open, FileAccess.Read);
+            BinaryReader reader2 = new BinaryReader(stream2);
+            FileStream stream3 = new FileStream(textFileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream3);
+            for (int i = 0; i < stream1.Length / 4; i++)
+            {
+                string res = "|";
+                string value = reader1.ReadInt32().ToString();
+                while (res.Length + value.Length <= 30) res += ' ';
+                res += value;
+                value = reader2.ReadInt32().ToString();
+                while (res.Length + value.Length <= 30) res += ' ';
+                res += value + '|';
+                writer.WriteLine(res);
+            }
+            writer.Close();
+            stream3.Close();
+            reader2.Close();
+            stream2.Close();
+            reader1.Close();
+            stream1.Close();
+        }
+
         public static void Insert(string fileName, string s, int position)
         {
             FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -568,6 +1055,42 @@ namespace IlyaCode
             {
                 File.AppendAllText("textRemove", reader.ReadLine() + '\n');
             }
+        }
+
+        public static void ToWord(string fileName, byte lenght)
+        {
+            FileStream stream1 = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream("Word.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream2);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                if (string.IsNullOrWhiteSpace(s))
+                {
+                    writer.WriteLine(s);
+                    continue;
+                }
+                string[] array = s.Split(' ');
+                string value = "";
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (value.Length + array[i].Length + (value != "" ? 1 : 0) <= lenght)
+                    {
+                        value += (value != "" ? ' ' : "") + array[i];
+                    }
+                    else
+                    {
+                        writer.WriteLine(value);
+                        value = array[i];
+                    }
+                }
+                writer.WriteLine(value);
+            }
+            reader.Close();
+            writer.Close();
+            stream1.Close();
+            stream2.Close();
         }
     }
 }
