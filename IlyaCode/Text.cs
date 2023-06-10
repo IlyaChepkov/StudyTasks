@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace IlyaCode
+﻿namespace IlyaCode
 {
     internal class Text
     {
@@ -815,7 +813,7 @@ namespace IlyaCode
             while (!reader2.EndOfStream)
             {
                 string s = reader2.ReadLine();
-                while (s.Length / 2 < 25) s = ' ' + s;
+                for (int i = 0; i < (50 - s.Length) / 2; i++) s = ' ' + s;
                 reader4.WriteLine(s);
             }
             reader2.Close();
@@ -836,7 +834,7 @@ namespace IlyaCode
             {
                 string s = reader2.ReadLine();
                 s = s.Trim();
-                while (s.Length / 2 < 25) s = ' ' + s;
+                for (int i = 0; i < (50 - s.Length) / 2; i++) s = ' ' + s;
                 reader4.WriteLine(s);
             }
             reader2.Close();
@@ -852,7 +850,7 @@ namespace IlyaCode
             string fileName = Console.ReadLine();
             FileStream stream1 = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader reader2 = new StreamReader(stream1);
-            FileStream stream3 = new FileStream("textFile36_1.txt", FileMode.Create, FileAccess.Write);
+            FileStream stream3 = new FileStream("textFile37_1.txt", FileMode.Create, FileAccess.Write);
             StreamWriter reader4 = new StreamWriter(stream3);
             string prev = reader2.ReadLine();
             while (!reader2.EndOfStream)
@@ -890,6 +888,8 @@ namespace IlyaCode
                             i++;
                         }
                     }
+                    for (int i = 0; i < array.Length - 1; i++) reader4.Write(array[i] + ' ');
+                    reader4.WriteLine(array[^1]);
                 }
                 prev = s;
             }
@@ -899,7 +899,7 @@ namespace IlyaCode
             stream1.Close();
             stream3.Close();
             File.Delete(fileName);
-            File.Move("textFile36_1.txt", fileName);
+            File.Move("textFile37_1.txt", fileName);
         }
 
         public static void Text38()
@@ -940,7 +940,7 @@ namespace IlyaCode
                 while (res.Length + value.Length <= 30) res += ' ';
                 res += value;
                 value = reader2.ReadInt32().ToString();
-                while (res.Length + value.Length <= 30) res += ' ';
+                while (res.Length + value.Length <= 60) res += ' ';
                 res += value + '|';
                 writer.WriteLine(res);
             }
@@ -950,6 +950,57 @@ namespace IlyaCode
             stream2.Close();
             reader1.Close();
             stream1.Close();
+        }
+
+        public static void Text41()
+        {
+            BinaryReader[] array = new BinaryReader[3];
+            for (int i = 0; i < 3; i++)
+            {
+                array[i] = new BinaryReader(new FileStream(
+                    Console.ReadLine(), FileMode.Open, FileAccess.Read));
+            }
+            string textFileName = Console.ReadLine();
+            FileStream stream = new FileStream(textFileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            for (int i = 0; i < array[0].BaseStream.Length / 4; i++)
+            {
+                string res = "|";
+                for (int j = 0; j < 3; j++)
+                {
+                    string value = array[j].ReadInt32().ToString();
+                    res += value;
+                    while (res.Length <= 20 * (j + 1) + 1) res += ' ';
+                }
+                writer.WriteLine(res + '|');
+            }
+            writer.Close();
+            stream.Close();
+            for (int i = 0; i < 3; i++)
+            {
+                array[i].Close();
+                array[i].BaseStream.Close();
+            }
+        }
+
+        public static void Text42()
+        {
+            double a = double.Parse(Console.ReadLine());
+            double b = double.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
+            string textFileName = Console.ReadLine();
+            FileStream stream = new FileStream(textFileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            for (double i = a; i <= b; i += (b - a) / n)
+            {
+                string s = Math.Round(i, 4).ToString();
+                while (s.Length <= 10) s = ' ' + s;
+                s = Math.Round(Math.Sqrt(i), 8).ToString();
+                while (s.Length <= 25) s = ' ' + s;
+                writer.WriteLine(s);
+            }
+            writer.Close();
+            stream.Close();
         }
 
         public static void Insert(string fileName, string s, int position)
