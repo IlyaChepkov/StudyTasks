@@ -7,6 +7,9 @@ internal class Program
         Console.WriteLine("Введите номер раздела");
         switch (Convert.ToInt32(Console.ReadLine()))
         {
+            case -7:
+                Imager.Do();
+                break;
             case -6:
                 GameOfLife.Do();
                 break;
@@ -69,6 +72,9 @@ internal class Program
                 break;
             case 15:
                 Text.Do();
+                break;
+            case 16:
+                Param.Do();
                 break;
             default:
                 Console.WriteLine("Ты болбес? Такого раздела не существует!!!");

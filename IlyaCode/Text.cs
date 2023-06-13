@@ -995,7 +995,7 @@
             {
                 string s = Math.Round(i, 4).ToString();
                 while (s.Length <= 10) s = ' ' + s;
-                s = Math.Round(Math.Sqrt(i), 8).ToString();
+                s += Math.Round(Math.Sqrt(i), 8).ToString();
                 while (s.Length <= 25) s = ' ' + s;
                 writer.WriteLine(s);
             }
@@ -1003,6 +1003,599 @@
             stream.Close();
         }
 
+        public static void Text43()
+        {
+            double a = double.Parse(Console.ReadLine());
+            double b = double.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
+            string textFileName = Console.ReadLine();
+            FileStream stream = new FileStream(textFileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            for (double i = a; i <= b; i += (b - a) / n)
+            {
+                string s = Math.Round(i, 4).ToString();
+                while (s.Length <= 8) s = ' ' + s;
+                s += Math.Round(Math.Sin(i), 8).ToString();
+                while (s.Length <= 20) s = ' ' + s;
+                s += Math.Round(Math.Cos(i), 8).ToString();
+                while (s.Length <= 32) s = ' ' + s;
+                writer.WriteLine(s);
+            }
+            writer.Close();
+            stream.Close();
+        }
+
+        public static void Text44()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+            int count = 0;
+            int sum = 0;
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                s = s.Trim();
+                sum += int.Parse(s);
+                count++;
+            }
+            reader.Close();
+            stream.Close();
+            Console.WriteLine(count);
+            Console.WriteLine(sum);
+        }
+
+        public static void Text45()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+            int count = 0;
+            double sum = 0;
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                s = s.Trim();
+                double value = double.Parse(s);
+                if (value != (int)value)
+                {
+                    sum += value;
+                    count++;
+                }
+            }
+            reader.Close();
+            stream.Close();
+            Console.WriteLine(count);
+            Console.WriteLine(sum);
+        }
+
+        public static void Text46()
+        {
+            string textFileName = Console.ReadLine();
+            string binFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream(binFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                s = s.Trim();
+                double value = double.Parse(s);
+                if (value != (int)value)
+                {
+                    writer.Write(value);
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text47()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+            int count = 0;
+            double sum = 0;
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                s = s.Trim();
+                double value = double.Parse(s);
+                if (value == (int)value)
+                {
+                    sum += value;
+                    count++;
+                }
+            }
+            reader.Close();
+            stream.Close();
+            Console.WriteLine(count);
+            Console.WriteLine(sum);
+        }
+
+        public static void Text48()
+        {
+            string textFileName = Console.ReadLine();
+            string binFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream(binFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                s = s.Trim();
+                double value = double.Parse(s);
+                if (value == (int)value)
+                {
+                    writer.Write(value);
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text49()
+        {
+            string textFileName = Console.ReadLine();
+            string binFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader1 = new StreamReader(stream1);
+            FileStream stream2 = new FileStream(binFileName, FileMode.Open, FileAccess.Read);
+            BinaryReader reader2 = new BinaryReader(stream2);
+            FileStream stream3 = new FileStream("text49_1.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream3);
+            int i = 0;
+            for (; !reader1.EndOfStream && i < stream2.Length / 4; i++)
+            {
+                string s1 = reader1.ReadLine();
+                string s2 = reader2.ReadInt32().ToString();
+                s1 += s2;
+                writer.WriteLine(s1);
+            }
+            while (!reader1.EndOfStream)
+            {
+                writer.WriteLine(reader1.ReadLine());
+            }
+            for (; i < stream2.Length / 4; i++)
+            {
+                writer.WriteLine(reader2.ReadInt32());
+            }
+            reader1.Close();
+            stream1.Close();
+            reader2.Close();
+            stream2.Close();
+            writer.Close();
+            stream3.Close();
+            File.Delete(textFileName);
+            File.Move("text49_1.txt", textFileName);
+        }
+
+        public static void Text50()
+        {
+            string textFileName = Console.ReadLine();
+            string stringFileName = Console.ReadLine();
+            string binFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream(stringFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer1 = new BinaryWriter(stream2);
+            FileStream stream3 = new FileStream(binFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer2 = new BinaryWriter(stream3);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                writer1.Write(s.Remove(30));
+                writer2.Write(s.Substring(30));
+            }
+            reader.Close();
+            stream1.Close();
+            writer1.Close();
+            stream2.Close();
+            writer2.Close();
+            stream3.Close();
+        }
+
+        public static void Text51()
+        {
+            string textFileName = Console.ReadLine();
+            BinaryWriter[] array = new BinaryWriter[3];
+            for (int i = 0; i < 3; i++)
+            {
+                string name = Console.ReadLine();
+                array[i] = new BinaryWriter(new FileStream(name, FileMode.Create, FileAccess.Write));
+            }
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                int lenght = s.Length / 3;
+                for (int i = 0; i < 3; i++)
+                {
+                    array[i].Write(double.Parse(s.Substring(lenght * i, lenght)));
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            for (int i = 0; i < 3; i++)
+            {
+                array[i].Close();
+                array[i].BaseStream.Close();
+            }
+        }
+
+        public static void Text52()
+        {
+            string textFileName = Console.ReadLine();
+            BinaryWriter[] array = new BinaryWriter[3];
+            for (int i = 0; i < 3; i++)
+            {
+                string name = Console.ReadLine();
+                array[i] = new BinaryWriter(new FileStream(name, FileMode.Create, FileAccess.Write));
+            }
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                int lenght = (s.Length - 2) / 3;
+                for (int i = 0; i < 3; i++)
+                {
+                    array[i].Write(int.Parse(s.Substring(lenght * i + i, lenght)));
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            for (int i = 0; i < 3; i++)
+            {
+                array[i].Close();
+                array[i].BaseStream.Close();
+            }
+        }
+
+        public static void Text53()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            string charFileName = Console.ReadLine();
+            FileStream stream2 = new FileStream(charFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (Char.IsPunctuation(s[i]))
+                    {
+                        writer.Write(s[i]);
+                    }
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text54()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            string charFileName = Console.ReadLine();
+            FileStream stream2 = new FileStream(charFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            char[] array = new char[0];
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (!array.Contains(s[i]))
+                    {
+                        writer.Write(s[i]);
+                        Array.Insert(array, 0, s[i]);
+                    }
+                }
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text55()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            string charFileName = Console.ReadLine();
+            FileStream stream2 = new FileStream(charFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            char[] array = new char[0];
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (!array.Contains(s[i]))
+                    {
+                        Array.Insert(array, 0, s[i]);
+                    }
+                }
+            }
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[min] > array[j])
+                    {
+                        min = j;
+                    }
+                }
+                Proc.Swap(ref array[i], ref array[min]);
+                writer.Write(array[min]);
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text56()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            string charFileName = Console.ReadLine();
+            FileStream stream2 = new FileStream(charFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            char[] array = new char[0];
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (!array.Contains(s[i]))
+                    {
+                        Array.Insert(array, 0, s[i]);
+                    }
+                }
+            }
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int max = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[max] < array[j])
+                    {
+                        max = j;
+                    }
+                }
+                Proc.Swap(ref array[i], ref array[max]);
+                writer.Write(array[max]);
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text57()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            string stringFileName = Console.ReadLine();
+            FileStream stream2 = new FileStream(stringFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            (char, int)[] array = new (char, int)[0];
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i] >= 'а' && s[i] <= 'я')
+                    {
+                        bool marker = true;
+                        for (int j = 0; j < array.Length; j++)
+                        {
+                            if (array[j].Item1 == s[i])
+                            {
+                                array[j].Item2++;
+                                marker = false;
+                                break;
+                            }
+                        }
+                        if (marker)
+                        {
+                            Array.Insert(array, 0, (s[i], 1));
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[min].Item1 > array[j].Item1)
+                    {
+                        min = j;
+                    }
+                }
+                Proc.Swap(ref array[i], ref array[min]);
+                writer.Write($"{array[min].Item1}-{array[min].Item2}");
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text58()
+        {
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            string stringFileName = Console.ReadLine();
+            FileStream stream2 = new FileStream(stringFileName, FileMode.Create, FileAccess.Write);
+            BinaryWriter writer = new BinaryWriter(stream2);
+            (char, int)[] array = new (char, int)[0];
+            while (!reader.EndOfStream)
+            {
+                string s = reader.ReadLine();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i] >= 'а' && s[i] <= 'я')
+                    {
+                        bool marker = true;
+                        for (int j = 0; j < array.Length; j++)
+                        {
+                            if (array[j].Item1 == s[i])
+                            {
+                                array[j].Item2++;
+                                marker = false;
+                                break;
+                            }
+                        }
+                        if (marker)
+                        {
+                            Array.Insert(array, 0, (s[i], 1));
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[min].Item2 < array[j].Item2 ||
+                        (array[min].Item2 == array[j].Item2 &&
+                        array[min].Item1 > array[j].Item1))
+                    {
+                        min = j;
+                    }
+                }
+                Proc.Swap(ref array[i], ref array[min]);
+                writer.Write($"{array[min].Item1}-{array[min].Item2}");
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+        }
+
+        public static void Text59()
+        {
+            string s = Console.ReadLine();
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream("временный файл.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream2);
+            while (!reader.EndOfStream)
+            {
+                string input = reader.ReadLine();
+                string output = "";
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if ((input[i] >= 'а' && input[i] <= 'я') || (input[i] >= 'А' && input[i] <= 'Я'))
+                    {
+                        if (Char.ToLower(input[i]) + s[i % 10] - '0' > 'я')
+                        {
+                            output += (Char.IsLower(input[i]) ? 'а' : 'А') + (Char.ToLower(input[i]) + s[i % 10] - '0' - 'я' - 1);
+                        }
+                        else
+                        {
+                            output += input[i] + s[i % 10] - '0';
+                        }
+                    }
+                    else
+                    {
+                        output += input[i];
+                    }
+                }
+                writer.WriteLine(output);
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+            File.Delete(textFileName);
+            File.Move("временный файл.txt", textFileName);
+        }
+
+        public static void Text60()
+        {
+            string s = Console.ReadLine();
+            string textFileName = Console.ReadLine();
+            FileStream stream1 = new FileStream(textFileName, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream1);
+            FileStream stream2 = new FileStream("временный файл.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream2);
+            string input = reader.ReadLine();
+            byte?[] array = new byte?[10];
+            for (int i = 0; i < input.Length; i++)
+            {
+                if ((input[i] >= 'а' && input[i] <= 'я') || (input[i] >= 'А' && input[i] <= 'Я'))
+                {
+                    array[i % 10] = (byte)(s[i] - input[i]); 
+                }
+            }
+            writer.WriteLine(s);
+            while (!reader.EndOfStream)
+            {
+                input = reader.ReadLine();
+                string output = "";
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if ((input[i] >= 'а' && input[i] <= 'я') || (input[i] >= 'А' && input[i] <= 'Я'))
+                    {
+                        if (array[i % 10] == null)
+                        {
+                            Console.WriteLine("данных для расшифровки недостаточно");
+                            writer.Close();
+                            stream2.Close();
+                            File.Delete("временный файл.txt");
+                            reader.Close();
+                            stream1.Close();
+                            return;
+                        }
+                        if (Char.ToLower(input[i]) - array[i % 10] < 'а')
+                        {
+                            output += (Char.IsLower(input[i]) ? 'я' : 'Я') + (Char.ToLower(input[i]) - 'а' - s[i] + 1);
+                        }
+                        else
+                        {
+                            output += input[i] - s[i];
+                        }
+                    }
+                    else
+                    {
+                        output += input[i];
+                    }
+                }
+                writer.WriteLine(output);
+            }
+            reader.Close();
+            stream1.Close();
+            writer.Close();
+            stream2.Close();
+            File.Delete(textFileName);
+            File.Move("временный файл.txt", textFileName);
+        }
+        
         public static void Insert(string fileName, string s, int position)
         {
             FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
