@@ -76,6 +76,9 @@ internal class Program
             case 16:
                 Param.Do();
                 break;
+            case 17:
+                Recur.Do();
+                break;
             default:
                 Console.WriteLine("Ты болбес? Такого раздела не существует!!!");
                 break;
