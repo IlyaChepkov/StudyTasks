@@ -279,5 +279,186 @@
                 return false;
             }
         }
+
+        public static int HardCheckExpretion4(string s, ref int index) //Самая_сложная_задача_на_свете100%!!!(string s)
+        {
+            if (s[index] == '(')
+            {
+                index++;
+                if (HardCheckExpretion4(s, ref index) != 0) return index;
+                if (!(s[index] == '+' || s[index] == '-' || s[index] == '*')) return index;
+                index++;
+                if (HardCheckExpretion4(s, ref index) != 0) return index;
+                if (s[index] != ')') return index;
+                index++;
+                return 0;
+            }
+            else
+            {
+                if (Char.IsDigit(s[index]))
+                {
+                    index++;
+                    return 0;
+                }
+                return index;
+            }
+        }
+
+        public static int HardExpretion5(string s, ref int index) //Самая_сложная_задача_на_свете115%!!!(string s)
+        {
+            if (Char.IsDigit(s[index]))
+            {
+                index++;
+                return byte.Parse(s[index - 1].ToString());
+            }
+            else
+            {
+                char operation = s[index];
+                index += 2;
+                int v1 = HardExpretion5(s, ref index);
+                index++;
+                int v2 = HardExpretion5(s, ref index);
+                index++;
+                if ((operation == 'm' && v1 < v2) || (operation == 'M' && v1 > v2))
+                {
+                    return v1;
+                }
+                else
+                {
+                    return v2;
+                }
+            }
+        }
+
+        public static bool HardExpretion6(string s, ref int index) //Самая_сложная_задача_на_свете117%!!!(string s)
+        {
+            if (s[index] == 'T' || s[index] == 'F')
+            {
+                index++;
+                return s[index - 1] == 'T';
+            }
+            else
+            {
+                char operation = s[index];
+                if (operation == 'A')
+                    index += 4;
+                else
+                    index += 3;
+                bool v1 = HardExpretion6(s, ref index);
+                index++;
+                bool v2 = HardExpretion6(s, ref index);
+                index++;
+                if (operation == 'A')
+                {
+                    return v1 && v2;
+                }
+                else
+                {
+                    return v1 || v2;
+                }
+            }
+        }
+
+        public static int HardExpretion7(string s, ref int index) //Самая_сложная_задача_на_свете129%!!!
+        {
+            if (Char.IsDigit(s[index]))
+            {
+                index++;
+                return byte.Parse(s[index - 1].ToString());
+            }
+            else
+            {
+                bool operation = s[index] == 'M';
+                index += 2;
+                int v1 = Param7(s, ref index, operation);
+                index++;
+                return v1;
+            }
+        }
+
+        public static int Param7(string s, ref int index, bool operation) 
+        {
+            int first = HardExpretion7(s, ref index);
+            if (s[index] != ',')
+            {
+                return first;
+            }
+            else
+            {
+                index++;
+                int second = Param7(s, ref index, operation);
+                if (operation)
+                    return first > second ? first : second;
+                else
+                    return first < second ? first : second;
+            }
+        }
+
+        public static bool HardExpretion8(string s, ref int index) //Самая_сложная_задача_на_свете128%!!!
+        {
+            if (s[index] == 'T' || s[index] == 'F')
+            {
+                index++;
+                return s[index - 1] == 'T';
+            }
+            else
+            {
+                bool operation = s[index] == 'A';
+                if (operation)
+                    index += 4;
+                else
+                    index += 3;
+                bool v1 = Param8(s, ref index, operation);
+                index++;
+                return v1;
+            }
+        }
+
+        public static bool Param8(string s, ref int index, bool operation)
+        {
+            bool first = HardExpretion8(s, ref index);
+            if (s[index] != ',')
+            {
+                return first;
+            }
+            else
+            {
+                index++;
+                bool second = Param8(s, ref index, operation);
+                if (operation)
+                    return first && second;
+                else
+                    return first || second;
+            }
+        }
+
+        public static bool HardExpretion9(string s, ref int index) //Самая_сложная_задача_на_свете129%!!!
+        {
+            if (s[index] == 'T' || s[index] == 'F')
+            {
+                index++;
+                return s[index - 1] == 'T';
+            }
+            else
+            {
+                char operation = s[index];
+                if (operation != 'O')
+                    index += 4;
+                else
+                    index += 3;
+                if (operation != 'N')
+                {
+                    bool v1 = Param8(s, ref index, operation == 'A');
+                    index++;
+                    return v1;
+                }
+                else
+                {
+                    bool v1 = HardExpretion9(s, ref index);
+                    index++;
+                    return !v1;
+                }
+            }
+        }
     }
 }

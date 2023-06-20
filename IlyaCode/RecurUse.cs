@@ -156,5 +156,41 @@
             int a = 0;
             Console.WriteLine(CheckExpretion4(Console.ReadLine(), ref a));
         }
+
+        public static void Recur19()
+        {
+            int a = 0;
+            Console.WriteLine(HardCheckExpretion4(Console.ReadLine(), ref a));
+        }
+
+        public static void Recur20()
+        {
+            int a = 0;
+            Console.WriteLine(HardExpretion5(Console.ReadLine(), ref a));
+        }
+
+        public static void Recur21()
+        {
+            int a = 0;
+            Console.WriteLine(HardExpretion6(Console.ReadLine(), ref a));
+        }
+
+        public static void Recur22()
+        {
+            int a = 0;
+            Console.WriteLine(HardExpretion7(Console.ReadLine(), ref a));
+        }
+
+        public static void Recur23()
+        {
+            int a = 0;
+            Console.WriteLine(HardExpretion8(Console.ReadLine(), ref a));
+        }
+
+        public static void Recur24()
+        {
+            int a = 0;
+            Console.WriteLine(HardExpretion9(Console.ReadLine(), ref a));
+        }
     }
 }
