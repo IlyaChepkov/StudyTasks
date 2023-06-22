@@ -192,5 +192,71 @@
             int a = 0;
             Console.WriteLine(HardExpretion9(Console.ReadLine(), ref a));
         }
+
+        public static void Recur25()
+        {
+            int n = int.Parse(Console.ReadLine()), k = int.Parse(Console.ReadLine());
+            string FileName = Console.ReadLine();
+            FileStream stream = new FileStream(FileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            Tree1(k, n - 1, writer, "0");
+            writer.Close();
+            stream.Close();
+        }
+
+        public static void Recur26()
+        {
+            int n = int.Parse(Console.ReadLine()), k = int.Parse(Console.ReadLine());
+            string FileName = Console.ReadLine();
+            FileStream stream = new FileStream(FileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            Tree2(k, n - 1, writer, "0");
+            writer.Close();
+            stream.Close();
+        }
+
+        public static void Recur27()
+        {
+            int n = int.Parse(Console.ReadLine()), k = int.Parse(Console.ReadLine());
+            string FileName = Console.ReadLine();
+            FileStream stream = new FileStream(FileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            Tree3(k, n - 1, writer, "0");
+            writer.Close();
+            stream.Close();
+        }
+
+        public static void Recur28()
+        {
+            int n = int.Parse(Console.ReadLine()), k = int.Parse(Console.ReadLine());
+            string FileName = Console.ReadLine();
+            FileStream stream = new FileStream(FileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            Tree4(k, n - 1, writer, "0");
+            writer.Close();
+            stream.Close();
+        }
+
+        public static void Recur29()
+        {
+            int n = int.Parse(Console.ReadLine()), k = int.Parse(Console.ReadLine());
+            string FileName = Console.ReadLine();
+            FileStream stream = new FileStream(FileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            Tree5(k, n - 1, writer, "0");
+            writer.Close();
+            stream.Close();
+        }
+
+        public static void Recur30()
+        {
+            int n = int.Parse(Console.ReadLine()), k = int.Parse(Console.ReadLine());
+            string FileName = Console.ReadLine();
+            FileStream stream = new FileStream(FileName, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            Tree6(k, n - 1, writer, "0");
+            writer.Close();
+            stream.Close();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace IlyaCode
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace IlyaCode
 {
     internal partial class Recur
     {
@@ -459,6 +461,77 @@
                     return !v1;
                 }
             }
+        }
+        public static void Tree1(int k, int n, StreamWriter writer, string output)
+        {
+            if (n == 0)
+            {
+                writer.WriteLine(output);
+                return;
+            }
+            for (int i = 1; i <= k; i++)
+            {
+                Tree1(k, n - 1, writer, output + i);
+            }
+        }
+
+        public static void Tree2(int k, int n, StreamWriter writer, string output)
+        {
+            if (n == 0)
+            {
+                writer.WriteLine(output);
+                return;
+            }
+            for (int i = 1; i <= k; i++)
+            {
+                if (output[^1] - '0' != i) Tree2(k, n - 1, writer, output + i);
+            }
+        }
+
+        public static void Tree3(int k, int n, StreamWriter writer, string output)
+        {
+            if (n == 0)
+            {
+                writer.WriteLine(output);
+                return;
+            }
+            if (k + 1 - n <= 0) Tree3(k + 1, n - 1, writer, output + 'A');
+            if (k - 1 + n >= 0) Tree3(k - 1, n - 1, writer, output + 'B');
+        }
+
+        public static void Tree4(int k, int n, StreamWriter writer, string output)
+        {
+            if (n == 0)
+            {
+                writer.WriteLine(output);
+                return;
+            }
+            Tree4(k + 1, n - 1, writer, output + 'A');
+            if (k - 1 + n >= 0) Tree4(k - 1, n - 1, writer, output + 'B');
+        }
+
+        public static void Tree5(int k, int n, StreamWriter writer, string output)
+        {
+            if (n == 0)
+            {
+                writer.WriteLine(output);
+                return;
+            }
+            if (output[^1] != 'A' && k + 1 - n / 2 <= 0 && k + 1 <= 0) Tree6(k + 1, n - 1, writer, output + 'A');
+            if (output[^1] != 'B' && k - n / 2 <= 0 && k + n / 2 >= 0) Tree6(k + 1, n - 1, writer, output + 'B');
+            if (output[^1] != 'C' && k - 1 + n / 2 >= 0) Tree6(k - 1, n - 1, writer, output + 'C');
+        }
+
+        public static void Tree6(int k, int n, StreamWriter writer, string output)
+        {
+            if (n == 0)
+            {
+                writer.WriteLine(output);
+                return;
+            }
+            if (output[^1] != 'A' && k + 1 - n / 2 <= 0) Tree6(k + 1, n - 1, writer, output + 'A');
+            if (output[^1] != 'B' && k - n / 2 <= 0 && k + n / 2  >= 0) Tree6(k + 1, n - 1, writer, output + 'B');
+            if (output[^1] != 'C' && k - 1 + n / 2 >= 0) Tree6(k - 1, n - 1, writer, output + 'C');
         }
     }
 }
