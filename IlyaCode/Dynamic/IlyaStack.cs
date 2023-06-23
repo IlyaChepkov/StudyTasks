@@ -15,12 +15,6 @@
             get { return lenght == 0; }
         }
 
-        class IlyaStackNode<T>
-        {
-            public T data;
-            public IlyaStackNode<T> next;
-        }
-
         public void Push(T value)
         {
             IlyaStackNode<T> ilyaStackNode = new IlyaStackNode<T>
@@ -45,6 +39,12 @@
         {
             if (top == null) throw new Exception("Стек пустой");
             return top.data;
+        }
+
+        class IlyaStackNode<T>
+        {
+            public T data;
+            public IlyaStackNode<T> next;
         }
     }
 }
