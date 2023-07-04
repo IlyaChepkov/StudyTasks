@@ -1,10 +1,16 @@
-﻿namespace IlyaCode
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IlyaCode
 {
-    internal class IlyaBarierList<T>
+    internal class IlyaCicleList<T>
     {
         int lenght = 0;
         int currentIndex = -1;
-        IlyaListNode<T> barier;
+        IlyaListNode<T> first;
         IlyaListNode<T> current;
 
         public int Count
@@ -19,12 +25,12 @@
 
         public bool IsLast
         {
-            get { return current == barier.prev; }
+            get { return current.next == first; }
         }
 
         public bool IsFirst
         {
-            get { return current == barier.next; }
+            get { return current == first; }
         }
 
         public T this[int index]
@@ -41,22 +47,25 @@
             }
         }
 
-        public IlyaBarierList(IlyaListNode<T> barier)
+        public IlyaCicleList(IlyaListNode<T> first)
         {
-            this.barier = barier;
-            current = barier;
-            currentIndex = -1;
-            lenght = 0;
-            for (var i = barier.next; i != barier; i = i.next)
-                lenght++;
+            this.first = first;
+            current = first;
+            currentIndex = current == null ? -1 : 0;
+            if (first != null)
+            {
+                lenght = 1;
+                for (var i = first.next; i != first; i = i.next)
+                    lenght++;
+            }
+            else
+                lenght = 0;
         }
 
-        public IlyaBarierList()
+        public IlyaCicleList()
         {
-            barier = new IlyaListNode<T>();
-            barier.next = barier;
-            barier.prev = barier;
-            current = barier;
+            first = null;
+            current = null;
             currentIndex = -1;
             lenght = 0;
         }
@@ -65,55 +74,60 @@
         {
             IlyaListNode<T> ilyaListNode = new IlyaListNode<T>();
             ilyaListNode.data = value;
-            ilyaListNode.next = barier;
-            ilyaListNode.prev = barier.prev;
-            barier.prev.next = ilyaListNode;
-            barier.prev = ilyaListNode;
-            current = barier.prev;
+            ilyaListNode.next = first == null ? ilyaListNode : first;
+            ilyaListNode.prev = first == null ? ilyaListNode : first.prev;
+            if(first == null)
+            {
+                first = ilyaListNode;
+            }
+            else
+            {
+                first.prev.next = ilyaListNode;
+                first.prev = ilyaListNode;
+            }
+            current = first.prev;
             lenght++;
             currentIndex = lenght - 1;
         }
 
-        public void AddRange(IlyaBarierList<T> list)
+        public void Next(int k)
         {
-            if (list.lenght == 0) return;
-            barier.prev.next = list.barier.next;
-            list.barier.next.prev = barier.prev;
-            barier.prev = list.barier.prev;
-            list.barier.prev.next = barier;
-            current = barier;
-            lenght += list.lenght;
-            currentIndex = -1;
-            list.barier.next = list.barier;
-            list.barier.prev = list.barier;
-            list.current = list.barier;
-            list.currentIndex = -1;
-            list.lenght = 0;
+            for (int i = 0; i < k; i++)
+            {
+                first = first.next;
+            }
         }
 
+        public void Prev(int k)
+        {
+            for (int i = 0; i < k; i++)
+            {
+                first = first.prev;
+            }
+        }
 
         public void ToFirst()
         {
-            current = barier.next;
-            currentIndex = barier.next == barier ? -1 : 0;
+            current = first;
+            currentIndex = 0;
         }
 
         public void ToLast()
         {
-            current = barier.prev;
-            currentIndex = barier.prev == barier ? -1 : lenght - 1;
+            current = first.prev;
+            currentIndex = lenght - 1;
         }
 
         public void ToNext()
         {
             current = current.next;
-            currentIndex = currentIndex == lenght - 1 ? -1 : currentIndex + 1;
+            currentIndex = currentIndex == lenght - 1 ? 0 : currentIndex + 1;
         }
 
         public void ToPrev()
         {
             current = current.prev;
-            currentIndex = currentIndex == 0 ? -1 : currentIndex - 1;
+            currentIndex = currentIndex == 0 ? lenght - 1 : currentIndex - 1;
         }
 
         public void RemoveAt(int index)
@@ -122,15 +136,16 @@
             IlyaListNode<T> ilyaListNode = GetElem(index);
             if (index == 0)
             {
-                barier.next = barier.next.next;
-                barier.next.prev = barier;
-                current = barier.next;
+                first = first.next;
+                first.prev = first.prev.prev;
+                first.prev.next = first;
+                current = first;
             }
             if (index == lenght - 1)
             {
-                barier.prev = barier.prev.prev;
-                barier.prev.next = barier;
-                current = barier.prev;
+                first.prev = first.prev.prev;
+                first.prev.next = first;
+                current = first.prev;
             }
             if (index > 0 && index < lenght - 1)
             {
@@ -142,22 +157,30 @@
             currentIndex = lenght > 0 ? index : -1;
         }
 
-        public IlyaBarierList<T> Split(int index)
+        public IlyaCicleList<T> Split(int index)
         {
-            IlyaBarierList<T> second = new IlyaBarierList<T>();
+            IlyaCicleList<T> second = new IlyaCicleList<T>();
             IlyaListNode<T> ilyaListNode = GetElem(index);
             var newLast = ilyaListNode.prev;
-            second.barier.next = ilyaListNode;
-            second.barier.prev = barier.prev;
-            second.barier.prev.next = second.barier;
-            second.current = second.barier;
-            second.currentIndex = -1;
+            second.first = ilyaListNode;
+            second.first.prev = first.prev;
+            second.first.prev.next = second.first;
+            second.current = ilyaListNode;
+            second.currentIndex = 0;
             second.lenght = lenght - index;
-            barier.prev = newLast;
-            newLast.next = barier;
-            current = barier;
+            if (index == 0)
+            {
+                first = null;
+                current = null;
+            }
+            else
+            {
+                first.prev = newLast;
+                newLast.next = first;
+                current = first.prev;
+            }
             lenght = index;
-            currentIndex = -1;
+            currentIndex = lenght > 0 ? lenght - 1 : -1;
             return second;
         }
 
@@ -166,12 +189,13 @@
             IlyaListNode<T> ilyaListNode = new IlyaListNode<T>
             {
                 data = value,
-                next = barier.next,
-                prev = barier
+                next = first,
+                prev = first.prev
             };
-            barier.next = ilyaListNode;
-            barier.next.next.prev = ilyaListNode;
-            current = barier.next;
+            first.prev = ilyaListNode;
+            first = ilyaListNode;
+            first.prev.next = ilyaListNode;
+            current = first;
             lenght++;
             currentIndex = 0;
         }
@@ -209,7 +233,7 @@
                 else
                 {
                     startIndex = lenght - 1;
-                    startElem = barier.prev;
+                    startElem = first.prev;
                 }
             }
             else
@@ -217,12 +241,12 @@
                 if (index < lenght - index - 1)
                 {
                     startIndex = 0;
-                    startElem = barier.next;
+                    startElem = first;
                 }
                 else
                 {
                     startIndex = lenght - 1;
-                    startElem = barier.prev;
+                    startElem = first.prev;
                 }
             }
             for (int i = Math.Abs(index - startIndex); i > 0; i--)
